@@ -1,0 +1,179 @@
+<html>
+<head>
+<title>TestNG:  Login Test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Login Test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>20/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Oct 03 03:51:40 EDT 2019</td>
+</tr>
+<tr><td>Total time:</td><td>422 seconds (422364 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='TestCases.ReportsTest.Verify_CSV_download_functionality()'><b>Verify_CSV_download_functionality</b><br>Test class: TestCases.ReportsTest<br>Test method: TC_ReportLogs_100 To Verify 'CSV'  download functionality </td>
+<td></td>
+<td>26</td>
+<td>TestCases.ReportsTest@3ee0fea4</td></tr>
+<tr>
+<td title='TestCases.ReportsTest.Verify_Email_On_demands_download_UI()'><b>Verify_Email_On_demands_download_UI</b><br>Test class: TestCases.ReportsTest<br>Test method: TC_ReportLogs_096 To verify 'Email On demands download' UI</td>
+<td></td>
+<td>23</td>
+<td>TestCases.ReportsTest@3ee0fea4</td></tr>
+<tr>
+<td title='TestCases.ReportsTest.Verify_HTML_download_functionality()'><b>Verify_HTML_download_functionality</b><br>Test class: TestCases.ReportsTest<br>Test method: TC_ReportLogs_101 To verify 'HTML download' functionality</td>
+<td></td>
+<td>26</td>
+<td>TestCases.ReportsTest@3ee0fea4</td></tr>
+<tr>
+<td title='TestCases.ReportsTest.Verify_PDF_download()'><b>Verify_PDF_download</b><br>Test class: TestCases.ReportsTest<br>Test method: TC_ReportLogs_099 To verify_PDF_download</td>
+<td></td>
+<td>26</td>
+<td>TestCases.ReportsTest@3ee0fea4</td></tr>
+<tr>
+<td title='TestCases.ReportsTest.Verify_Send_Report_button_functionality_on_Email_On_Demand_download_Popup_if_left_empty_email_field()'><b>Verify_Send_Report_button_functionality_on_Email_On_Demand_download_Popup_if_left_empty_email_field</b><br>Test class: TestCases.ReportsTest<br>Test method: TC_ReportLogs_097 To verify 'Send Report' button functionality on 'Email On Demand download'  Popup if left empty email field</td>
+<td></td>
+<td>24</td>
+<td>TestCases.ReportsTest@3ee0fea4</td></tr>
+<tr>
+<td title='TestCases.ReportsTest.Verify_Send_Report_button_functionality_on_Email_on_Demand_download_Popup_if_Fill_up_email_field()'><b>Verify_Send_Report_button_functionality_on_Email_on_Demand_download_Popup_if_Fill_up_email_field</b><br>Test class: TestCases.ReportsTest<br>Test method: TC_ReportLogs_098 To verify 'Send Report' button functionality on 'Email on Demand download' Popup if Fill-up email field </td>
+<td></td>
+<td>53</td>
+<td>TestCases.ReportsTest@3ee0fea4</td></tr>
+<tr>
+<td title='TestCases.LoginTest.Verify_forgot_password_link()'><b>Verify_forgot_password_link</b><br>Test class: TestCases.LoginTest<br>Test method: TC_Login_09 To verify forgot password link </td>
+<td></td>
+<td>17</td>
+<td>TestCases.LoginTest@358c99f5</td></tr>
+<tr>
+<td title='TestCases.LoginTest.Verify_login_functionality_with_valid_credentials_of_superAdmin()'><b>Verify_login_functionality_with_valid_credentials_of_superAdmin</b><br>Test class: TestCases.LoginTest<br>Test method: TC_Login_11 To verify login functionality with valid credentials of super admin </td>
+<td></td>
+<td>57</td>
+<td>TestCases.LoginTest@358c99f5</td></tr>
+<tr>
+<td title='TestCases.LoginTest.Verify_login_page_UI_fields()'><b>Verify_login_page_UI_fields</b><br>Test class: TestCases.LoginTest<br>Test method: TC_Login_003 To verify login page UI fields</td>
+<td></td>
+<td>0</td>
+<td>TestCases.LoginTest@358c99f5</td></tr>
+<tr>
+<td title='TestCases.LoginTest.Verify_login_page_title()'><b>Verify_login_page_title</b><br>Test class: TestCases.LoginTest<br>Test method: TC_Login_001 To verify login page title</td>
+<td></td>
+<td>0</td>
+<td>TestCases.LoginTest@358c99f5</td></tr>
+<tr>
+<td title='TestCases.ReportsTest.Verify_the_Report_Logs_Navigation_bar_link_functionality()'><b>Verify_the_Report_Logs_Navigation_bar_link_functionality</b><br>Test class: TestCases.ReportsTest<br>Test method: TC_ReportLogs_094 To verify the 'Report Logs' Navigation bar link  functionality </td>
+<td></td>
+<td>21</td>
+<td>TestCases.ReportsTest@3ee0fea4</td></tr>
+<tr>
+<td title='TestCases.ReportsTest.Verify_the_UI_of_Report_Logs()'><b>Verify_the_UI_of_Report_Logs</b><br>Test class: TestCases.ReportsTest<br>Test method: TC_ReportLogs_095 To verify the UI of 'Report Logs' </td>
+<td></td>
+<td>22</td>
+<td>TestCases.ReportsTest@3ee0fea4</td></tr>
+<tr>
+<td title='TestCases.LoginTest.Verify_the_login_page_URL()'><b>Verify_the_login_page_URL</b><br>Test class: TestCases.LoginTest<br>Test method: TC_Login_002 To verify login page url</td>
+<td></td>
+<td>3</td>
+<td>TestCases.LoginTest@358c99f5</td></tr>
+<tr>
+<td title='TestCases.ReportsTest.Verify_the_pagination_functionality()'><b>Verify_the_pagination_functionality</b><br>Test class: TestCases.ReportsTest<br>Test method: TC_ReportLogs_103 To verify the pagination functionality</td>
+<td></td>
+<td>20</td>
+<td>TestCases.ReportsTest@3ee0fea4</td></tr>
+<tr>
+<td title='TestCases.ReportsTest.Verify_the_search_functionality()'><b>Verify_the_search_functionality</b><br>Test class: TestCases.ReportsTest<br>Test method: TC_ReportLogs_102 To verify the search functionality </td>
+<td></td>
+<td>19</td>
+<td>TestCases.ReportsTest@3ee0fea4</td></tr>
+<tr>
+<td title='TestCases.ReportsTest.Verify_the_sorting_functionality()'><b>Verify_the_sorting_functionality</b><br>Test class: TestCases.ReportsTest<br>Test method: TC_ReportLogs_104 Verify the sorting functionality</td>
+<td></td>
+<td>19</td>
+<td>TestCases.ReportsTest@3ee0fea4</td></tr>
+<tr>
+<td title='TestCases.LoginTest.Verify_validation_message_with_empty_email_address_and_empty_password_field()'><b>Verify_validation_message_with_empty_email_address_and_empty_password_field</b><br>Test class: TestCases.LoginTest<br>Test method: TC_Login_006 To verify validation message with empty 'email address' and empty 'password' field</td>
+<td></td>
+<td>12</td>
+<td>TestCases.LoginTest@358c99f5</td></tr>
+<tr>
+<td title='TestCases.LoginTest.Verify_validation_message_with_invalid_email_address_and_invalid_password_field()'><b>Verify_validation_message_with_invalid_email_address_and_invalid_password_field</b><br>Test class: TestCases.LoginTest<br>Test method: TC_Login_007 To verify validation message with invalid 'Email address' and invalid 'password'</td>
+<td></td>
+<td>5</td>
+<td>TestCases.LoginTest@358c99f5</td></tr>
+<tr>
+<td title='TestCases.LoginTest.Verify_validation_message_with_valid_emailAddress_and_empty_password_field()'><b>Verify_validation_message_with_valid_emailAddress_and_empty_password_field</b><br>Test class: TestCases.LoginTest<br>Test method:  TC_Login_004  To verify validation message with valid 'email address' and empty 'password' field</td>
+<td></td>
+<td>7</td>
+<td>TestCases.LoginTest@358c99f5</td></tr>
+<tr>
+<td title='TestCases.LoginTest.Verify_validation_message_with_valid_password_and_empty_emailAddress_field()'><b>Verify_validation_message_with_valid_password_and_empty_emailAddress_field</b><br>Test class: TestCases.LoginTest<br>Test method: TC_Login_005 To verify validation message with valid 'Password' and empty 'email address' field</td>
+<td></td>
+<td>10</td>
+<td>TestCases.LoginTest@358c99f5</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Trip Stop Detailed Test  Suite">
+	<test name="Trip Stop Detailed Test">
+		<!-- Included classes here will be executed. -->
+		<classes>
+			 <class name = "TestCases.TripStopDetailedTest"></class>
+		</classes>
+	</test>
+</suite>
