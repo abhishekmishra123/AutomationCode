@@ -77,7 +77,7 @@ public class TripStopDetailedTest extends BaseSetup {
 			Assert.assertTrue(reportsPage.isPDFPresent());
 			Assert.assertTrue(reportsPage.isCSVPresent());
 			Assert.assertTrue(reportsPage.isHTMLPresent());
-			reportsPage.clickOnReportLogsDropDown();
+			//reportsPage.clickOnReportLogsDropDown();
 			reportsPage.selectObject();
 			reportsPage.clickOnPeriodDropdown();
 			Assert.assertTrue(reportsPage.isPeriodDropdownSelectPresent());
@@ -208,7 +208,7 @@ public class TripStopDetailedTest extends BaseSetup {
 			WebElement emailOnDemand = driver.findElement(By.xpath("//div[@class='ant-card-head']//button[1]"));
 			Actions actions = new Actions(driver);
 			actions.moveToElement(emailOnDemand).perform();
-			Thread.sleep(SHORTWAIT);
+			
 			WebElement toolTipElement = driver.findElement(By.cssSelector("div[role='tooltip']"));
 			String actualTooltip = toolTipElement.getText();
 			System.out.println("Actual Title of Tool Tip +++++++++" + actualTooltip);
@@ -277,7 +277,6 @@ public class TripStopDetailedTest extends BaseSetup {
 					.findElement(By.xpath("//div//div[@class='ant-card-head-wrapper']//div[2]//button[3]"));
 			Actions actions = new Actions(driver);
 			actions.moveToElement(CSV).perform();
-			Thread.sleep(SHORTWAIT);
 			WebElement toolTipElement = driver.findElement(By.cssSelector("div[role='tooltip']"));
 			String actualTooltip = toolTipElement.getText();
 			System.out.println("Actual Title of Tool Tip +++++++++" + actualTooltip);
@@ -291,6 +290,7 @@ public class TripStopDetailedTest extends BaseSetup {
 		}
 	}
 
+	
 	@Test(priority = 7, description = "TC_Reports_Trip Stop Detailed_008 To verify_the_HTML_tooltip")
 	public void Verify_the_HTML_tooltip() {
 
@@ -311,7 +311,7 @@ public class TripStopDetailedTest extends BaseSetup {
 					.findElement(By.xpath("//div//div[@class='ant-card-head-wrapper']//div[2]//button[4]"));
 			Actions actions = new Actions(driver);
 			actions.moveToElement(HTML).perform();
-			Thread.sleep(SHORTWAIT);
+			
 			WebElement toolTipElement = driver.findElement(By.cssSelector("div[role='tooltip']"));
 			String actualTooltip = toolTipElement.getText();
 			System.out.println("Actual Title of Tool Tip +++++++++" + actualTooltip);
@@ -339,10 +339,10 @@ public class TripStopDetailedTest extends BaseSetup {
 			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
-			reportsPage.clickOnReportLogsDropDown();
 			reportsPage.selectObject();
 			reportsPage.clickOnPeriodDropdowAndPeriodDropdownDaily();
-			Assert.assertTrue(reportsPage.isAntNotificationMessagePresent());
+			//Assert.assertTrue(reportsPage.isAntNotificationMessagePresent());
+			Assert.assertTrue(reportsPage.isReportHeadinglistData());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -364,7 +364,6 @@ public class TripStopDetailedTest extends BaseSetup {
 			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
-			reportsPage.clickOnReportLogsDropDown();
 			reportsPage.selectObject();
 			reportsPage.clickOnPeriodDropdowAndPeriodDropdownWeekly();
 			Assert.assertTrue(reportsPage.isReportHeadinglistData());
@@ -389,7 +388,6 @@ public class TripStopDetailedTest extends BaseSetup {
 			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
-			reportsPage.clickOnReportLogsDropDown();
 			reportsPage.selectObject();
 			reportsPage.clickOnPeriodDropdowAndPeriodDropdownMonthly();
 			Assert.assertTrue(reportsPage.isReportHeadinglistData());

@@ -55,12 +55,12 @@ public class ReportLogsTest extends BaseSetup {
 
 		try {
 			log.info("************************* TC-002*************************");
-			extentTest.setDescription("	 To verify the UI of  'Report Logs' ");
+			extentTest.setDescription("To verify the UI of  'Report Logs' ");
 			reportsPage = new ReportsPage(getDriver());
 			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
+			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
+			loginPage.enterPassword(config.getProperty("superAdminPassword"));
+			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarReportsLog();
 			Assert.assertTrue(reportsPage.isReportHomeLinkPresent());
@@ -96,10 +96,10 @@ public class ReportLogsTest extends BaseSetup {
 			extentTest.setDescription("TC_ReportLogs_097 To verify 'Email On demands download' UI");
 			dashboardPage = new DashboardPage(getDriver());
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
+			loginPage = new LoginPage(getDriver());
+			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
+			loginPage.enterPassword(config.getProperty("superAdminPassword"));
+			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarReportsLog();
 			Assert.assertTrue(reportsPage.isEmailOnDemandsPresent());
@@ -128,10 +128,10 @@ public class ReportLogsTest extends BaseSetup {
 					"TC_ReportLogs_098 To verify 'Send Report' button functionality on 'Email On Demand download'  Popup if left empty email field");
 			dashboardPage = new DashboardPage(getDriver());
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
+			loginPage = new LoginPage(getDriver());
+			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
+			loginPage.enterPassword(config.getProperty("superAdminPassword"));
+			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarReportsLog();
 			Assert.assertTrue(reportsPage.isEmailOnDemandsPresent());

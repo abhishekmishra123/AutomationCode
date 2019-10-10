@@ -3,16 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [TrackSYNQ Test Suite]">
   <test thread-count="5" name="Login Test(failed)">
     <classes>
-      <class name="TestCases.ReportLogsTest">
+      <class name="TestCases.TripStopDetailedTest">
         <methods>
           <include name="beforeSuite"/>
           <include name="afterSuite"/>
           <include name="afterMethod"/>
-          <include name="Verify_the_pagination_functionality"/>
-          <include name="Verify_the_sorting_functionality"/>
+          <include name="Verify_the_CSV_tooltip"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- TestCases.ReportLogsTest -->
+      </class> <!-- TestCases.TripStopDetailedTest -->
     </classes>
   </test> <!-- Login Test(failed) -->
 </suite> <!-- Failed suite [TrackSYNQ Test Suite] -->

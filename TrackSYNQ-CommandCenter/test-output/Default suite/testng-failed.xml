@@ -6,9 +6,9 @@
       <class name="TestCases.TripStopDetailedTest">
         <methods>
           <include name="beforeSuite"/>
-          <include name="Verify_the_Trip_Stop_Detailed_using_Monthly_Period_functionality"/>
           <include name="afterSuite"/>
           <include name="afterMethod"/>
+          <include name="Verify_the_Trip_Stop_Detailed_using_DailyPeriod_functionality"/>
           <include name="beforeMethod"/>
         </methods>
       </class> <!-- TestCases.TripStopDetailedTest -->

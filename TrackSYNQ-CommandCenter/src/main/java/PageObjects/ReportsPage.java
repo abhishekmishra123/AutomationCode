@@ -19,12 +19,12 @@ import Common.ActionMethods;
 
 public class ReportsPage extends ActionMethods {
 
-	private String reportsSidebar = "xpath://li[@class='ant-menu-submenu ant-menu-submenu-inline'][11]";
-	private String reportsSidebarTripStopDetailed = "xpath://li[@class='ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open']//ul//li[1]";
-	private String reportsSidebarSpeedingReport = "xpath://li[@class='ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open']//ul//li[2]";
-	private String reportsSidebarEventsReport = "xpath://li[@class='ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open']//ul//li[3]";
-	private String reportsSidebarScheduleReport = "xpath://li[@class='ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open']//ul//li[4]";
-	private String reportsSidebarReportsLog = "xpath://li[@class='ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open']//ul//li[5]";
+	private String reportsSidebar = "xpath://body//li[13]";
+	private String reportsSidebarTripStopDetailed = "xpath://a[contains(text(),'Trips Report')]";
+	private String reportsSidebarSpeedingReport = "xpath://a[contains(text(),'Speeding Report')]";
+	private String reportsSidebarEventsReport = "xpath://a[contains(text(),'Events Report')]";
+	private String reportsSidebarScheduleReport = "xpath://a[contains(text(),'Schedule Report')]";
+	private String reportsSidebarReportsLog = "xpath://a[contains(text(),'Report Logs')]";
 	private String emailOnDemands = "xpath://div[@class='ant-card-head']//button[1]";
 	private String objectLabel = "css:label[for='device_id']";
 	private String periodLabel = "css:label[for='period']";
@@ -38,7 +38,7 @@ public class ReportsPage extends ActionMethods {
 	private String reportHomeLink = "xpath://div[@class='ant-breadcrumb']//a[text()= 'Home']";
 	private String reportsLink = "xpath://div[@class='ant-breadcrumb']//span[text()= 'Reports']";
 	private String reportsLogsLink = "xpath://div[@class='ant-breadcrumb']//span[text()= 'Report Logs']";
-	private String tripStopDetailedLink = "xpath://div[@class='ant-breadcrumb']//span[text()= 'Trip Stop Detailed']";
+	private String tripStopDetailedLink = "xpath://div[@class='ant-breadcrumb']//span[text()= 'Trips Report']";
 	private String reportsLogsTitle = "xpath://div[@class='ant-card-head-title']";
 	private String reportLogsDropdown = "xpath://div[@class='ant-select-selection-selected-value']";
 	private String periodDropdownSelect = "xpath://div[contains(text(),'Select Period')]";
@@ -55,6 +55,9 @@ public class ReportsPage extends ActionMethods {
 	private String pagination = "css:ul.ant-pagination.ant-table-pagination.mini";
 	private String emailOnDemandDialogTitle = "css:div#rcDialogTitle0";
 	private String emailOnDemandLabel = "xpath://label[@class='ant-form-item-required']";
+	private String tripReportObject = "css:div#device_id";
+	
+	
 	private String emailOnDemandCancelBtn = "xpath://button[@class='ant-btn ant-btn-danger']";
 	private String emailOnDemandSendRequestBtn = "xpath://div[@class='ant-col-24']//button[@class='ant-btn ant-btn-primary']";
 	private String emailOnDemandCrossBtn = "css:span.ant-modal-close-x";
@@ -68,7 +71,7 @@ public class ReportsPage extends ActionMethods {
 	private String reportTypeHeading = "xpath://div[contains(text(),'Report Type')]";
 	private String resetButton = "css:button.ant-btn-danger";
 	private String searchButton = "css:button[type='submit']";
-	private String objectPlaceholder = "css:div[title='Select Object']";
+	private String objectPlaceholder = "xpath://div[text()='Select Object']";
 	private String selectObjectValidation = "xpath://div[contains(text(),'Please Select Object')]";
 	private String selectPeriodValidation = "xpath://div[contains(text(),'Please Select Period')]";
 	private String antNotificationMessage = "css:div.ant-notification-notice-message";
@@ -93,8 +96,8 @@ public class ReportsPage extends ActionMethods {
 
 	public void clickOnReportsSidebar() {
      	mouseHover(reportsSidebar, LONGWAIT);
-		waitForElementClickable(reportsSidebar, LONGWAIT);
-		safeClick(reportsSidebar, LONGWAIT);
+		//waitForElementClickable(reportsSidebar, LONGWAIT);
+		safeClick(reportsSidebar, SHORTWAIT);
 	}
 
 	public void clickOnReportsSidebarReportsLog() {
@@ -325,6 +328,7 @@ public class ReportsPage extends ActionMethods {
 	}
 	
 	public void selectObject() {
+		safeClick(tripReportObject, SHORTWAIT);
 		needToWait(SHORTWAIT);
 		WebElement countryUL= driver.findElement(By.xpath("//div//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical']"));
 		List<WebElement> objectList=countryUL.findElements(By.tagName("li"));

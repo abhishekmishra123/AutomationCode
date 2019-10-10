@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Login Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>26/2/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>29/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sat Oct 05 09:34:13 EDT 2019</td>
+<td>Started on:</td><td>Thu Oct 10 11:13:18 EDT 2019</td>
 </tr>
-<tr><td>Total time:</td><td>653 seconds (653474 ms)</td>
+<tr><td>Total time:</td><td>928 seconds (928450 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,50 +75,18 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='TestCases.ReportLogsTest.Verify_the_pagination_functionality()'><b>Verify_the_pagination_functionality</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_103 To verify the pagination functionality<br/>
-<a href="#Output-1461520677" onClick='toggleBox("Output-1461520677", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1461520677" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1461520677">
-Unable To Verify the pagination functionality
-TestCases.ReportLogsTest.Verify_the_pagination_functionality(ReportLogsTest.java:327)
-sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-java.lang.reflect.Method.invoke(Unknown Source)
-org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-java.util.ArrayList.forEach(Unknown Source)
-org.testng.TestRunner.privateRun(TestRunner.java:770)
-org.testng.TestRunner.run(TestRunner.java:591)
-org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-org.testng.SuiteRunner.run(SuiteRunner.java:304)
-org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-org.testng.TestNG.runSuites(TestNG.java:1032)
-org.testng.TestNG.run(TestNG.java:1000)
-org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)<br/>
-</div>
-</td>
-<td><div><pre>java.lang.AssertionError: Unable To verify the pagination functionality
-	at TestCases.ReportLogsTest.Verify_the_pagination_functionality(ReportLogsTest.java:328)
+<td title='TestCases.TripStopDetailedTest.Verify_the_CSV_tooltip()'><b>Verify_the_CSV_tooltip</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_Trip Stop Detailed_007 To verify_the_CSV_tooltip</td>
+<td><div><pre>java.lang.AssertionError: expected [Export CSV] but found []
+	at TestCases.TripStopDetailedTest.Verify_the_CSV_tooltip(TripStopDetailedTest.java:283)
 	at java.util.ArrayList.forEach(Unknown Source)
-... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1461520677", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1461520677'><pre>java.lang.AssertionError: Unable To verify the pagination functionality
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1376673929", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1376673929'><pre>java.lang.AssertionError: expected [Export CSV] but found []
 	at org.testng.Assert.fail(Assert.java:97)
-	at TestCases.ReportLogsTest.Verify_the_pagination_functionality(ReportLogsTest.java:328)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at org.testng.Assert.assertEquals(Assert.java:585)
+	at TestCases.TripStopDetailedTest.Verify_the_CSV_tooltip(TripStopDetailedTest.java:283)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -148,50 +116,8 @@ org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)<br/>
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>47</td>
-<td>TestCases.ReportLogsTest@48524010</td></tr>
-<tr>
-<td title='TestCases.ReportLogsTest.Verify_the_sorting_functionality()'><b>Verify_the_sorting_functionality</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_104 Verify the sorting functionality</td>
-<td><div><pre>java.lang.AssertionError: did not expect to find [Trip Stop Detailed] but found [Trip Stop Detailed]
-	at TestCases.ReportLogsTest.Verify_the_sorting_functionality(ReportLogsTest.java:350)
-	at java.util.ArrayList.forEach(Unknown Source)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace630313530", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace630313530'><pre>java.lang.AssertionError: did not expect to find [Trip Stop Detailed] but found [Trip Stop Detailed]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.assertNotEquals(Assert.java:1401)
-	at org.testng.Assert.assertNotEquals(Assert.java:1406)
-	at TestCases.ReportLogsTest.Verify_the_sorting_functionality(ReportLogsTest.java:350)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>26</td>
-<td>TestCases.ReportLogsTest@48524010</td></tr>
+<td>21</td>
+<td>TestCases.TripStopDetailedTest@4b168fa9</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -201,32 +127,32 @@ org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)<br/>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='TestCases.ReportLogsTest.Verify_CSV_download_functionality()'><b>Verify_CSV_download_functionality</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_100 To Verify 'CSV'  download functionality </td>
-<td></td>
-<td>26</td>
-<td>TestCases.ReportLogsTest@48524010</td></tr>
-<tr>
-<td title='TestCases.ReportLogsTest.Verify_Email_On_demands_download_UI()'><b>Verify_Email_On_demands_download_UI</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_096 To verify 'Email On demands download' UI</td>
-<td></td>
-<td>23</td>
-<td>TestCases.ReportLogsTest@48524010</td></tr>
-<tr>
-<td title='TestCases.ReportLogsTest.Verify_HTML_download_functionality()'><b>Verify_HTML_download_functionality</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_101 To verify 'HTML download' functionality</td>
-<td></td>
-<td>26</td>
-<td>TestCases.ReportLogsTest@48524010</td></tr>
-<tr>
-<td title='TestCases.ReportLogsTest.Verify_PDF_download()'><b>Verify_PDF_download</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_099 To verify_PDF_download</td>
+<td title='TestCases.ReportLogsTest.Verify_CSV_download_functionality()'><b>Verify_CSV_download_functionality</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_101 To Verify 'CSV'  download functionality </td>
 <td></td>
 <td>29</td>
 <td>TestCases.ReportLogsTest@48524010</td></tr>
 <tr>
-<td title='TestCases.ReportLogsTest.Verify_Send_Report_button_functionality_on_Email_On_Demand_download_Popup_if_left_empty_email_field()'><b>Verify_Send_Report_button_functionality_on_Email_On_Demand_download_Popup_if_left_empty_email_field</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_097 To verify 'Send Report' button functionality on 'Email On Demand download'  Popup if left empty email field</td>
+<td title='TestCases.ReportLogsTest.Verify_Email_On_demands_download_UI()'><b>Verify_Email_On_demands_download_UI</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_097 To verify 'Email On demands download' UI</td>
 <td></td>
-<td>24</td>
+<td>26</td>
 <td>TestCases.ReportLogsTest@48524010</td></tr>
 <tr>
-<td title='TestCases.ReportLogsTest.Verify_Send_Report_button_functionality_on_Email_on_Demand_download_Popup_if_Fill_up_email_field()'><b>Verify_Send_Report_button_functionality_on_Email_on_Demand_download_Popup_if_Fill_up_email_field</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_098 To verify 'Send Report' button functionality on 'Email on Demand download' Popup if Fill-up email field </td>
+<td title='TestCases.ReportLogsTest.Verify_HTML_download_functionality()'><b>Verify_HTML_download_functionality</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_102 To verify 'HTML download' functionality</td>
+<td></td>
+<td>29</td>
+<td>TestCases.ReportLogsTest@48524010</td></tr>
+<tr>
+<td title='TestCases.ReportLogsTest.Verify_PDF_download()'><b>Verify_PDF_download</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_100 To verify_PDF_download</td>
+<td></td>
+<td>29</td>
+<td>TestCases.ReportLogsTest@48524010</td></tr>
+<tr>
+<td title='TestCases.ReportLogsTest.Verify_Send_Report_button_functionality_on_Email_On_Demand_download_Popup_if_left_empty_email_field()'><b>Verify_Send_Report_button_functionality_on_Email_On_Demand_download_Popup_if_left_empty_email_field</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_098 To verify 'Send Report' button functionality on 'Email On Demand download'  Popup if left empty email field</td>
+<td></td>
+<td>27</td>
+<td>TestCases.ReportLogsTest@48524010</td></tr>
+<tr>
+<td title='TestCases.ReportLogsTest.Verify_Send_Report_button_functionality_on_Email_on_Demand_download_Popup_if_Fill_up_email_field()'><b>Verify_Send_Report_button_functionality_on_Email_on_Demand_download_Popup_if_Fill_up_email_field</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_099 To verify 'Send Report' button functionality on 'Email on Demand download' Popup if Fill-up email field </td>
 <td></td>
 <td>45</td>
 <td>TestCases.ReportLogsTest@48524010</td></tr>
@@ -251,49 +177,59 @@ org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)<br/>
 <td>0</td>
 <td>TestCases.LoginTest@3ee0fea4</td></tr>
 <tr>
-<td title='TestCases.TripStopDetailedTest.Verify_the_CSV_tooltip()'><b>Verify_the_CSV_tooltip</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_Trip To verify_the_CSV_tooltip</td>
-<td></td>
-<td>18</td>
-<td>TestCases.TripStopDetailedTest@4b168fa9</td></tr>
-<tr>
-<td title='TestCases.TripStopDetailedTest.Verify_the_Email_on_Demand_tooltip()'><b>Verify_the_Email_on_Demand_tooltip</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_Trip To verify_the_Email_on_Demand_tooltip</td>
-<td></td>
-<td>18</td>
-<td>TestCases.TripStopDetailedTest@4b168fa9</td></tr>
-<tr>
-<td title='TestCases.TripStopDetailedTest.Verify_the_HTML_tooltip()'><b>Verify_the_HTML_tooltip</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_Trip To verify_the_HTML_tooltip</td>
-<td></td>
-<td>18</td>
-<td>TestCases.TripStopDetailedTest@4b168fa9</td></tr>
-<tr>
-<td title='TestCases.TripStopDetailedTest.Verify_the_PDF_tooltip()'><b>Verify_the_PDF_tooltip</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_Trip To verify_the_PDF_tooltip</td>
-<td></td>
-<td>18</td>
-<td>TestCases.TripStopDetailedTest@4b168fa9</td></tr>
-<tr>
-<td title='TestCases.TripStopDetailedTest.Verify_the_Placeholder_in_all_field_on_Trip_Stop_Detailed_page()'><b>Verify_the_Placeholder_in_all_field_on_Trip_Stop_Detailed_page</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_Trip To verify the 'Placeholder' in all field on 'Trip Stop Detailed' page</td>
-<td></td>
-<td>22</td>
-<td>TestCases.TripStopDetailedTest@4b168fa9</td></tr>
-<tr>
-<td title='TestCases.ReportLogsTest.Verify_the_Report_Logs_Navigation_bar_link_functionality()'><b>Verify_the_Report_Logs_Navigation_bar_link_functionality</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_094 To verify the 'Report Logs' Navigation bar link  functionality </td>
+<td title='TestCases.TripStopDetailedTest.Verify_the_Email_on_Demand_tooltip()'><b>Verify_the_Email_on_Demand_tooltip</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_TripStopDetailed_005 To verify_the_Email_on_Demand_tooltip</td>
 <td></td>
 <td>21</td>
+<td>TestCases.TripStopDetailedTest@4b168fa9</td></tr>
+<tr>
+<td title='TestCases.TripStopDetailedTest.Verify_the_HTML_tooltip()'><b>Verify_the_HTML_tooltip</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_Trip Stop Detailed_008 To verify_the_HTML_tooltip</td>
+<td></td>
+<td>21</td>
+<td>TestCases.TripStopDetailedTest@4b168fa9</td></tr>
+<tr>
+<td title='TestCases.TripStopDetailedTest.Verify_the_PDF_tooltip()'><b>Verify_the_PDF_tooltip</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_Trip Stop Detailed_006 To verify_the_PDF_tooltip</td>
+<td></td>
+<td>21</td>
+<td>TestCases.TripStopDetailedTest@4b168fa9</td></tr>
+<tr>
+<td title='TestCases.TripStopDetailedTest.Verify_the_Placeholder_in_all_field_on_Trip_Stop_Detailed_page()'><b>Verify_the_Placeholder_in_all_field_on_Trip_Stop_Detailed_page</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_Trip_Stop_Detailed_003 To verify the 'Placeholder' in all field on 'Trip Stop Detailed' page</td>
+<td></td>
+<td>25</td>
+<td>TestCases.TripStopDetailedTest@4b168fa9</td></tr>
+<tr>
+<td title='TestCases.ReportLogsTest.Verify_the_Report_Logs_Navigation_bar_link_functionality()'><b>Verify_the_Report_Logs_Navigation_bar_link_functionality</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_095 To verify the 'Report Logs' Navigation bar link  functionality</td>
+<td></td>
+<td>24</td>
 <td>TestCases.ReportLogsTest@48524010</td></tr>
 <tr>
 <td title='TestCases.TripStopDetailedTest.Verify_the_Reports_navigation_bar()'><b>Verify_the_Reports_navigation_bar</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_001 To verify the 'Reports' navigation bar</td>
 <td></td>
-<td>49</td>
+<td>53</td>
 <td>TestCases.TripStopDetailedTest@4b168fa9</td></tr>
 <tr>
-<td title='TestCases.ReportLogsTest.Verify_the_UI_of_Report_Logs()'><b>Verify_the_UI_of_Report_Logs</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_095 To verify the UI of 'Report Logs' </td>
+<td title='TestCases.TripStopDetailedTest.Verify_the_Trip_Stop_Detailed_using_DailyPeriod_functionality()'><b>Verify_the_Trip_Stop_Detailed_using_DailyPeriod_functionality</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_Trip Stop Detailed_009 To verify the 'Trip Stop Detailed' using 'Daily (Period) functionality </td>
 <td></td>
-<td>22</td>
+<td>40</td>
+<td>TestCases.TripStopDetailedTest@4b168fa9</td></tr>
+<tr>
+<td title='TestCases.TripStopDetailedTest.Verify_the_Trip_Stop_Detailed_using_Monthly_Period_functionality()'><b>Verify_the_Trip_Stop_Detailed_using_Monthly_Period_functionality</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_Trip Stop Detailed_011 To Verify the 'Trip Stop Detailed' using 'Monthly' (Period) functionality </td>
+<td></td>
+<td>40</td>
+<td>TestCases.TripStopDetailedTest@4b168fa9</td></tr>
+<tr>
+<td title='TestCases.TripStopDetailedTest.Verify_the_Trip_Stop_Detailed_using_WeeklyPeriod_functionality()'><b>Verify_the_Trip_Stop_Detailed_using_WeeklyPeriod_functionality</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_Trip Stop Detailed_010 To verify the 'Trip Stop Detailed' using 'Weekly' (Period) functionality</td>
+<td></td>
+<td>40</td>
+<td>TestCases.TripStopDetailedTest@4b168fa9</td></tr>
+<tr>
+<td title='TestCases.ReportLogsTest.Verify_the_UI_of_Report_Logs()'><b>Verify_the_UI_of_Report_Logs</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_096 To verify the UI of 'Report Logs</td>
+<td></td>
+<td>25</td>
 <td>TestCases.ReportLogsTest@48524010</td></tr>
 <tr>
-<td title='TestCases.TripStopDetailedTest.Verify_the_UI_of_Trip_Stop_Detailed_page()'><b>Verify_the_UI_of_Trip_Stop_Detailed_page</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_Trip Stop Detailed_002 To verify the 'UI' of 'Trip Stop Detailed' page</td>
+<td title='TestCases.TripStopDetailedTest.Verify_the_UI_of_Trip_Stop_Detailed_page()'><b>Verify_the_UI_of_Trip_Stop_Detailed_page</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_Trip Stop Detailed_002 Stop Detailed_002 To verify the 'UI' of 'Trip Stop Detailed' page</td>
 <td></td>
-<td>21</td>
+<td>41</td>
 <td>TestCases.TripStopDetailedTest@4b168fa9</td></tr>
 <tr>
 <td title='TestCases.LoginTest.Verify_the_login_page_URL()'><b>Verify_the_login_page_URL</b><br>Test class: TestCases.LoginTest<br>Test method: TC_Login_002 To verify login page url</td>
@@ -301,14 +237,19 @@ org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)<br/>
 <td>3</td>
 <td>TestCases.LoginTest@3ee0fea4</td></tr>
 <tr>
-<td title='TestCases.ReportLogsTest.Verify_the_search_functionality()'><b>Verify_the_search_functionality</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_102 To verify the search functionality </td>
+<td title='TestCases.ReportLogsTest.Verify_the_pagination_functionality()'><b>Verify_the_pagination_functionality</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_104 To verify the pagination functionality</td>
 <td></td>
-<td>20</td>
+<td>158</td>
 <td>TestCases.ReportLogsTest@48524010</td></tr>
 <tr>
-<td title='TestCases.TripStopDetailedTest.Verify_the_validation_message_in_all_field_on_Trip_Stop_Detailed_page()'><b>Verify_the_validation_message_in_all_field_on_Trip_Stop_Detailed_page</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_Trip To verify the validation message in all field on 'Trip Stop Detailed' page</td>
+<td title='TestCases.ReportLogsTest.Verify_the_search_functionality()'><b>Verify_the_search_functionality</b><br>Test class: TestCases.ReportLogsTest<br>Test method: TC_ReportLogs_103 To verify the search functionality </td>
 <td></td>
-<td>25</td>
+<td>24</td>
+<td>TestCases.ReportLogsTest@48524010</td></tr>
+<tr>
+<td title='TestCases.TripStopDetailedTest.Verify_the_validation_message_in_all_field_on_Trip_Stop_Detailed_page()'><b>Verify_the_validation_message_in_all_field_on_Trip_Stop_Detailed_page</b><br>Test class: TestCases.TripStopDetailedTest<br>Test method: TC_Reports_TripStopDetailed_004 To verify the validation message in all field on 'Trip Stop Detailed' page</td>
+<td></td>
+<td>28</td>
 <td>TestCases.TripStopDetailedTest@4b168fa9</td></tr>
 <tr>
 <td title='TestCases.LoginTest.Verify_validation_message_with_empty_email_address_and_empty_password_field()'><b>Verify_validation_message_with_empty_email_address_and_empty_password_field</b><br>Test class: TestCases.LoginTest<br>Test method: TC_Login_006 To verify validation message with empty 'email address' and empty 'password' field</td>
