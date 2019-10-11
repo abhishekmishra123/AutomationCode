@@ -40,7 +40,7 @@ public class ReportLogsTest extends BaseSetup {
 				Assert.assertEquals(1, 1);
 			} else {
 				Assert.assertEquals(1, 0);
-			}	
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,7 +66,7 @@ public class ReportLogsTest extends BaseSetup {
 			Assert.assertTrue(reportsPage.isReportHomeLinkPresent());
 			Assert.assertTrue(reportsPage.isReportsLinkPresent());
 			Assert.assertTrue(reportsPage.isReportsLogsLinkPresent());
-			Assert.assertEquals(reportsPage.getCssValueReportsLogsTitle(),"rgba(2, 192, 245, 1)");
+			Assert.assertEquals(reportsPage.getCssValueReportsLogsTitle(), "rgba(2, 192, 245, 1)");
 			Assert.assertTrue(reportsPage.isEmailOnDemandsPresent());
 			Assert.assertTrue(reportsPage.isPDFPresent());
 			Assert.assertTrue(reportsPage.isCSVPresent());
@@ -180,8 +180,9 @@ public class ReportLogsTest extends BaseSetup {
 			driver.switchTo().window(tabs.get(1));
 			yopmail();
 			Assert.assertTrue(reportsPage.isEmailPresent());
+			// reportsPage.clickOnDeleteEmailOnYopmail();
 			driver.manage().deleteAllCookies();
-			//driver.close();
+			// driver.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -259,7 +260,6 @@ public class ReportLogsTest extends BaseSetup {
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarReportsLog();
 			reportsPage.clickOnHTML();
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -315,7 +315,7 @@ public class ReportLogsTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 9, enabled= false, description = "TC_ReportLogs_105 Verify the sorting functionality")
+	@Test(priority = 9, enabled = false, description = "TC_ReportLogs_105 Verify the sorting functionality")
 	public void Verify_the_sorting_functionality() {
 
 		try {
