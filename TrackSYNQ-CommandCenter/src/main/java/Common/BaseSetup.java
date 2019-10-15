@@ -106,7 +106,8 @@ public class BaseSetup implements TimeOuts {
 			extentTest = extentReport.startTest((this.getClass().getSimpleName() + "::" + method.getName()),
 					method.getName());
 			extentTest.assignCategory(config.getProperty("TypeOfTesting"));
-			getDriver().get(config.getProperty("Url"));
+			//getDriver().get(config.getProperty("Url"));
+			getDriver().get("http://prod1.intellitransitsolutions.net:8282/dashboard");
 		} catch (Exception e) {
 			log.error(e.getMessage() + "---" + UtilityMethods.getStackTrace());
 		}

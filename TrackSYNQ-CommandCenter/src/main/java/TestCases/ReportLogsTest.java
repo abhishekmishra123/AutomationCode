@@ -20,13 +20,13 @@ public class ReportLogsTest extends BaseSetup {
 
 	static Logger log = Logger.getLogger(ReportLogsTest.class);
 
-	@Test(priority = 0, description = "TC_ReportLogs_095 To verify the 'Report Logs' Navigation bar link  functionality")
-	public void Verify_the_Report_Logs_Navigation_bar_link_functionality() {
+	@Test(priority = 0, description = "TC_ReportLogs_095 To verify the 'Report Logs' Side bar link  functionality")
+	public void Verify_the_Report_Logs_Side_bar_link_functionality() {
 
 		try {
-			log.info("************************* TC-001*************************");
+			log.info("************************* TC-095*************************");
 			extentTest
-					.setDescription("TC_ReportLogs_095 To verify the 'Report Logs' Navigation bar link  functionality");
+					.setDescription("TC_ReportLogs_095 To verify the 'Report Logs' Side bar link  functionality");
 			loginPage = new LoginPage(getDriver());
 			dashboardPage = new DashboardPage(getDriver());
 			reportsPage = new ReportsPage(getDriver());
@@ -44,9 +44,9 @@ public class ReportLogsTest extends BaseSetup {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			logError("Unable to verify the  'Report Logs' Navigation bar link  functionality "
+			logError("Unable to verify the  'Report Logs' Side bar link  functionality "
 					+ UtilityMethods.getStackTrace());
-			Assert.fail("Unable to verify the  'Report Logs' Navigation bar link  functionality ");
+			Assert.fail("Unable to verify the  'Report Logs' Side bar link  functionality ");
 		}
 	}
 
@@ -54,13 +54,13 @@ public class ReportLogsTest extends BaseSetup {
 	public void Verify_the_UI_of_Report_Logs() {
 
 		try {
-			log.info("************************* TC-002*************************");
+			log.info("************************* TC-096*************************");
 			extentTest.setDescription("To verify the UI of  'Report Logs' ");
 			reportsPage = new ReportsPage(getDriver());
-			loginPage = new LoginPage(getDriver());
-			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-			loginPage.clickOnLogInButton();
+//			loginPage = new LoginPage(getDriver());
+//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
+//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
+//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarReportsLog();
 			Assert.assertTrue(reportsPage.isReportHomeLinkPresent());
@@ -92,14 +92,14 @@ public class ReportLogsTest extends BaseSetup {
 	public void Verify_Email_On_demands_download_UI() {
 
 		try {
-			log.info("************************* TC-003*************************");
+			log.info("************************* TC-097*************************");
 			extentTest.setDescription("TC_ReportLogs_097 To verify 'Email On demands download' UI");
 			dashboardPage = new DashboardPage(getDriver());
 			reportsPage = new ReportsPage(getDriver());
-			loginPage = new LoginPage(getDriver());
-			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-			loginPage.clickOnLogInButton();
+//			loginPage = new LoginPage(getDriver());
+//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
+//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
+//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarReportsLog();
 			Assert.assertTrue(reportsPage.isEmailOnDemandsPresent());
@@ -123,15 +123,15 @@ public class ReportLogsTest extends BaseSetup {
 	public void Verify_Send_Report_button_functionality_on_Email_On_Demand_download_Popup_if_left_empty_email_field() {
 
 		try {
-			log.info("************************* TC-004*************************");
+			log.info("************************* TC-098*************************");
 			extentTest.setDescription(
 					"TC_ReportLogs_098 To verify 'Send Report' button functionality on 'Email On Demand download'  Popup if left empty email field");
 			dashboardPage = new DashboardPage(getDriver());
 			reportsPage = new ReportsPage(getDriver());
-			loginPage = new LoginPage(getDriver());
-			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-			loginPage.clickOnLogInButton();
+//			loginPage = new LoginPage(getDriver());
+//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
+//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
+//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarReportsLog();
 			Assert.assertTrue(reportsPage.isEmailOnDemandsPresent());
@@ -154,10 +154,10 @@ public class ReportLogsTest extends BaseSetup {
 	public void Verify_Send_Report_button_functionality_on_Email_on_Demand_download_Popup_if_Fill_up_email_field() {
 
 		try {
-			log.info("************************* TC-005*************************");
+			log.info("************************* TC-099*************************");
 			extentTest.setDescription(
 					"TC_ReportLogs_099 To verify 'Send Report' button functionality on 'Email on Demand download' Popup if Fill-up email field");
-			loginPage = new LoginPage(getDriver());
+			
 			dashboardPage = new DashboardPage(getDriver());
 			reportsPage = new ReportsPage(getDriver());
 
@@ -167,9 +167,10 @@ public class ReportLogsTest extends BaseSetup {
 			driver.switchTo().window(tabs.get(1));
 			driver.get("http://www.yopmail.com/en/");
 			driver.switchTo().window(tabs.get(0));
-			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-			loginPage.clickOnLogInButton();
+//			loginPage = new LoginPage(getDriver());
+//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
+//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
+//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarReportsLog();
 			reportsPage.clickOnEmailOnDemands();
@@ -204,14 +205,14 @@ public class ReportLogsTest extends BaseSetup {
 	public void Verify_PDF_download() {
 
 		try {
-			log.info("************************* TC-006*************************");
+			log.info("************************* TC-100*************************");
 			extentTest.setDescription("TC_ReportLogs_100 To verify_PDF_download");
-			loginPage = new LoginPage(getDriver());
 			dashboardPage = new DashboardPage(getDriver());
 			reportsPage = new ReportsPage(getDriver());
-			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-			loginPage.clickOnLogInButton();
+//			loginPage = new LoginPage(getDriver());
+//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
+//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
+//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarReportsLog();
 			reportsPage.clickOnPDF();
@@ -226,14 +227,14 @@ public class ReportLogsTest extends BaseSetup {
 	public void Verify_CSV_download_functionality() {
 
 		try {
-			log.info("************************* TC-007*************************");
-			extentTest.setDescription("TC_ReportLogs_101 To verify 'CSV'  download functionality ");
-			loginPage = new LoginPage(getDriver());
+			log.info("************************* TC-101*************************");
+			extentTest.setDescription("TC_ReportLogs_101 To verify 'CSV' download functionality ");
 			dashboardPage = new DashboardPage(getDriver());
 			reportsPage = new ReportsPage(getDriver());
-			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-			loginPage.clickOnLogInButton();
+//			loginPage = new LoginPage(getDriver());
+//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
+//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
+//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarReportsLog();
 			reportsPage.clickOnCSV();
@@ -249,17 +250,20 @@ public class ReportLogsTest extends BaseSetup {
 	public void Verify_HTML_download_functionality() {
 
 		try {
-			log.info("************************* TC-008*************************");
-			extentTest.setDescription("TC_ReportLogs_102To verify 'HTML download' functionality");
-			loginPage = new LoginPage(getDriver());
+			log.info("************************* TC-102*************************");
+			extentTest.setDescription("TC_ReportLogs_102 To verify 'HTML download' functionality");
 			dashboardPage = new DashboardPage(getDriver());
 			reportsPage = new ReportsPage(getDriver());
-			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-			loginPage.clickOnLogInButton();
+//			loginPage = new LoginPage(getDriver());
+//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
+//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
+//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarReportsLog();
 			reportsPage.clickOnHTML();
+//			ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+//			driver.switchTo().window(tabs.get(1));
+//			driver.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -272,14 +276,14 @@ public class ReportLogsTest extends BaseSetup {
 	public void Verify_the_search_functionality() {
 
 		try {
-			log.info("************************* TC-009*************************");
+			log.info("************************* TC-103*************************");
 			extentTest.setDescription("TC_ReportLogs_103 To verify the search functionality ");
-			loginPage = new LoginPage(getDriver());
 			dashboardPage = new DashboardPage(getDriver());
 			reportsPage = new ReportsPage(getDriver());
-			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-			loginPage.clickOnLogInButton();
+//			loginPage = new LoginPage(getDriver());
+//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
+//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
+//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarReportsLog();
 			reportsPage.searchReport("MB02-Teltonika");
@@ -296,14 +300,14 @@ public class ReportLogsTest extends BaseSetup {
 	public void Verify_the_pagination_functionality() {
 
 		try {
-			log.info("************************* TC-010*************************");
+			log.info("************************* TC-104************************");
 			extentTest.setDescription("TC_ReportLogs_104 To Verify the pagination functionality");
-			loginPage = new LoginPage(getDriver());
 			dashboardPage = new DashboardPage(getDriver());
 			reportsPage = new ReportsPage(getDriver());
-			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-			loginPage.clickOnLogInButton();
+//			loginPage = new LoginPage(getDriver());
+//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
+//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
+//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarReportsLog();
 			reportsPage.checkPagination();
@@ -319,14 +323,14 @@ public class ReportLogsTest extends BaseSetup {
 	public void Verify_the_sorting_functionality() {
 
 		try {
-			log.info("************************* TC-011*************************");
+			log.info("************************* TC-105*************************");
 			extentTest.setDescription("TC_ReportLogs_105 Verify the sorting functionality ");
-			loginPage = new LoginPage(getDriver());
 			dashboardPage = new DashboardPage(getDriver());
 			reportsPage = new ReportsPage(getDriver());
-			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-			loginPage.clickOnLogInButton();
+//			loginPage = new LoginPage(getDriver());
+//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
+//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
+//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarReportsLog();
 			String beforeReportTypefirstValue = reportsPage.getTextReportTypeValue();
