@@ -28,9 +28,9 @@ public class LoginPage extends ActionMethods {
 	private String contactSupportLink = "css:a#contactSupport";
 	// private String emailErrorMsg = "css:input[id='email'] +
 	// span[class='invalid-feedback']";
-	private String emailErrorMsg = "xpath://div[text()='Please input Email ID!']";
-	private String wrongEmail = "xpath://div[text()='This is not a valid email ID!']";
-	private String passwordErrorMsg = "xpath://div[text()='Please input your password!']";
+	private String emailErrorMsg = "xpath://div[text()='Please Input Email ID']";
+	private String wrongEmail = "xpath://div[text()='This is not a valid email ID']";
+	private String passwordErrorMsg = "xpath://div[text()='Please Input Your Password']";
 	private String publicUserErrorMsg = "xpath://p[text()='You do not have have enough rights to access this part of Application.']";
 	private String successfullyNotification = "css:.ant-notification-notice-description";
 	private String trackSYNQLogoImage = "css:.isoLogoWrapper";

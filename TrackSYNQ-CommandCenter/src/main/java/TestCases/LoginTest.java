@@ -85,7 +85,7 @@ public class LoginTest extends BaseSetup {
 			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
 			loginPage.clickOnLogInButton();
 			String errorMsg = loginPage.getPasswordErrorMessage();
-			Assert.assertEquals(errorMsg, "Please input your password!");
+			Assert.assertEquals(errorMsg, "Please Input Your Password");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -106,7 +106,7 @@ public class LoginTest extends BaseSetup {
 			loginPage.enterPassword(config.getProperty("superAdminPassword"));
 			loginPage.clickOnLogInButton();
 			String errorMsg = loginPage.getEmailAddressErrorMessage();
-			Assert.assertEquals(errorMsg, "Please input Email ID!");
+			Assert.assertEquals(errorMsg, "Please Input Email ID");
 		} catch (Exception e) {
 			e.printStackTrace();
 			logError("Unable to verify validation message with valid 'password' and empty 'email address' field "
@@ -128,8 +128,8 @@ public class LoginTest extends BaseSetup {
 			loginPage.clickOnLogInButton();
 			String emailAddressFieldErrorMsg = loginPage.getEmailAddressErrorMessage();
 			String passwordFieldErrorMsg = loginPage.getPasswordErrorMessage();
-			Assert.assertEquals(emailAddressFieldErrorMsg, "Please input Email ID!");
-			Assert.assertEquals(passwordFieldErrorMsg, "Please input your password!");
+			Assert.assertEquals(emailAddressFieldErrorMsg, "Please Input Email ID");
+			Assert.assertEquals(passwordFieldErrorMsg, "Please Input Your Password");
 		} catch (Exception e) {
 			e.printStackTrace();
 			logError("Unable to verify validation message with empty 'email address' and empty 'password' field "
@@ -151,7 +151,7 @@ public class LoginTest extends BaseSetup {
 			//loginPage.clickOnLogInButton();
 			String errorMsg = loginPage.getInvalidCredentialsErrorMessage();
 			System.out.println("errorMsg ->" + errorMsg);
-			Assert.assertEquals(errorMsg, "This is not a valid email ID!");
+			Assert.assertEquals(errorMsg, "This is not a valid email ID");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -213,7 +213,7 @@ public class LoginTest extends BaseSetup {
 			Assert.assertTrue(loginPage.isForgotPasswordHeadingPresent());
 
 			loginPage.clickOnLogInButton();
-			Assert.assertEquals(loginPage.isResetPasswordMessagePresent(), "Please input your Email ID");
+			Assert.assertEquals(loginPage.isResetPasswordMessagePresent(), "Please Input Your Email ID");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -238,7 +238,7 @@ public class LoginTest extends BaseSetup {
 			Assert.assertTrue(currentUrl.contains("dashboard"));
 			loginPage.clickOnLivetracking();
 			// Verify the + icon tooltip
-			String expectedTooltip = "Add Object";
+			String expectedTooltip = "Add Vehicle";
 			WebElement download = driver.findElement(By.cssSelector("div.ant-col-xl-2 button.ant-btn"));
 			Actions builder = new Actions(driver);
 			builder.clickAndHold().moveToElement(download);

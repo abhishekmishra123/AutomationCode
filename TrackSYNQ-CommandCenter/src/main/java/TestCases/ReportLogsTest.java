@@ -20,13 +20,13 @@ public class ReportLogsTest extends BaseSetup {
 
 	static Logger log = Logger.getLogger(ReportLogsTest.class);
 
-	@Test(priority = 0, description = "TC_ReportLogs_095 To verify the 'Report Logs' Side bar link  functionality")
+	@Test(priority = 0, description = "TC_ReportLogs_095 To verify the 'Report Logs' Side bar link functionality")
 	public void Verify_the_Report_Logs_Side_bar_link_functionality() {
 
 		try {
 			log.info("************************* TC-095*************************");
 			extentTest
-					.setDescription("TC_ReportLogs_095 To verify the 'Report Logs' Side bar link  functionality");
+					.setDescription("TC_ReportLogs_095 To verify the 'Report Logs' Side bar link functionality");
 			loginPage = new LoginPage(getDriver());
 			dashboardPage = new DashboardPage(getDriver());
 			reportsPage = new ReportsPage(getDriver());
@@ -181,7 +181,7 @@ public class ReportLogsTest extends BaseSetup {
 			driver.switchTo().window(tabs.get(1));
 			yopmail();
 			Assert.assertTrue(reportsPage.isEmailPresent());
-			// reportsPage.clickOnDeleteEmailOnYopmail();
+			//reportsPage.clickOnDeleteEmailOnYopmail();
 			driver.manage().deleteAllCookies();
 			// driver.close();
 
