@@ -1,12 +1,10 @@
 package PageObjects;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.google.common.base.Predicate;
 
 import Common.ConfigManager;
 import Common.ActionMethods;

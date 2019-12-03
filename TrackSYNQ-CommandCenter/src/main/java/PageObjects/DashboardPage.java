@@ -1,10 +1,9 @@
 package PageObjects;
 
-import org.apache.commons.lang3.RandomStringUtils;
+
 import org.apache.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 
 import Common.ConfigManager;
 import Common.ActionMethods;
@@ -14,6 +13,9 @@ public class DashboardPage extends ActionMethods {
 	private String dashboardNavBar = "css:h3 a[href='/dashboard']";
 	
 	private String dashboardMapSection = "css:span.lm_title";
+	private String dashboardPermissionDenied = "xpath://span[text()='Permission Denied!']";
+	
+	
 	
 
 	
@@ -47,11 +49,13 @@ public class DashboardPage extends ActionMethods {
 		return errorMsg;
 		}
 
-	
-
 	public void clickOnDashBoardNavbar() {
 		waitForElementClickable(dashboardNavBar, LONGWAIT);
 		safeJavaScriptClick(dashboardNavBar);
+		
+	}
+	public boolean isDashboardPermissionDeniedPresent() {
+		return isElementPresent(dashboardPermissionDenied, LONGWAIT);
 		
 	}
 	

@@ -16,9 +16,6 @@ public class LoginPage extends ActionMethods {
 	private String logInBtn = "css:button[type='submit']";
 	private String userProfile = "css:i.fa.fa-angle-down";
 	
-	private String liveTracking = "css:a[href='/tracking']";
-	
-	
 	private String logOut = "xpath://a[text()='Logout']";
 	private String forgotPasswordLink = "xpath://a[@class='isoForgotPass']";
 	private String forgotPasswordHeading = "xpath: //h3[text()='Forgot Password?']";
@@ -36,7 +33,6 @@ public class LoginPage extends ActionMethods {
 	private String trackSYNQLogoImage = "css:.isoLogoWrapper";
 	private String loginFromText = "css:form[name='loginForm'] h5";
 	private String hamBurgerIcon = "css:.triggerBtn.menuOpen";
-	
 	// private String errorMessage = "xpath://button[text()='Sign
 	// In']//following-sibling::span";
 	public String hrefAttribute;
@@ -113,23 +109,7 @@ public class LoginPage extends ActionMethods {
 
 	
 	
-	public void clickOnLivetracking() {
-		waitForElementClickable(liveTracking, SHORTWAIT);
-		waitForElementVisible(liveTracking, SHORTWAIT);
-		String browserName = config.getProperty("Browser.Name");
-		needToWait(2);
-		if (browserName.equalsIgnoreCase("ie")) {
-			// WebElement element = driver.findElement(By.xpath("//button[text()='Sign
-			// In']"));
-			WebElement element = driver.findElement(findLocator(liveTracking));
-			JavascriptExecutor executor = (JavascriptExecutor) driver;
-			executor.executeScript("arguments[0].click();", element);
-		} else {
-			safeJavaScriptClick(liveTracking);
-		}
-		needToWait(3);
-		log.info("Click on user profile button successfully");
-	}
+	
 
 	public void clickOnHamBurgerIcon() {
 		waitForElementClickable(hamBurgerIcon, SHORTWAIT);

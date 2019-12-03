@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import Common.BaseSetup;
 import Common.UtilityMethods;
-import PageObjects.DashboardPage;
 import PageObjects.LoginPage;
 import PageObjects.ReportsPage;
 import org.apache.log4j.Logger;
@@ -19,17 +18,17 @@ public class ScheduleReportTest extends BaseSetup {
 
 	static Logger log = Logger.getLogger(ScheduleReportTest.class);
 
-	@Test(priority = 0, description = "TC_ScheduleReport_069 Verify the 'Schedule Reports' Side bar link functionality")
+	@Test(priority = 0, description = "TC_ScheduleReport_068 Verify the 'Schedule Reports' Side bar link functionality")
 	public void Verify_the_Schedule_Reports_Side_bar_link_functionality() {
 
 		try {
-			log.info("************************* TC-069*************************");
+			log.info("************************* TC-068*************************");
 			extentTest.setDescription(
-					"TC_ScheduleReport_069 Verify the 'Schedule Report' Navigation bar link functionality ");
+					"TC_ScheduleReport_068 Verify the 'Schedule Report' side bar link functionality ");
 			reportsPage = new ReportsPage(getDriver());
 			loginPage = new LoginPage(getDriver());
-			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-			loginPage.enterPassword(config.getProperty("superAdminPassword"));
+			loginPage.enterEmailAddess(config.getProperty("siteAdminEmailData"));
+			loginPage.enterPassword(config.getProperty("siteAdminPasswordData"));
 			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			Assert.assertTrue(reportsPage.isReportsSidebarReportsLogPresent());
@@ -54,17 +53,13 @@ public class ScheduleReportTest extends BaseSetup {
 
 	}
 
-	@Test(priority = 1, description = "TC_ScheduleReport_070 Verify the 'UI' of 'Schedule Reports' ")
+	@Test(priority = 1, description = "TC_ScheduleReport_069 Verify the 'UI' of 'Schedule Reports' ")
 	public void Verify_the_UI_of_Schedule_Reports() {
 
 		try {
-			log.info("************************* TC-070*************************");
-			extentTest.setDescription("TC_ScheduleReport_070 Verify the 'UI' of 'Schedule Report' ");
+			log.info("************************* TC-069*************************");
+			extentTest.setDescription("TC_ScheduleReport_069 Verify the 'UI' of 'Schedule Report' ");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			Assert.assertTrue(reportsPage.isReportHomeLinkPresent());
@@ -91,17 +86,13 @@ public class ScheduleReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 2, description = "TC_Reports_Speeding Report_071 Verify the tool tip of 'Add Schedule Report'")
+	@Test(priority = 2, description = "TC_Reports_SpeedingReport_070 Verify the tool tip of 'Add Schedule Report'")
 	public void Verify_the_tooltip_of_Add_Schedule_Report() {
 
 		try {
-			log.info("************************* TC-071*************************");
-			extentTest.setDescription("TC_Reports_Speeding Report_071 Verify the tool tip of  'Add Schedule Report'");
+			log.info("************************* TC-070*************************");
+			extentTest.setDescription("TC_Reports_SpeedingReport_070 Verify the tool tip of  'Add Schedule Report'");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 
@@ -124,18 +115,14 @@ public class ScheduleReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 3, description = "TC_Reports_Speeding Report_072 Verify the 'Add Schedule Report' button functionality")
+	@Test(priority = 3, description = "TC_Reports_SpeedingReport_071 Verify the 'Add Schedule Report' button functionality")
 	public void Verify_the_Add_Schedule_Report_button_functionality() {
 
 		try {
-			log.info("************************* TC-072*************************");
+			log.info("************************* TC-071*************************");
 			extentTest.setDescription(
-					"TC_Reports_Speeding Report_072 Verify the 'Add Schedule Report' button functionality");
+					"TC_Reports_SpeedingReport_072 Verify the 'Add Schedule Report' button functionality");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			Assert.assertTrue(reportsPage.isAddScheduleReportButtonPresent());
@@ -149,17 +136,13 @@ public class ScheduleReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 4, description = "TC_Reports_Speeding Report_073 Verify the 'Add Schedule Report' Popup UI ")
+	@Test(priority = 4, description = "TC_Reports_SpeedingReport_072 Verify the 'Add Schedule Report' Popup UI ")
 	public void Verify_the_Add_Schedule_Report_Popup_UI() {
 
 		try {
 			log.info("************************* TC-072*************************");
-			extentTest.setDescription("TC_Reports_Speeding Report_073 Verify the 'Add Schedule Report' Popup UI '");
+			extentTest.setDescription("TC_Reports_Speeding Report_072 Verify the 'Add Schedule Report' Popup UI '");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			Assert.assertTrue(reportsPage.isAddScheduleReportButtonPresent());
@@ -170,7 +153,7 @@ public class ScheduleReportTest extends BaseSetup {
 			Assert.assertTrue(reportsPage.isPeriodFieldPresent());
 			Assert.assertTrue(reportsPage.isScheduleNamePresent());
 			Assert.assertTrue(reportsPage.isEmailOnDemandCancelBtnPresent());
-			Assert.assertTrue(reportsPage.isAadScheduleReportSaveBtnPresent());
+			Assert.assertTrue(reportsPage.isAddScheduleReportSaveBtnPresent());
 			Assert.assertTrue(reportsPage.isEmailOnDemandCrossBtnPresent());
 
 		} catch (Exception e) {
@@ -180,18 +163,14 @@ public class ScheduleReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 5, description = "TC_Reports_Speeding Report_075 Verify the 'Placeholder' in all field on 'Add Schedule Report' Popup")
+	@Test(priority = 5, description = "TC_Reports_SpeedingReport_073 Verify the 'Placeholder' in all field on 'Add Schedule Report' Popup")
 	public void Verify_the_Placeholder_in_all_field_on_Add_Schedule_Report_page() {
 
 		try {
-			log.info("************************* TC-075*************************");
+			log.info("************************* TC-073*************************");
 			extentTest.setDescription(
-					"TC_Reports_Speeding Report_075 Verify the 'Placeholder' in all field on 'Add Schedule Report' Popup");
+					"TC_Reports_SpeedingReport_073 Verify the 'Placeholder' in all field on 'Add Schedule Report' Popup");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			reportsPage.clickOnAddScheduleReportButton();
@@ -224,18 +203,14 @@ public class ScheduleReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 6, description = "TC_ScheduleReport_075 Verify the Save button functionality of 'Add Schedule Report' Popup if left all fields ")
+	@Test(priority = 6, description = "TC_ScheduleReport_074 Verify the Save button functionality of 'Add Schedule Report' Popup if left all fields ")
 	public void Verify_the_Save_button_functionality_of_Add_Schedule_Report_Popup_if_left_all_fields() {
 
 		try {
-			log.info("************************* TC-075*************************");
+			log.info("************************* TC-074*************************");
 			extentTest.setDescription(
-					"TC_ScheduleReport_075 Verify the Save button functionality of 'Add Schedule Report' Popup if left all fields ");
+					"TC_ScheduleReport_074 Verify the Save button functionality of 'Add Schedule Report' Popup if left all fields ");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			reportsPage.clickOnAddScheduleReportButton();
@@ -271,18 +246,14 @@ public class ScheduleReportTest extends BaseSetup {
 	}
 	
 	
-	@Test(priority = 7, description = "TC_ScheduleReport_076 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Trip Stop Detailed, daily period ")
-	public void Verify_the_Save_button_functionality_of_Add_Schedule_Report_Popup_if_fill_up_all_fields_with_Trip_Stop_Detailed_daily_period() {
+	@Test(priority = 7, description = "TC_ScheduleReport_075 a) Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Trip Stop Detailed and daily period ")
+	public void Verify_the_Save_button_functionality_of_Add_Schedule_Report_Popup_if_fill_up_all_fields_with_Trip_Stop_Detailed_and_daily_period() {
 
 		try {
-			log.info("************************* TC-076*************************");
+			log.info("************************* TC-075*************************");
 			extentTest.setDescription(
-					"TC_ScheduleReport_076 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Trip Stop Detailed, daily period ");
+					"TC_ScheduleReport_075 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Trip Stop Detailed and daily period ");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			reportsPage.clickOnAddScheduleReportButton();
@@ -295,25 +266,21 @@ public class ScheduleReportTest extends BaseSetup {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			logError("Unable To Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Trip Stop Detailed, daily period "
+			logError("Unable To Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Trip Stop Detailed and daily period "
 					+ UtilityMethods.getStackTrace());
 			Assert.fail(
-					"Unable To Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Trip Stop Detailed, daily period");
+					"Unable To Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Trip Stop Detailed and daily period");
 		}
 	}
 	
-	@Test(priority = 8, description = "TC_ScheduleReport_077 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Trip Stop Detailed, Weekly period ")
+	@Test(priority = 8, description = "TC_ScheduleReport_076 b) Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Trip Stop Detailed, Weekly period ")
 	public void Verify_the_Save_button_functionality_of_Add_Schedule_Report_Popup_if_fill_up_all_fields_with_Trip_Stop_Detailed_Weekly_period() {
 
 		try {
-			log.info("************************* TC-077*************************");
+			log.info("************************* TC-076*************************");
 			extentTest.setDescription(
 					"TC_ScheduleReport_076 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Trip Stop Detailed, Weekly period ");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			reportsPage.clickOnAddScheduleReportButton();
@@ -333,18 +300,14 @@ public class ScheduleReportTest extends BaseSetup {
 		}
 	}
 	
-	@Test(priority = 9, description = "TC_ScheduleReport_078 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Trip Stop Detailed, monthly period")
+	@Test(priority = 9, description = "TC_ScheduleReport_077 c) Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Trip Stop Detailed, monthly period")
 	public void Verify_the_Save_button_functionality_of_Add_Schedule_Report_Popup_if_fill_up_all_fields_with_Trip_Stop_Detailed_Monthly_period() {
 
 		try {
-			log.info("************************* TC-078*************************");
+			log.info("************************* TC-077*************************");
 			extentTest.setDescription(
-					"TC_ScheduleReport_078 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Trip Stop Detailed, monthly period");
+					"TC_ScheduleReport_077 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Trip Stop Detailed, monthly period");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			reportsPage.clickOnAddScheduleReportButton();
@@ -364,18 +327,14 @@ public class ScheduleReportTest extends BaseSetup {
 		}
 	}
 	
-	@Test(priority = 10, description = "TC_ScheduleReport_079 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields  with Speeding Report, Daily period")
+	@Test(priority = 10, description = "TC_ScheduleReport_078 d) Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields  with Speeding Report, Daily period")
 	public void Verify_the_Save_button_functionality_of_Add_Schedule_Report_Popup_if_fill_up_all_fields_with_Speeding_Report_Daily_period() {
 
 		try {
-			log.info("************************* TC-079*************************");
+			log.info("************************* TC-078*************************");
 			extentTest.setDescription(
 					"TC_ScheduleReport_078 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields  with Speeding Report, Daily period");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			reportsPage.clickOnAddScheduleReportButton();
@@ -397,18 +356,14 @@ public class ScheduleReportTest extends BaseSetup {
 		}
 	}
 	
-	@Test(priority = 11, description = "TC_ScheduleReport_080 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields  with Speeding Report, Weekly period")
+	@Test(priority = 11, description = "TC_ScheduleReport_079 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields  with Speeding Report, Weekly period")
 	public void Verify_the_Save_button_functionality_of_Add_Schedule_Report_Popup_if_fill_up_all_fields_with_Speeding_Report_Weekly_period() {
 
 		try {
-			log.info("************************* TC-080*************************");
+			log.info("************************* TC-079*************************");
 			extentTest.setDescription(
-					"TC_ScheduleReport_078 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields  with Speeding Report, Weekly period");
+					"TC_ScheduleReport_079 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields  with Speeding Report, Weekly period");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			reportsPage.clickOnAddScheduleReportButton();
@@ -430,7 +385,7 @@ public class ScheduleReportTest extends BaseSetup {
 		}
 	}
 	
-	@Test(priority = 12, description = "TC_ScheduleReport_080 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Speeding Report, Monthly period")
+	@Test(priority = 12, description = "TC_ScheduleReport_080 f) Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Speeding Report, Monthly period")
 	public void Verify_the_Save_button_functionality_of_Add_Schedule_Report_Popup_if_fill_up_all_fields_with_Speeding_Report_Monthly_period() {
 
 		try {
@@ -438,10 +393,6 @@ public class ScheduleReportTest extends BaseSetup {
 			extentTest.setDescription(
 					"TC_ScheduleReport_078 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields  with Speeding Report, Monthly period");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			reportsPage.clickOnAddScheduleReportButton();
@@ -463,7 +414,7 @@ public class ScheduleReportTest extends BaseSetup {
 		}
 	}
 	
-	@Test(priority = 13, description = "TC_ScheduleReport_081 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Events Report, Daily period")
+	@Test(priority = 13, description = "TC_ScheduleReport_081 g) Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Events Report, Daily period")
 	public void Verify_the_Save_button_functionality_of_Add_Schedule_Report_Popup_if_fill_up_all_fields_with_Events_Report_Daily_period() {
 
 		try {
@@ -471,10 +422,6 @@ public class ScheduleReportTest extends BaseSetup {
 			extentTest.setDescription(
 					"TC_ScheduleReport_080 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Events Report, Daily period");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			reportsPage.clickOnAddScheduleReportButton();
@@ -495,7 +442,7 @@ public class ScheduleReportTest extends BaseSetup {
 		}
 	}
 	
-	@Test(priority = 14, description = "TC_ScheduleReport_082 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Events Report, Weekly period")
+	@Test(priority = 14, description = "TC_ScheduleReport_082 h) Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Events Report, Weekly period")
 	public void Verify_the_Save_button_functionality_of_Add_Schedule_Report_Popup_if_fill_up_all_fields_with_Events_Report_Weekly_period() {
 
 		try {
@@ -503,10 +450,6 @@ public class ScheduleReportTest extends BaseSetup {
 			extentTest.setDescription(
 					"TC_ScheduleReport_078 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Events Report, Weekly period");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			reportsPage.clickOnAddScheduleReportButton();
@@ -527,7 +470,7 @@ public class ScheduleReportTest extends BaseSetup {
 		}
 	}
 	
-	@Test(priority = 15, description = "TC_ScheduleReport_083 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Events Report, Monthly period")
+	@Test(priority = 15, description = "TC_ScheduleReport_083 i) Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Events Report, Monthly period")
 	public void Verify_the_Save_button_functionality_of_Add_Schedule_Report_Popup_if_fill_up_all_fields_with_Events_Report_Monthly_period() {
 
 		try {
@@ -535,10 +478,6 @@ public class ScheduleReportTest extends BaseSetup {
 			extentTest.setDescription(
 					"TC_ScheduleReport_078 Verify the Save button functionality of 'Add Schedule Report' Popup if fill-up all fields with Events Report, Monthly period");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			reportsPage.clickOnAddScheduleReportButton();
@@ -560,17 +499,13 @@ public class ScheduleReportTest extends BaseSetup {
 		}
 	}
 	
-	@Test(priority = 16, description = "TC_ScheduleReport_083 Verify the 'Cancel' functionality on 'Add Schedule Report'")
+	@Test(priority = 16, description = "TC_ScheduleReport_084 Verify the 'Cancel' functionality on 'Add Schedule Report'")
 	public void Verify_the_Cancel_functionality_on_Add_Schedule_Report() {
 
 		try {
-			log.info("************************* TC-083*************************");
-			extentTest.setDescription("TC_Reports_Events Reports_066 Verify the 'Cancel' functionality on 'Add Schedule Report'");
+			log.info("************************* TC-084*************************");
+			extentTest.setDescription("TC_Reports_Events Reports_084 Verify the 'Cancel' functionality on 'Add Schedule Report'");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			reportsPage.clickOnAddScheduleReportButton();
@@ -586,17 +521,13 @@ public class ScheduleReportTest extends BaseSetup {
 		}
 	}
 	
-	@Test(priority = 17, description = "TC_Reports_Speeding Report_084 Verify the 'cross' (×) button functionality on 'Add Schedule Report'")
+	@Test(priority = 17, description = "TC_Reports_Speeding Report_085 Verify the 'cross' (×) button functionality on 'Add Schedule Report'")
 	public void Verify_the_cross_button_functionality_on_Add_Schedule_Report() {
 
 		try {
-			log.info("************************* TC-084*************************");
-			extentTest.setDescription("TC_Reports_Speeding Report_084 Verify the 'cross' (×) button functionality on 'Add Schedule Report'");
+			log.info("************************* TC-085*************************");
+			extentTest.setDescription("TC_Reports_Speeding Report_085 Verify the 'cross' (×) button functionality on 'Add Schedule Report'");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
@@ -613,17 +544,13 @@ public class ScheduleReportTest extends BaseSetup {
 		}
 	}
 	
-	@Test(priority = 18,  description = "TC_ScheduleReport_085 Verify the search functionality ")
+	@Test(priority = 18,  description = "TC_ScheduleReport_086 Verify the search functionality ")
 	public void Verify_the_search_functionality() {
 
 		try {
-			log.info("************************* TC-85*************************");
-			extentTest.setDescription("TC_ScheduleReport_085 To verify the search functionality ");
+			log.info("************************* TC-86*************************");
+			extentTest.setDescription("TC_ScheduleReport_086 To verify the search functionality ");
 			reportsPage = new ReportsPage(getDriver());
-			loginPage = new LoginPage(getDriver());
-			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			reportsPage.searchReport("MB02-Teltonika");
@@ -636,17 +563,13 @@ public class ScheduleReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 19, enabled = false, description = "TC_ScheduleReport_086 To verify the pagination functionality")
+	@Test(priority = 19, enabled = false, description = "TC_ScheduleReport_087 To verify the pagination functionality")
 	public void Verify_the_pagination_functionality() {
 
 		try {
-			log.info("************************* TC-104************************");
+			log.info("************************* TC-87************************");
 			extentTest.setDescription("TC_ScheduleReport_086 To Verify the pagination functionality");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarScheduleReport();
 			reportsPage.checkPagination();

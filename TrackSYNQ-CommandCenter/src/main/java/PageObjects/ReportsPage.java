@@ -9,6 +9,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+
+import com.sun.webkit.ContextMenu.ShowContext;
+
 import Common.ConfigManager;
 import Common.ActionMethods;
 
@@ -16,10 +21,6 @@ public class ReportsPage extends ActionMethods {
 
 	private String reportsSidebar = "xpath://body//li[17]";
 	private String reportsSidebarTripStopDetailed = "xpath://a[contains(text(),'Trips Report')]";
-	private String reportsSidebarSpeedingReport = "xpath://a[contains(text(),'Speeding Report')]";
-	private String reportsSidebarEventsReport = "xpath://a[contains(text(),'Events Report')]";
-	private String reportsSidebarScheduleReport = "xpath://a[contains(text(),'Schedule Report')]";
-	private String reportsSidebarReportsLog = "xpath://a[contains(text(),'Report Logs')]";
 	private String emailOnDemands = "xpath://div[@class='ant-card-head']//button[1]";
 	private String cancelButtonEmailOnDemands = "xpath://button[@class='ant-btn ant-btn-danger']";
 	private String crossButtonEmailOnDemands = "xpath://span[@class='ant-modal-close-x']";
@@ -29,10 +30,8 @@ public class ReportsPage extends ActionMethods {
 	private String periodLabel = "css:label[for='period']";
 	private String speedFilterLabel = "css:label[for='filter']";
 	private String speedLabel = "css:label[for='speed']";
-	private String PDF = "xpath://div//div[@class='ant-card-head-wrapper']//div[2]//button[2]";
-	private String CSV = "xpath://div//div[@class='ant-card-head-wrapper']//div[2]//button[3]";
-	private String HTML = "xpath://div//div[@class='ant-card-head-wrapper']//div[2]//button[4]";
-	private String reportHeadingColumn = "xpath://div[@class='ant-table-wrapper']//th";
+	private String PDF = "xpath://div//div[@class='ant-card-head-wrapper']//div[2]//button[num]";
+	private String reportHeadingColumn = "xpath://div[@class='ant-table-wrapper']//th[num]";
 	private String email = "css:td.alert.alert-warning";
 	private String deleteEmailOnYopmail = "xpath://table[@class='barreinbox']//tbody//tr//td[2]";
 	private String deleteEmptyEmailOnYopmail = "xpath://a[@class='igif lmen_all']";
@@ -42,8 +41,6 @@ public class ReportsPage extends ActionMethods {
 	private String reportsLink = "xpath://div[@class='ant-breadcrumb']//span[text()= 'Reports']";
 	private String reportsLogsLink = "xpath://div[@class='ant-breadcrumb']//span[text()= 'Report Logs']";
 	private String tripStopDetailedLink = "xpath://div[@class='ant-breadcrumb']//span[text()= 'Trips Report']";
-	private String speedingReportLink = "xpath://div[@class='ant-breadcrumb']//span[text()= 'Speeding Report']";
-	private String eventsReportLink = "xpath://div[@class='ant-breadcrumb']//span[text()= 'Events Report']";
 	private String scheduleReportLink = "xpath://span[contains(text(),'Schedule Report')]";
 	private String reportsLogsTitle = "xpath://div[@class='ant-card-head-title']";
 	private String reportLogsDropdown = "xpath://div[@class='ant-select-selection-selected-value']";
@@ -55,17 +52,17 @@ public class ReportsPage extends ActionMethods {
 	private String addScheduleReportButton = "xpath://div[@class='extrabtn']//button[@class='ant-btn ant-btn-primary']";
 	private String speedDropdownPlaceholder = "css:div[title='Select Speed']";
 	private String periodDropdownDaily = "xpath://li[contains(text(),'Daily')]";
-	private String periodDropdownWeekly = "xpath://li[contains(text(),'Weekly')]";
-	private String periodDropdownMonthly = "xpath://li[contains(text(),'Monthly')]";
-	private String periodDropdownCustom = "xpath://li[contains(text(),'Custom')]";
 	private String startDate = "xpath://span[@id='start_date']//input[@placeholder='Select date']";
 	private String previousMonth = "css:a[title='Previous month (PageUp)']";
 	private String selectMarchFirstdate = "xpath://tr[1]//td[6]//div[@class='ant-calendar-date']";
-	private String EndDate = "xpath://span[@id='end_date']//input[@placeholder='Select date']";
+	private String endDate = "xpath://span[@id='end_date']//input[@placeholder='Select date']";
+	
+	
+	
 	private String startDateValidationMessage = "xpath://div[contains(text(),'Please Select Start Date')]";
 	private String endDateValidationMessage = "xpath://div[contains(text(),'Please Select End Date')]";
 	private String getReportLogsValueDropdown = "xpath://ul//li[contains(text(),'Vehicle Name')]";
-	private String getReportLogsHeadingText = "xpath://ul//li[contains(text(),'Object Name')]";
+	private String getReportLogsHeadingText = "xpath://ul//li[contains(text(),'Vehicle Name')]";
 	private String searchField = "css:input.ant-input.ant-select-search__field";
 	private String pagination = "css:ul.ant-pagination.ant-table-pagination.mini";
 	private String emailOnDemandDialogTitle = "css:div#rcDialogTitle0";
@@ -73,7 +70,10 @@ public class ReportsPage extends ActionMethods {
 	private String tripReportObject = "css:div#device_id";
 	private String vehicleName = "xpath://li[contains(text(),'Vehicle01')]";
 	private String emailOnDemandCancelBtn = "xpath://button[@class='ant-btn ant-btn-danger']";
+//	private String addScheduleReportSaveBtn = "xpath://button[@class='ant-btn ant-btn-primary']";
 	private String addScheduleReportSaveBtn = "xpath://div[@class='ant-modal-footer']//button[@class='ant-btn ant-btn-primary']";
+	
+	
 	private String emailOnDemandSendRequestBtn = "xpath://div[@class='ant-modal-body']//button[@class='ant-btn ant-btn-primary']";
 	private String emailOnDemandCrossBtn = "css:span.ant-modal-close-x";
 	private String emailOnDemandEmailField = "css:input#email_on_demand";
@@ -90,7 +90,6 @@ public class ReportsPage extends ActionMethods {
 	private String vehiclePlaceholder = "xpath://div[text()='Select Vehicle']";
 	private String scheduleName = "css:input[placeholder='Enter Schedule Name']";
 	private String periodField = "xpath://div[@class='ant-select-selection-selected-value'][contains(text(),'Select Period')]";
-	private String reportField = "xpath://div[@class='ant-select-selection-selected-value'][contains(text(),'Select Report')]";
 	private String selectObjectValidation = "xpath://div[contains(text(),'Please Select Vehicle')]";
 	private String selectReportPeriodValidation = "xpath://div[contains(text(),'Please Select Report Period')]";
 	private String selectPeriodValidation = "xpath://div[contains(text(),'Please Select Period')]";
@@ -103,7 +102,10 @@ public class ReportsPage extends ActionMethods {
 	private String listData = "xpath://tbody[@class='ant-table-tbody']//tr";
 	private String scheduleNameValidation = "xpath://div[text()='Please Enter Schedule Name']";
 	private String addScheduleReportPopup = "css:div.ant-modal";
-
+	private String startTime = "css:#startTime";
+	private String endTime = "css:#startTime";
+	
+	
 	static WebDriver driver;
 	public String errorMsg;
 	public String backgroundColor, color, fontFamily;
@@ -117,19 +119,20 @@ public class ReportsPage extends ActionMethods {
 		config = new ConfigManager();
 	}
 
+	// This function is used for click on Reports Side bar
 	public void clickOnReportsSidebar() {
 		mouseHover(reportsSidebar, LONGWAIT);
-		// waitForElementClickable(reportsSidebar, LONGWAIT);
 		safeClick(reportsSidebar, SHORTWAIT);
 	}
 
+	// This function is used for click on report logs side bar
 	public void clickOnReportsSidebarReportsLog() {
 		mouseHover(reportsSidebar, LONGWAIT);
-		mouseHover(reportsSidebarReportsLog, MEDIUMWAIT);
-		waitForElementClickable(reportsSidebarReportsLog, MEDIUMWAIT);
-		safeClick(reportsSidebarReportsLog, MEDIUMWAIT);
+		mouseHover(reportsSidebarTripStopDetailed.replace("Trips Report", "Report Logs"), MEDIUMWAIT);
+		safeClick(reportsSidebarTripStopDetailed.replace("Trips Report", "Report Logs"), MEDIUMWAIT);
 	}
 
+	// This function is used for click on Trips Report side bar
 	public void clickOnReportsSidebarTripStopDetailed() {
 		mouseHover(reportsSidebar, LONGWAIT);
 		mouseHover(reportsSidebarTripStopDetailed, MEDIUMWAIT);
@@ -137,56 +140,69 @@ public class ReportsPage extends ActionMethods {
 		safeClick(reportsSidebarTripStopDetailed, MEDIUMWAIT);
 	}
 
+	// This function is used for click on Speeding Report side bar
 	public void clickOnReportsSidebarSpeedingReport() {
 		mouseHover(reportsSidebar, LONGWAIT);
-		mouseHover(reportsSidebarSpeedingReport, MEDIUMWAIT);
-		waitForElementClickable(reportsSidebarSpeedingReport, MEDIUMWAIT);
-		safeClick(reportsSidebarSpeedingReport, MEDIUMWAIT);
+		mouseHover(reportsSidebarTripStopDetailed.replace("Trips Report", "Speeding Report"), MEDIUMWAIT);
+		safeJavaScriptClick(reportsSidebarTripStopDetailed.replace("Trips Report", "Speeding Report"));
 	}
 
+	// This function is used for click on Events Report side bar
 	public void clickOnReportsSidebarEventsReport() {
 		mouseHover(reportsSidebar, LONGWAIT);
-		mouseHover(reportsSidebarEventsReport, MEDIUMWAIT);
-		waitForElementClickable(reportsSidebarEventsReport, MEDIUMWAIT);
-		safeClick(reportsSidebarEventsReport, MEDIUMWAIT);
+		mouseHover(reportsSidebarTripStopDetailed.replace("Trips Report", "Events Report"), MEDIUMWAIT);
+		safeClick(reportsSidebarTripStopDetailed.replace("Trips Report", "Events Report"), MEDIUMWAIT);
 	}
 
+	// This function is used for click on Schedule Report side bar
 	public void clickOnReportsSidebarScheduleReport() {
 		mouseHover(reportsSidebar, LONGWAIT);
-		mouseHover(reportsSidebarScheduleReport, MEDIUMWAIT);
-		waitForElementClickable(reportsSidebarScheduleReport, MEDIUMWAIT);
-		safeClick(reportsSidebarScheduleReport, MEDIUMWAIT);
+		mouseHover(reportsSidebarTripStopDetailed.replace("Trips Report", "Schedule Report"), MEDIUMWAIT);
+		safeClick(reportsSidebarTripStopDetailed.replace("Trips Report", "Schedule Report"), MEDIUMWAIT);
 	}
+	
+	// This function is used for click on History Points side bar
+		public void clickOnReportsSidebarHistoryPoints() {
+			mouseHover(reportsSidebar, LONGWAIT);
+			mouseHover(reportsSidebarTripStopDetailed.replace("Trips Report", "History Points"), MEDIUMWAIT);
+			safeClick(reportsSidebarTripStopDetailed.replace("Trips Report", "History Points"), MEDIUMWAIT);
+		}
 
+	// This function is used for check the presence of Trips Report
 	public boolean isreportsSidebarTripStopDetailedPresent() {
 		mouseHover(reportsSidebarTripStopDetailed, MEDIUMWAIT);
 		return isElementVisible(reportsSidebarTripStopDetailed, LONGWAIT);
 	}
 
+	// This function is used for check the presence of Reports Log
 	public boolean isReportsSidebarReportsLogPresent() {
 		mouseHover(reportsSidebar, LONGWAIT);
-		mouseHover(reportsSidebarReportsLog, MEDIUMWAIT);
-		return isElementVisible(reportsSidebarReportsLog, LONGWAIT);
+		mouseHover(reportsSidebarTripStopDetailed.replace("Trips Report", "Report Logs"), MEDIUMWAIT);
+		return isElementVisible(reportsSidebarTripStopDetailed.replace("Trips Report", "Report Logs"), LONGWAIT);
 	}
 
+	// This function is used for check the presence of Speeding Report
 	public boolean isReportsSidebarSpeedingReportPresent() {
 		mouseHover(reportsSidebar, LONGWAIT);
-		mouseHover(reportsSidebarSpeedingReport, MEDIUMWAIT);
-		return isElementVisible(reportsSidebarSpeedingReport, LONGWAIT);
+		mouseHover(reportsSidebarTripStopDetailed.replace("Trips Report", "Speeding Report"), MEDIUMWAIT);
+		return isElementVisible(reportsSidebarTripStopDetailed.replace("Trips Report", "Speeding Report"), LONGWAIT);
 	}
 
+	// This function is used for check the presence of Events Report
 	public boolean isReportsSidebarEventsReportPresent() {
 		mouseHover(reportsSidebar, LONGWAIT);
-		mouseHover(reportsSidebarEventsReport, MEDIUMWAIT);
-		return isElementVisible(reportsSidebarEventsReport, LONGWAIT);
+		mouseHover(reportsSidebarTripStopDetailed.replace("Trips Report", "Events Report"), MEDIUMWAIT);
+		return isElementVisible(reportsSidebarTripStopDetailed.replace("Trips Report", "Events Report"), LONGWAIT);
 	}
 
+	// This function is used for check the presence of Schedule Report
 	public boolean isReportsSidebarScheduleReportPresent() {
 		mouseHover(reportsSidebar, LONGWAIT);
-		mouseHover(reportsSidebarScheduleReport, MEDIUMWAIT);
-		return isElementVisible(reportsSidebarScheduleReport, LONGWAIT);
+		mouseHover(reportsSidebarTripStopDetailed.replace("Trips Report", "Schedule Report"), MEDIUMWAIT); 
+		return isElementVisible(reportsSidebarTripStopDetailed.replace("Trips Report", "Schedule Report"), LONGWAIT);
 	}
 
+	// This function is used for click on Email on Demands Button
 	public void clickOnEmailOnDemands() {
 		needToWait(SHORTWAIT);
 		mouseHover(emailOnDemands, SHORTWAIT);
@@ -194,40 +210,36 @@ public class ReportsPage extends ActionMethods {
 		safeJavaScriptClick(emailOnDemands);
 	}
 
+	// This function is used for click on cancel button in email on demands button
 	public void clickOnCancelButtonEmailOnDemands() {
 		waitForElementClickable(cancelButtonEmailOnDemands, LONGWAIT);
 		safeJavaScriptClick(cancelButtonEmailOnDemands);
 	}
 
+	// This function is used for click on cancel button in email on demands button
+	public boolean isCancelButtonPresent() {
+
+		return isElementVisible(cancelButtonEmailOnDemands, SHORTWAIT);
+	}
+
+	// This function is used for click on cross icon in email on demands button
 	public void clickOnCrossButtonEmailOnDemands() {
 		waitForElementClickable(crossButtonEmailOnDemands, LONGWAIT);
 		safeJavaScriptClick(crossButtonEmailOnDemands);
 	}
 
-	public void clickOnPDF() {
-		scrollIntoViewThroughJavaScriptExecuter(PDF);
-		mouseHover(PDF, LONGWAIT);
-		waitForElementClickable(PDF, LONGWAIT);
-		safeJavaScriptClick(PDF);
-		 needToWait(6);
+	// This function is used for click on PDF Download button
+	public void clickOnPDF(int num) {
+		scrollIntoViewThroughJavaScriptExecuter(PDF.replace("num", num+""));
+		mouseHover(PDF.replace("num", num+""), LONGWAIT);
+		waitForElementClickable(PDF.replace("num", num+""), LONGWAIT);
+		safeJavaScriptClick(PDF.replace("num", num+""));
+       needToWait(MEDIUMWAIT);
 	}
 
-	public void clickOnCSV() {
-		scrollIntoViewThroughJavaScriptExecuter(PDF);
-		mouseHover(CSV, LONGWAIT);
-		waitForElementClickable(CSV, LONGWAIT);
-		safeJavaScriptClick(CSV);
-        needToWait(6);
-	}
 
-	public void clickOnHTML() {
-		scrollIntoViewThroughJavaScriptExecuter(HTML);
-		mouseHover(HTML, LONGWAIT);
-		waitForElementClickable(HTML, LONGWAIT);
-		safeJavaScriptClick(HTML);
-		 needToWait(6);
-	}
 
+	// This function is used for check the presence of Email
 	public boolean isEmailPresent() {
 		return isElementVisible(email, LONGWAIT);
 	}
@@ -241,6 +253,7 @@ public class ReportsPage extends ActionMethods {
 //		
 //	}
 
+	// This function is used for enter the email address on email on demands pop-up
 	public void enterEmailAddessOnEmailDemands(String strEmailAdd) {
 		waitForPageToLoad();
 		waitForElementPresent(emailOnDemandType, SHORTWAIT);
@@ -248,42 +261,33 @@ public class ReportsPage extends ActionMethods {
 	}
 
 	public boolean isReportHomeLinkPresent() {
-		return isElementVisible(reportHomeLink, LONGWAIT);
+		return isElementVisible(reportHomeLink, SHORTWAIT);
 	}
 
 	public boolean isReportsLinkPresent() {
-		return isElementVisible(reportsLink, LONGWAIT);
+		return isElementVisible(reportsLink, SHORTWAIT);
 	}
 
 	public boolean isReportsLogsLinkPresent() {
-		return isElementVisible(reportsLogsLink, LONGWAIT);
+		return isElementVisible(reportsLogsLink, SHORTWAIT);
 	}
 
 	public String getCssValueReportsLogsTitle() {
-		color = getCssValue(reportsLogsTitle, "color", MEDIUMWAIT);
+		color = getCssValue(reportsLogsTitle, "color", SHORTWAIT);
 		return color;
 	}
 
 	public boolean isEmailOnDemandsPresent() {
-		return isElementVisible(emailOnDemands, LONGWAIT);
+		return isElementVisible(emailOnDemands,SHORTWAIT);
 
 	}
 
-	public boolean isPDFPresent() {
-		return isElementVisible(PDF, LONGWAIT);
+	public boolean isPDFPresent(int num) {
+		return isElementVisible(PDF.replace("num", num+""), SHORTWAIT);
 	}
 
-	public boolean isCSVPresent() {
-		return isElementVisible(CSV, LONGWAIT);
-	}
-
-	public boolean isHTMLPresent() {
-		return isElementVisible(HTML, LONGWAIT);
-	}
-
-	public boolean isReportHeadingColumnPresent(int i) {
-		return isElementVisible(reportHeadingColumn, LONGWAIT);
-
+	public boolean isReportHeadingColumnPresent(int num) {
+		return isElementVisible(reportHeadingColumn.replace("num", num + ""), SHORTWAIT);
 	}
 
 	public void clickOnReportLogsDropDown() {
@@ -295,24 +299,23 @@ public class ReportsPage extends ActionMethods {
 	}
 
 	public void clickOnReportTripStopDetailedDropdownOption() {
-		safeJavaScriptClick(reportField);
+		safeJavaScriptClick(periodField.replace("Select Period", "Select Report"));
 		safeJavaScriptClick(reportTripStopDetailedDropdownOption);
 	}
 
 	public void clickOnReportSpeedingReportDropdownOption() {
-		safeJavaScriptClick(reportField);
+		safeJavaScriptClick(periodField.replace("Select Period", "Select Report"));
 		safeJavaScriptClick(reportTripStopDetailedDropdownOption.replace("Trip Stop Detailed", "Speeding Report"));
 	}
 
 	public void clickOnReportEventsReportDropdownOption() {
-		safeJavaScriptClick(reportField);
+		safeJavaScriptClick(periodField.replace("Select Period", "Select Report"));
 		safeJavaScriptClick(reportTripStopDetailedDropdownOption.replace("Trip Stop Detailed", "Events Report"));
 	}
 
 	public void selectAddScheduleReportVehicle() {
 		safeClick(tripReportObject, SHORTWAIT);
 		safeClick(vehicleName, SHORTWAIT);
-
 	}
 
 	public void selectAddScheduleReportDailyPeriod() {
@@ -331,7 +334,7 @@ public class ReportsPage extends ActionMethods {
 	}
 
 	public boolean isMonthDayDrpDwnPresent() {
-		return isElementVisible(monthDayDrpDwn, LONGWAIT);
+		return isElementVisible(monthDayDrpDwn, SHORTWAIT);
 
 	}
 
@@ -349,7 +352,7 @@ public class ReportsPage extends ActionMethods {
 	}
 
 	public boolean isAddScheduleReportButtonPresent() {
-		return isElementVisible(addScheduleReportButton, LONGWAIT);
+		return isElementVisible(addScheduleReportButton, SHORTWAIT);
 
 	}
 
@@ -378,7 +381,7 @@ public class ReportsPage extends ActionMethods {
 		scrollIntoElementView(periodDropdownSelect);
 		waitForElementPresent(periodDropdownSelect, SHORTWAIT);
 		safeJavaScriptClick(periodDropdownSelect);
-		safeJavaScriptClick(periodDropdownWeekly);
+		safeJavaScriptClick(periodDropdownDaily.replace("Daily", "Weekly"));
 		safeJavaScriptClick(searchButton);
 
 	}
@@ -389,7 +392,7 @@ public class ReportsPage extends ActionMethods {
 		scrollIntoElementView(periodDropdownSelect);
 		waitForElementPresent(periodDropdownSelect, SHORTWAIT);
 		safeJavaScriptClick(periodDropdownSelect);
-		safeJavaScriptClick(periodDropdownMonthly);
+		safeJavaScriptClick(periodDropdownDaily.replace("Daily", "Monthly"));
 		safeJavaScriptClick(searchButton);
 
 	}
@@ -417,7 +420,7 @@ public class ReportsPage extends ActionMethods {
 	}
 
 	public boolean isAntNotificationMessagePresent() {
-		return isElementPresent(antNotificationMessage, LONGWAIT);
+		return isElementPresent(antNotificationMessage, SHORTWAIT);
 
 	}
 
@@ -447,7 +450,7 @@ public class ReportsPage extends ActionMethods {
 	}
 
 	public boolean isReportHeadinglistData() {
-		return isElementVisible(listData, LONGWAIT);
+		return isElementVisible(listData, MEDIUMWAIT);
 
 	}
 
@@ -458,7 +461,7 @@ public class ReportsPage extends ActionMethods {
 	}
 
 	public String getSelectReportPlaceholder() {
-		String SelectReportplaceholder = safeGetText(reportField, LONGWAIT);
+		String SelectReportplaceholder = safeGetText(periodField.replace("Select Period", "Select Report"), LONGWAIT);
 		log.info("get Select Report placeholder  ");
 		return SelectReportplaceholder;
 	}
@@ -548,7 +551,7 @@ public class ReportsPage extends ActionMethods {
 		return isElementVisible(emailOnDemandCancelBtn, LONGWAIT);
 	}
 
-	public boolean isAadScheduleReportSaveBtnPresent() {
+	public boolean isAddScheduleReportSaveBtnPresent() {
 		return isElementVisible(addScheduleReportSaveBtn, LONGWAIT);
 	}
 
@@ -587,7 +590,7 @@ public class ReportsPage extends ActionMethods {
 	}
 
 	public boolean isReportFieldPresent() {
-		return isElementVisible(reportField, LONGWAIT);
+		return isElementVisible(periodField.replace("Select Period", "Select Report"), LONGWAIT);
 	}
 
 	public boolean isVehicleFieldPresent() {
@@ -627,25 +630,25 @@ public class ReportsPage extends ActionMethods {
 	}
 
 	public boolean isPeriodDropdownWeeklyPresent() {
-		return isElementVisible(periodDropdownWeekly, LONGWAIT);
+		return isElementVisible(periodDropdownDaily.replace("Daily","Weekly"), LONGWAIT);
 	}
 
 	public boolean isPeriodDropdownMonthlyPresent() {
-		return isElementVisible(periodDropdownMonthly, LONGWAIT);
+		return isElementVisible(periodDropdownDaily.replace("Daily","Monthly"), LONGWAIT);
 	}
 
 	public boolean isPeriodDropdownCustomPresent() {
-		return isElementVisible(periodDropdownCustom, LONGWAIT);
+		return isElementVisible(periodDropdownDaily.replace("Daily","Custom"), LONGWAIT);
 	}
 
 	public void ClickOnPeriodDropdownCustom() {
-		waitForElementPresent(periodDropdownCustom, SHORTWAIT);
-		safeClick(periodDropdownCustom, MEDIUMWAIT);
-	}
+		waitForElementPresent(periodDropdownDaily.replace("Daily"," Custom"), SHORTWAIT);
+		safeClick(periodDropdownDaily.replace("Daily"," Custom"), MEDIUMWAIT);
+		}
 
 	public void ClickOnStartDateCustom() {
-		waitForElementPresent(startDate, SHORTWAIT);
-		safeClick(startDate, MEDIUMWAIT);
+		waitForElementPresent(startDate, MEDIUMWAIT);
+		safeJavaScriptClick(startDate);
 	}
 
 	public void ClickOnPreviousMonthOnStartDateCustom() {
@@ -663,12 +666,12 @@ public class ReportsPage extends ActionMethods {
 	}
 
 	public boolean isEndDatePresentOnCustom() {
-		return isElementVisible(EndDate, LONGWAIT);
+		return isElementVisible(endDate, LONGWAIT);
 	}
 
 	public void ClickOnEndDateCustom() {
-		waitForElementPresent(EndDate, SHORTWAIT);
-		safeClick(EndDate, MEDIUMWAIT);
+		waitForElementPresent(endDate, SHORTWAIT);
+		safeClick(endDate, MEDIUMWAIT);
 
 	}
 
@@ -718,13 +721,12 @@ public class ReportsPage extends ActionMethods {
 
 	}
 
-	public String getStartDatePlaceholder() {
-		String startDateText = driver
-				.findElement(
-						By.xpath("//div[@class='ant-form-item-control-wrapper']//input[@placeholder='Select date']"))
-				.getAttribute("placeholder");
-		return startDateText;
-	}
+	// This function is used for Start Date  Field Placeholder
+		public String getStartDatePlaceholder() {
+			String startDateText = safeGetAttribute(startDate, "Placeholder", SHORTWAIT);
+			return startDateText;
+		}
+
 
 	public String getStartDateValidationMessage() {
 		waitForPageToLoad();
@@ -739,15 +741,25 @@ public class ReportsPage extends ActionMethods {
 		log.info("Get end Date Validation Message");
 		return endDateValidationMessageText;
 	}
+	
+	// This function is used for End Date  Field Placeholder
+			public String getEndDatePlaceholder() {
+				String startDateText = safeGetAttribute(endDate, "Placeholder", SHORTWAIT);
+				return startDateText;
+			}
 
-	public String getEndDatePlaceholder() {
-		String endDateText = driver
-				.findElement(
-						By.xpath("//div[@class='ant-calendar-date-input-wrap']//input[@placeholder='Select date']"))
-				.getAttribute("placeholder");
-		return endDateText;
-	}
-
+			// This function is used for Start Time Field Placeholder
+			public String getStarTimePlaceholder() {
+			String startTimeText = safeGetAttribute(startTime, "Placeholder", SHORTWAIT);
+			return startTimeText;
+			}	
+			
+			// This function is used for End Time Field Placeholder
+			public String getEndTimePlaceholder() {
+			String endTimeText = safeGetAttribute(endTime, "Placeholder", SHORTWAIT);
+			return endTimeText;
+			}
+			
 	public boolean isEmailOnDemandSendRequestBtnPresent() {
 		return isElementVisible(emailOnDemandSendRequestBtn, LONGWAIT);
 	}
@@ -759,7 +771,7 @@ public class ReportsPage extends ActionMethods {
 	public void clickOnEmailOnDemandSendRequestBtn() {
 
 		waitForElementPresent(emailOnDemandSendRequestBtn, SHORTWAIT);
-		safeClick(emailOnDemandSendRequestBtn, LONGWAIT);
+		safeJavaScriptClick(emailOnDemandSendRequestBtn);
 	}
 
 	public String getTextEmailOnDemandEmailFieldErrorMessageg() {
@@ -771,6 +783,10 @@ public class ReportsPage extends ActionMethods {
 
 	public boolean isReportLogsPresent() {
 		return isElementVisible(reportLogsPresent, LONGWAIT);
+	}
+
+	public boolean isAddedRolePresent() {
+		return isElementVisible(reportLogsPresent.replace("MB02-Teltonika", "QA_Testing1"), LONGWAIT);
 	}
 
 	public void searchReport(String searchRepo) {
@@ -807,13 +823,14 @@ public class ReportsPage extends ActionMethods {
 		}
 
 		while (!nextButtonClassName.contains("disabled")) {
-			needToWait(4);
+			needToWait(5);
 			driver.findElement(By.cssSelector("li[title='Next Page']")).click();
 			needToWait(3);
 			namesElements = driver.findElements(By.xpath("//tbody[@class='ant-table-tbody']//tr"));
 
 			for (WebElement namesElement : namesElements) {
 				names.add(namesElement.getText());
+
 			}
 
 			nextButtonClassName = driver.findElement(By.cssSelector("li[title='Next Page']")).getAttribute("class");
@@ -850,13 +867,17 @@ public class ReportsPage extends ActionMethods {
 	}
 
 	public boolean isSpeedingReportLinkPresent() {
-		return isElementVisible(speedingReportLink, SHORTWAIT);
+		return isElementVisible(tripStopDetailedLink.replace("Trips Report", "Speeding Report"), SHORTWAIT);
 	}
 
 	public boolean isEventsReportLinkPresent() {
-		return isElementVisible(eventsReportLink, SHORTWAIT);
+		return isElementVisible(tripStopDetailedLink.replace("Trips Report", "Events Report"), SHORTWAIT);
 	}
 
+	public boolean isHistoryPointsLinkPresent() {
+		return isElementVisible(tripStopDetailedLink.replace("Trips Report", "History Points"), SHORTWAIT);
+	}
+	
 	public boolean isScheduleReportLinkPresent() {
 		return isElementVisible(scheduleReportLink, SHORTWAIT);
 	}
@@ -903,4 +924,73 @@ public class ReportsPage extends ActionMethods {
 		safeClick(addScheduleReportSaveBtn, SHORTWAIT);
 	}
 
+	public boolean isStartTimePresent() {
+		return isElementVisible(startTime, SHORTWAIT);
+	}
+	
+	public boolean isEndTimePresent() {
+		return isElementVisible(endTime, SHORTWAIT);
+	}
+	
+	
+	public void emailOnDemandsTooltip() {
+		// Verify the email on demand tooltip
+		String expectedTooltip = "Email On Demand";
+		WebElement emailOnDemand = driver.findElement(By.xpath("//div[@class='ant-card-head']//button[1]"));
+					Actions actions = new Actions(driver);
+					actions.moveToElement(emailOnDemand).perform();
+
+					WebElement toolTipElement = driver.findElement(By.cssSelector("div[role='tooltip']"));
+					needToWait(SHORTWAIT);
+					String actualTooltip = toolTipElement.getText();
+					System.out.println("Actual Title of Tool Tip +++++++++" + actualTooltip);
+					Assert.assertEquals(actualTooltip, expectedTooltip);
+					
+	}
+	
+	public void PDFTooltip() {
+		// Verify the PDF tooltip
+					String expectedTooltip = "Export PDF";
+					WebElement PDF = driver
+							.findElement(By.xpath("//div//div[@class='ant-card-head-wrapper']//div[2]//button[2]"));
+					Actions actions = new Actions(driver);
+					actions.moveToElement(PDF).perform();
+					WebElement toolTipElement = driver.findElement(By.cssSelector("div[role='tooltip']"));
+					needToWait(SHORTWAIT);
+					String actualTooltip = toolTipElement.getText();
+					System.out.println("Actual Title of Tool Tip +++++++++" + actualTooltip);
+					Assert.assertEquals(actualTooltip, expectedTooltip);
+	}
+	
+	
+	public void CSVTooltip() {
+		// Verify the CSV tooltip
+					String expectedTooltip = "Export CSV";
+					WebElement CSV = driver
+							.findElement(By.xpath("//div//div[@class='ant-card-head-wrapper']//div[2]//button[3]"));
+					Actions actions = new Actions(driver);
+					actions.moveToElement(CSV).perform();
+					WebElement toolTipElement = driver.findElement(By.cssSelector("div[role='tooltip']"));
+					needToWait(SHORTWAIT);
+					String actualTooltip = toolTipElement.getText();
+					System.out.println("Actual Title of Tool Tip +++++++++" + actualTooltip);
+					Assert.assertEquals(actualTooltip, expectedTooltip);
+	}
+	
+	
+public void HTMLToolTip() {
+	// Verify the HTML tooltip
+	String expectedTooltip = "Export HTML";
+	WebElement HTML = driver
+			.findElement(By.xpath("//div//div[@class='ant-card-head-wrapper']//div[2]//button[4]"));
+	Actions actions = new Actions(driver);
+	actions.moveToElement(HTML).perform();
+
+	WebElement toolTipElement = driver.findElement(By.cssSelector("div[role='tooltip']"));
+	needToWait(SHORTWAIT);
+	String actualTooltip = toolTipElement.getText();
+	System.out.println("Actual Title of Tool Tip +++++++++" + actualTooltip);
+	Assert.assertEquals(actualTooltip, expectedTooltip);
+}
+	
 }

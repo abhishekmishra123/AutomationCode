@@ -41,7 +41,6 @@ public class DashboardTest extends BaseSetup {
 			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
 			loginPage.enterPassword(config.getProperty("superAdminPassword"));
 			loginPage.clickOnLogInButton();
-
 			Assert.assertTrue(dashboardPage.isDashboardNavbarPresent());
 			String pageUrl = loginPage.getCurrentWebpageURL();
 			if (pageUrl.contains("dashboard")) {

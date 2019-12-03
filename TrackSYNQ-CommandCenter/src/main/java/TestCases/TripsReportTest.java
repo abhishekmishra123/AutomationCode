@@ -15,10 +15,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 
-public class TripStopDetailedTest extends BaseSetup {
+public class TripsReportTest extends BaseSetup {
 	LoginPage loginPage;
 	ReportsPage reportsPage;
-	static Logger log = Logger.getLogger(TripStopDetailedTest.class);
+	static Logger log = Logger.getLogger(TripsReportTest.class);
 	
 
 	@Test(priority = 0, description = "TC_Reports_001 verify the 'Reports' side bar link functionality")
@@ -29,8 +29,8 @@ public class TripStopDetailedTest extends BaseSetup {
 			extentTest.setDescription("TC_Reports_001 verify the 'Reports' side bar link functionality");
 			reportsPage = new ReportsPage(getDriver());
 			loginPage = new LoginPage(getDriver());
-			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-			loginPage.enterPassword(config.getProperty("superAdminPassword"));
+			loginPage.enterEmailAddess(config.getProperty("siteAdminEmailData"));
+			loginPage.enterPassword(config.getProperty("siteAdminPasswordData"));
 			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			Assert.assertTrue(reportsPage.isReportsSidebarReportsLogPresent());
@@ -45,8 +45,7 @@ public class TripStopDetailedTest extends BaseSetup {
 			} else {
 				Assert.assertEquals(1, 0);
 			}
-			
-
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 			logError("Unable to verify the 'Reports' side bar" + UtilityMethods.getStackTrace());
@@ -54,18 +53,14 @@ public class TripStopDetailedTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 1, description = "TC_Reports_Trip Stop Detailed_002 Verify the 'UI' of 'Trip Stop Detailed' page")
-	public void Verify_the_UI_of_Trip_Stop_Detailed_page() {
+	@Test(priority = 1, description = "TC_Reports_TripsReport_002 Verify the 'UI' of 'Trips Report' page")
+	public void Verify_the_UI_of_TripsReport_page() {
 		
 		try {
 			log.info("************************* TC-002*************************");
 			extentTest.setDescription(
-					"TC_Reports_Trip Stop Detailed_002 Stop Verify the 'UI' of 'Trip Stop Detailed' page");
+					"TC_Reports_TripsReport_002 Stop Verify the 'UI' of 'Trip Stop Detailed' page");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 			Assert.assertTrue(reportsPage.isReportHomeLinkPresent());
@@ -77,9 +72,9 @@ public class TripStopDetailedTest extends BaseSetup {
 			Assert.assertTrue(reportsPage.isResetButtonPresent());
 			Assert.assertTrue(reportsPage.isSearchButtonPresent());
 			Assert.assertTrue(reportsPage.isEmailOnDemandsPresent());
-			Assert.assertTrue(reportsPage.isPDFPresent());
-			Assert.assertTrue(reportsPage.isCSVPresent());
-			Assert.assertTrue(reportsPage.isHTMLPresent());
+			Assert.assertTrue(reportsPage.isPDFPresent(2));
+			Assert.assertTrue(reportsPage.isPDFPresent(3));
+			Assert.assertTrue(reportsPage.isPDFPresent(4));
 			
 			// reportsPage.clickOnReportLogsDropDown();
 			reportsPage.selectObject();
@@ -95,23 +90,19 @@ public class TripStopDetailedTest extends BaseSetup {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			logError("Unable to verify the 'UI' of 'Trip Stop Detailed' page" + UtilityMethods.getStackTrace());
-			Assert.fail("Unable to verify the 'UI' of 'Trip Stop Detailed' page");
+			logError("Unable to verify the 'UI' of 'Trips Report' page" + UtilityMethods.getStackTrace());
+			Assert.fail("Unable to verify the 'UI' of 'Trips Report' page");
 		}
 	}
 
-	@Test(priority = 2, description = "TC_Reports_Trip_Stop_Detailed_003 To verify the 'Placeholder' in all field on 'Trip Stop Detailed' page")
-	public void Verify_the_Placeholder_in_all_field_on_Trip_Stop_Detailed_page() {
+	@Test(priority = 2, description = "TC_Reports_TripsReport_003 To Verify the 'Placeholder' in all field on 'Trips Report' page")
+	public void Verify_the_Placeholder_in_all_field_on_Trips_Report_page() {
 
 		try {
 			log.info("************************* TC-003*************************");
 			extentTest.setDescription(
-					"TC_Reports_Trip_Stop_Detailed_003 To verify the 'Placeholder' in all field on 'Trip Stop Detailed' page");
+					"TC_Reports_TripsReport_003 To Verify the 'Placeholder' in all field on 'Trips Report' page");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
             reportsPage.clickOnReportsSidebarTripStopDetailed();
 
@@ -138,24 +129,20 @@ public class TripStopDetailedTest extends BaseSetup {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			logError("Unable To verify the 'Placeholder' in all field on 'Trip Stop Detailed' page"
+			logError("Unable To Verify the 'Placeholder' in all field on 'Trips Report' page"
 					+ UtilityMethods.getStackTrace());
-			Assert.fail("Unable To verify the 'Placeholder' in all field on 'Trip Stop Detailed' page");
+			Assert.fail("Unable To Verify the 'Placeholder' in all field on 'Trips Report' page");
 		}
 	}
 
-	@Test(priority = 3, description = "TC_Reports_TripStopDetailed_004 To verify the validation message in all field on 'Trips Report ' page")
-	public void Verify_the_validation_message_in_all_field_on_Trip_Stop_Detailed_page() {
+	@Test(priority = 3, description = "TC_Reports_TripsReport_004 To verify the validation message in all field on 'Trips Report ' page")
+	public void Verify_the_validation_message_in_all_field_on_Trips_Report_page() {
 
 		try {
 			log.info("************************* TC-004*************************");
 			extentTest.setDescription(
-					"TC_Reports_TripStopDetailed_004 To verify the validation message in all field on 'Trips Report ' page");
+					"TC_Reports_TripsReport_004 To verify the validation message in all field on 'Trips Report ' page");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 			reportsPage.clickOnSearchButton();
@@ -189,17 +176,13 @@ public class TripStopDetailedTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 4, description = "TC_Reports_TripStopDetailed_005 To verify_the_Email_on_Demand_tooltip")
+	@Test(priority = 4, description = "TC_Reports_TripsReport_005 To verify_the_Email_on_Demand_tooltip")
 	public void Verify_the_Email_on_Demand_tooltip() {
 
 		try {
 			log.info("************************* TC-005*************************");
-			extentTest.setDescription("TC_Reports_TripStopDetailed_005 To verify_the_Email_on_Demand_tooltip");
+			extentTest.setDescription("TC_Reports_TripsReport_005 To verify_the_Email_on_Demand_tooltip");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 
@@ -223,17 +206,13 @@ public class TripStopDetailedTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 5, description = "TC_Reports_Trip Stop Detailed_006 To verify_the_PDF_tooltip")
+	@Test(priority = 5, description = "TC_Reports_TripsReport_006 To verify_the_PDF_tooltip")
 	public void Verify_the_PDF_tooltip() {
 
 		try {
 			log.info("************************* TC-006*************************");
-			extentTest.setDescription("TC_Reports_Trip Stop Detailed_006 To verify_the_PDF_tooltip");
+			extentTest.setDescription("TC_Reports_TripsReport_006 To verify_the_PDF_tooltip");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 
@@ -257,17 +236,13 @@ public class TripStopDetailedTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 6, description = "TC_Reports_Trip Stop Detailed_007 To verify_the_CSV_tooltip")
+	@Test(priority = 6, description = "TC_Reports_TripsReport_007 To verify_the_CSV_tooltip")
 	public void Verify_the_CSV_tooltip() {
 
 		try {
 			log.info("************************* TC-007*************************");
-			extentTest.setDescription("TC_Reports_Trip Stop Detailed_007 To verify_the_CSV_tooltip");
+			extentTest.setDescription("TC_Reports_TripsReport_007 To verify_the_CSV_tooltip");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 
@@ -291,17 +266,13 @@ public class TripStopDetailedTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 7, description = "TC_Reports_Trip Stop Detailed_008 To verify_the_HTML_tooltip")
+	@Test(priority = 7, description = "TC_Reports_TripsReport_008 To verify_the_HTML_tooltip")
 	public void Verify_the_HTML_tooltip() {
 
 		try {
 			log.info("************************* TC-008*************************");
-			extentTest.setDescription("TC_Reports_Trip Stop Detailed_008 To verify_the_HTML_tooltip");
+			extentTest.setDescription("TC_Reports_TripsReport_008 To verify_the_HTML_tooltip");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 
@@ -326,18 +297,14 @@ public class TripStopDetailedTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 8, description = "TC_Reports_Trip Stop Detailed_009 To verify the 'Trip Stop Detailed' using 'Daily (Period) functionality ")
-	public void Verify_the_Trip_Stop_Detailed_using_DailyPeriod_functionality() {
+	@Test(priority = 8, description = "TC_Reports_TripsReport_009 To verify the 'Trips Report' using 'Daily (Period) functionality ")
+	public void Verify_the_Trips_Report_using_DailyPeriod_functionality() {
 
 		try {
 			log.info("************************* TC-009*************************");
 			extentTest.setDescription(
-					"TC_Reports_Trip Stop Detailed_009 To verify the 'Trip Stop Detailed' using 'Daily (Period) functionality");
+					"TC_Reports_TripsReport_009 To verify the 'Trips Report' using 'Daily (Period) functionality");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 			reportsPage.selectObject();
@@ -346,24 +313,20 @@ public class TripStopDetailedTest extends BaseSetup {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			logError("Unable To verify the 'Trip Stop Detailed' using 'Daily (Period) functionality "
+			logError("Unable To verify the 'Trips Report' using 'Daily (Period) functionality "
 					+ UtilityMethods.getStackTrace());
-			Assert.fail("Unable To verify the 'Trip Stop Detailed' using 'Daily (Period) functionality ");
+			Assert.fail("Unable To verify the 'Trips Report' using 'Daily (Period) functionality ");
 		}
 	}
 
-	@Test(priority = 9, description = "TC_Reports_Trip Stop Detailed_010 To verify the 'Trip Stop Detailed' using 'Weekly' (Period) functionality")
-	public void Verify_the_Trip_Stop_Detailed_using_WeeklyPeriod_functionality() {
+	@Test(priority = 9, description = "TC_Reports_TripsReport_010  verify the 'Trips Report' using 'Weekly' (Period) functionality")
+	public void Verify_the_TripsReport_using_WeeklyPeriod_functionality() {
 
 		try {
 			log.info("************************* TC-010*************************");
 			extentTest.setDescription(
-					"TC_Reports_Trip Stop Detailed_010 To verify the 'Trip Stop Detailed' using 'Weekly' (Period) functionality");
+					"TC_Reports_TripsReport_010 To verify the 'Trips Report' using 'Weekly' (Period) functionality");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 			reportsPage.selectObject();
@@ -372,24 +335,20 @@ public class TripStopDetailedTest extends BaseSetup {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			logError("Unable To verify the 'Trip Stop Detailed' using 'Weekly' (Period) functionality "
+			logError("Unable To verify the 'Trips Report' using 'Weekly' (Period) functionality "
 					+ UtilityMethods.getStackTrace());
-			Assert.fail("Unable To verify the 'Trip Stop Detailed' using 'Weekly' (Period) functionality  ");
+			Assert.fail("Unable To verify the 'Trips Report' using 'Weekly' (Period) functionality  ");
 		}
 	}
 
-	@Test(priority = 10, description = "TC_Reports_Trip Stop Detailed_011 To Verify the 'Trip Stop Detailed' using 'Monthly' (Period) functionality ")
+	@Test(priority = 10, description = "TC_Reports_TripsReport_011  Verify the 'Trips Report' using 'Monthly' (Period) functionality ")
 	public void Verify_the_Trip_Stop_Detailed_using_Monthly_Period_functionality() {
 
 		try {
-			log.info("************************* TC-010*************************");
+			log.info("************************* TC-011*************************");
 			extentTest.setDescription(
-					"TC_Reports_Trip Stop Detailed_011 To verify the 'Trip Stop Detailed' using 'Monthly' (Period) functionality ");
+					"TC_Reports_TripsReport_011  verify the 'Trips report' using 'Monthly' (Period) functionality ");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 			reportsPage.selectObject();
@@ -405,18 +364,14 @@ public class TripStopDetailedTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 11, description = "TC_Reports_Trip Stop Detailed_012 Verify the 'Trip Stop Detailed' using 'Custom' (Period) functionality check the presence of start date and end date")
-	public void A_Verify_the_Trip_Stop_Detailed_using_Custom_Period_functionality_check_the_presence_of_start_date_and_end_date() {
+	@Test(priority = 11, description = "TC_Reports_TripsReport_012 A. Verify the 'Trips Report' using 'Custom' (Period) functionality check the presence of start date and end date")
+	public void A_Verify_the_Trips_Report_using_Custom_Period_functionality_check_the_presence_of_start_date_and_end_date() {
 
 		try {
-			log.info("************************* TC-011*************************");
+			log.info("************************* TC-012*************************");
 			extentTest.setDescription(
-					"TC_Reports_Trip Stop Detailed_011 To verify the 'Trip Stop Detailed' using 'Custom' (Period) functionality check the presence of start date and end date");
+					"TC_Reports_TripsReport_012 A. Verify the 'Trips Report' using 'Custom' (Period) functionality check the presence of start date and end date");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 			reportsPage.selectObject();
@@ -428,25 +383,21 @@ public class TripStopDetailedTest extends BaseSetup {
 		} catch (Exception e) {
 			e.printStackTrace();
 			logError(
-					"Unable To verify the 'Trip Stop Detailed' using 'Custom' (Period) functionality check the presence of start date and end date"
+					"Unable To Verify the 'Trips Report' using 'Custom' (Period) functionality check the presence of start date and end date"
 							+ UtilityMethods.getStackTrace());
 			Assert.fail(
-					"Unable To verify the 'Trip Stop Detailed' using 'Custom' (Period) functionality check the presence of start date and end date");
+					"Unable To Verify the 'Trips Report' using 'Custom' (Period) functionality check the presence of start date and end date");
 		}
 	}
 
-	@Test(priority = 12, description = "TC_Reports_Trip Stop Detailed_013 Verify the 'Trip Stop Detailed' using 'Custom' (Period) functionality check the list data")
+	@Test(priority = 12, description = "TC_Reports_TripsReport_013 Verify the 'Trips Report' using 'Custom' (Period) functionality")
 	public void B_Verify_the_Trip_Stop_Detailed_using_Custom_Period_functionality() {
 
 		try {
 			log.info("************************* TC-013*************************");
 			extentTest.setDescription(
-					"TC_Reports_Trip Stop Detailed_011 To Verify the 'Trip Stop Detailed' using 'Custom' (Period) functionality check the list data");
+					"TC_Reports_Trip Stop Detailed_011 To Verify the 'Trips Report' using 'Custom' (Period) functionality");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 			reportsPage.selectObject();
@@ -466,24 +417,20 @@ public class TripStopDetailedTest extends BaseSetup {
 		} catch (Exception e) {
 			e.printStackTrace();
 			logError(
-					"Unable To verify the 'Trip Stop Detailed' using 'Custom' (Period) functionality check the list data"
+					"Unable To verify the 'Trips Report' using 'Custom' (Period) functionality"
 							+ UtilityMethods.getStackTrace());
 			Assert.fail(
-					"Unable To verify the 'Trip Stop Detailed' using 'Custom' (Period) functionality check the list data");
+					"Unable To verify the 'Trips Report' using 'Custom' (Period) functionality");
 		}
 	}
 
-	@Test(priority = 13, description = "TC_Reports_Trip Stop Detailed_014 Verify the 'Reset' button functionality")
+	@Test(priority = 13, description = "TC_Reports_TripsReport_014 Verify the 'Reset' button functionality")
 	public void Verify_the_Reset_button_functionality() {
 
 		try {
 			log.info("************************* TC-014*************************");
-			extentTest.setDescription("TC_Reports_Trip Stop Detailed_013 To verify the 'Reset' button functionality");
+			extentTest.setDescription("TC_Reports_TripsReport_014 To verify the 'Reset' button functionality");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 			reportsPage.selectObject();
@@ -517,10 +464,6 @@ public class TripStopDetailedTest extends BaseSetup {
 			extentTest.setDescription(
 					"TC_Reports_TripStopDetailed_015 To verify the without select any option and click on 'Email on demand', 'PDF','CSV', and 'HTML' button");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 			reportsPage.clickOnSearchButton();
@@ -528,11 +471,11 @@ public class TripStopDetailedTest extends BaseSetup {
 			// Verify the object validation
 			reportsPage.clickOnEmailOnDemands();
 			Assert.assertTrue(reportsPage.isAntNotificationMessagePresent());
-			reportsPage.clickOnPDF();
+			reportsPage.clickOnPDF(2);
 			Assert.assertTrue(reportsPage.isAntNotificationMessagePresent());
-			reportsPage.clickOnCSV();
+			reportsPage.clickOnPDF(3);
 			Assert.assertTrue(reportsPage.isAntNotificationMessagePresent());
-			reportsPage.clickOnHTML();
+			reportsPage.clickOnPDF(4);
 			Assert.assertTrue(reportsPage.isAntNotificationMessagePresent());
 
 		} catch (Exception e) {
@@ -545,17 +488,13 @@ public class TripStopDetailedTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 15, description = "TC_Reports_TripStopDetailed_016 To verify the 'Email on demand' Popup UI")
+	@Test(priority = 15, description = "TC_Reports_TripsReport_016 To verify the 'Email on demand' Popup UI")
 	public void Verify_the_Email_on_demand_Popup_UI() {
 
 		try {
 			log.info("************************* TC-016*************************");
-			extentTest.setDescription("TC_Reports_TripStopDetailed_016 Verify the 'Email on demand' Popup UI");
+			extentTest.setDescription("TC_Reports_TripsReport_016 Verify the 'Email on demand' Popup UI");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 			reportsPage.selectObject();
@@ -592,12 +531,12 @@ public class TripStopDetailedTest extends BaseSetup {
 		}
 	}
 	
-	@Test(priority = 16, description = "TC_Reports_TripStopDetailed_017 Verify 'Send Report' button functionality on 'Email on Demand download' Popup if Fill-up email field")
+	@Test(priority = 16, description = "TC_Reports_TripsReport_017 Verify 'Send Report' button functionality on 'Email on Demand download' Popup if Fill-up email field")
 	public void Verify_Send_Report_button_functionality_on_Email_on_Demand_download_Popup_if_Fill_up_email_field() {
 
 		try {
-			log.info("************************* TC-016*************************");
-			extentTest.setDescription("TC_Reports_TripStopDetailed_017 To verify 'Send Report' button functionality on 'Email on Demand download' Popup if Fill-up email field");
+			log.info("************************* TC-017*************************");
+			extentTest.setDescription("TC_Reports_TripsReport_017 To verify 'Send Report' button functionality on 'Email on Demand download' Popup if Fill-up email field");
 			reportsPage = new ReportsPage(getDriver());
 		
 			// Open Yopmail window
@@ -606,10 +545,6 @@ public class TripStopDetailedTest extends BaseSetup {
 			driver.switchTo().window(tabs.get(1));
 			driver.get("http://www.yopmail.com/en/");
 			driver.switchTo().window(tabs.get(0));
-//          loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 			reportsPage.selectObject();
@@ -638,6 +573,9 @@ public class TripStopDetailedTest extends BaseSetup {
 			Assert.assertTrue(reportsPage.isEmailPresent());
 		   //reportsPage.clickOnDeleteEmailOnYopmail();
 			driver.manage().deleteAllCookies();
+			driver.close();
+			driver.switchTo().window(tabs.get(0));
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -652,24 +590,20 @@ public class TripStopDetailedTest extends BaseSetup {
 		driver.switchTo().frame("ifmail");
 	}
 	
-	@Test(priority = 17, description = "TC_Reports_TripStopDetailed_018 Verify the 'Cancel' functionality in email on demand popup")
+	@Test(priority = 17, description = "TC_Reports_TripsReport_018 Verify the 'Cancel' functionality in email on demand popup")
 	public void Verify_the_Cancel_functionality_in_email_on_demand_popup() {
 
 		try {
 			log.info("************************* TC-018*************************");
-			extentTest.setDescription("TC_Reports_TripStopDetailed_018 To Verify the 'Cancel' functionality in email on demand popup");
+			extentTest.setDescription("TC_Reports_TripsReport_018 To Verify the 'Cancel' functionality in email on demand popup");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 			reportsPage.selectObject();
 			reportsPage.clickOnPeriodDropdown();
 			reportsPage.ClickOnPeriodDropdownCustom();
 			reportsPage.ClickOnStartDateCustom();
-			for (int i = 1; i <= 7; i++) {
+			for (int i = 1; i <= 8; i++) {
 				reportsPage.ClickOnPreviousMonthOnStartDateCustom();
 			}
 
@@ -689,17 +623,13 @@ public class TripStopDetailedTest extends BaseSetup {
 		}
 	}
 	
-	@Test(priority = 18, description = "TC_Reports_TripStopDetailed_019 Verify the 'cross' (×) button functionality in_email_on_demand_popup")
+	@Test(priority = 18, description = "TC_Reports_TripsReport_019 Verify the 'cross' (×) button functionality in_email_on_demand_popup")
 	public void Verify_the_cross_X_button_functionality_in_email_on_demand_popup() {
 
 		try {
 			log.info("************************* TC-019*************************");
-			extentTest.setDescription("TC_Reports_TripStopDetailed_019 To verify the 'cross' (×) button functionality in_email_on_demand_popup");
+			extentTest.setDescription("TC_Reports_TripsReport_019 To verify the 'cross' (×) button functionality in_email_on_demand_popup");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 			reportsPage.selectObject();
@@ -724,18 +654,13 @@ public class TripStopDetailedTest extends BaseSetup {
 		}
 	}
 	
-	
-	@Test(priority = 19, description = "TC_Reports_TripStopDetailed_020 Verify_PDF_download")
+	@Test(priority = 19, description = "TC_Reports_TripsReport_020 Verify_PDF_download")
 	public void Verify_PDF_download() {
 
 		try {
 			log.info("************************* TC-020*************************");
-			extentTest.setDescription("TC_Reports_TripStopDetailed_018 Verify_PDF_download");
+			extentTest.setDescription("TC_Reports_TripsReport_020 Verify_PDF_download");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 			reportsPage.selectObject();
@@ -749,7 +674,7 @@ public class TripStopDetailedTest extends BaseSetup {
 			reportsPage.ClickOnEndDateCustom();
 			reportsPage.getCurrentDay1();
 			reportsPage.clickOnSearchButton();
-			reportsPage.clickOnPDF();
+			reportsPage.clickOnPDF(2);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logError("Unable to verify_PDF_download" + UtilityMethods.getStackTrace());
@@ -764,10 +689,6 @@ public class TripStopDetailedTest extends BaseSetup {
 			log.info("************************* TC-021*************************");
 			extentTest.setDescription("TC_ReportLogs_021 To verify 'CSV'  download functionality ");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 			reportsPage.selectObject();
@@ -781,7 +702,7 @@ public class TripStopDetailedTest extends BaseSetup {
 			reportsPage.ClickOnEndDateCustom();
 			reportsPage.getCurrentDay1();
 			reportsPage.clickOnSearchButton();
-			reportsPage.clickOnCSV();
+			reportsPage.clickOnPDF(3);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -797,10 +718,6 @@ public class TripStopDetailedTest extends BaseSetup {
 			log.info("************************* TC-008*************************");
 			extentTest.setDescription("TC_ReportLogs_022 To verify 'HTML download' functionality");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarTripStopDetailed();
 			reportsPage.selectObject();
@@ -814,11 +731,10 @@ public class TripStopDetailedTest extends BaseSetup {
 			reportsPage.ClickOnEndDateCustom();
 			reportsPage.getCurrentDay1();
 			reportsPage.clickOnSearchButton();
-			reportsPage.clickOnHTML();
+			reportsPage.clickOnPDF(4);
 			ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 //			driver.switchTo().window(tabs.get(1));
 //			driver.close();
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();

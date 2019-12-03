@@ -22,16 +22,16 @@ public class EventsReportTest extends BaseSetup {
 
 	static Logger log = Logger.getLogger(EventsReportTest.class);
 
-	@Test(priority = 0, description = "TC_Reports_Events Reports_047 Verify the Events Reports' Side bar link functionality")
+	@Test(priority = 0, description = "TC_Reports_EventsReports_046 Verify the 'Events Reports' Side bar link functionality")
 	public void Verify_the_Events_Reports_Side_bar_link_functionality() {
 
 		try {
-			log.info("************************* TC-047*************************");
-			extentTest.setDescription("TC_Reports_Events Reports_047 Verify the 'Events Report' Navigation bar link functionality ");
+			log.info("************************* TC-046*************************");
+			extentTest.setDescription("TC_Reports_EventsReports_046 Verify the 'Events Report' Side bar link functionality ");
 			reportsPage = new ReportsPage(getDriver());
 			loginPage = new LoginPage(getDriver());
-			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-			loginPage.enterPassword(config.getProperty("superAdminPassword"));
+			loginPage.enterEmailAddess(config.getProperty("siteAdminEmailData"));
+			loginPage.enterPassword(config.getProperty("siteAdminPasswordData"));
 			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			Assert.assertTrue(reportsPage.isReportsSidebarReportsLogPresent());
@@ -56,17 +56,13 @@ public class EventsReportTest extends BaseSetup {
 
 	}
 	
-	@Test(priority = 1, description = "TC_Reports_Events Reports_048 Verify the 'UI' of 'Events Reports' ")
+	@Test(priority = 1, description = "TC_Reports_EventsReports_047 Verify the 'UI' of 'Events Reports' ")
 	public void Verify_the_UI_of_Events_Reports() {
 
 		try {
-			log.info("************************* TC-048*************************");
-			extentTest.setDescription("TC_Reports_Events Reports_048 Verify the 'UI' of 'Speeding Report' ");
+			log.info("************************* TC-047*************************");
+			extentTest.setDescription("TC_Reports_EventsReports_047 Verify the 'UI' of 'Events Report' ");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			Assert.assertTrue(reportsPage.isReportHomeLinkPresent());
@@ -79,9 +75,9 @@ public class EventsReportTest extends BaseSetup {
 			Assert.assertTrue(reportsPage.isResetButtonPresent());
 			Assert.assertTrue(reportsPage.isSearchButtonPresent());
 			Assert.assertTrue(reportsPage.isEmailOnDemandsPresent());
-			Assert.assertTrue(reportsPage.isPDFPresent());
-			Assert.assertTrue(reportsPage.isCSVPresent());
-			Assert.assertTrue(reportsPage.isHTMLPresent());
+			Assert.assertTrue(reportsPage.isPDFPresent(2));
+			Assert.assertTrue(reportsPage.isPDFPresent(3));
+			Assert.assertTrue(reportsPage.isPDFPresent(4));
 
 			// Select the object from drop-down
 			reportsPage.selectObject();
@@ -105,19 +101,15 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 2, description = "TC_Reports_Events Reports_049 Verify the 'Placeholder' in all field on 'Events Report' page")
+	@Test(priority = 2, description = "TC_Reports_EventsReports_048 Verify the 'Placeholder' in all field on 'Events Report' page")
 	public void Verify_the_Placeholder_in_all_field_on_Events_Report_page() {
 	
 
 		try {
-			log.info("************************* TC-049*************************");
+			log.info("************************* TC-048*************************");
 			extentTest.setDescription(
-					"TC_Reports_Events Reports_049 Verify the 'Placeholder' in all field on 'Events Report' page");
+					"TC_Reports_EventsReports_048 Verify the 'Placeholder' in all field on 'Events Report' page");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			
@@ -151,18 +143,14 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 3, description = "TC_Reports_Events Reports_050 Verify the validation message in all field on 'Events Report' page")
-	public void Verify_the_validation_message_in_all_field_on_Speed_Report_page() {
+	@Test(priority = 3, description = "TC_Reports_EventsReports_049 Verify the validation message in all fields on 'Events Report' page")
+	public void Verify_the_validation_message_in_all_field_on_Events_Report_page() {
 
 		try {
-			log.info("************************* TC-050*************************");
+			log.info("************************* TC-049*************************");
 			extentTest.setDescription(
-					"TC_Reports_Events Reports_050 Verify the validation message in all field on 'Events Report' page");
+					"TC_Reports_EventsReports_049 Verify the validation message in all fields on 'Events Report' page");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			reportsPage.clickOnSearchButton();
@@ -190,23 +178,19 @@ public class EventsReportTest extends BaseSetup {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			logError("Unable To Verify the validation message in all field on 'Events Report' page"
+			logError("Unable To Verify the validation message in all fields on 'Events Report' page"
 					+ UtilityMethods.getStackTrace());
-			Assert.fail("Unable To Verify the validation message in all field on 'Events Report' page");
+			Assert.fail("Unable To Verify the validation message in all fields on 'Events Report' page");
 		}
 	}
 
-	@Test(priority = 4, description = "TC_Reports_Events Reports_051 Verify the Email on Demand tooltip")
+	@Test(priority = 4, description = "TC_Reports_EventsReports_050 Verify the Email on Demand tooltip")
 	public void Verify_the_Email_on_Demand_tooltip() {
 
 		try {
-			log.info("************************* TC-051*************************");
-			extentTest.setDescription("TC_Reports_Speeding Report_051 Verify the Email on Demand tooltip");
+			log.info("************************* TC-050*************************");
+			extentTest.setDescription("TC_Reports_EventsReports_050 Verify the Email on Demand tooltip");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 
@@ -230,17 +214,13 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 5, description = "TC_Reports_Events Reports_052 Verify the PDF tooltip")
+	@Test(priority = 5, description = "TC_Reports_EventsReports_051 Verify the PDF tooltip")
 	public void Verify_the_PDF_tooltip() {
 
 		try {
-			log.info("************************* TC-052*************************");
-			extentTest.setDescription("TC_Reports_Events Reports_052 Verify the PDF tooltip");
+			log.info("************************* TC-051*************************");
+			extentTest.setDescription("TC_Reports_EventsReports_051 Verify the PDF tooltip");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 
@@ -264,17 +244,13 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 6, description = "TC_Reports_Events Reports_053 Verify the CSV tooltip")
+	@Test(priority = 6, description = "TC_Reports_EventsReports_052 Verify the CSV tooltip")
 	public void Verify_the_CSV_tooltip() {
 
 		try {
-			log.info("************************* TC-053*************************");
-			extentTest.setDescription("TC_Reports_Events Reports_053 Verify the CSV tooltip");
+			log.info("************************* TC-052*************************");
+			extentTest.setDescription("TC_Reports_EventsReports_053 Verify the CSV tooltip");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 
@@ -298,17 +274,13 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 7, description = "TC_Reports_Events Reports_054 Verify the HTML tooltip")
+	@Test(priority = 7, description = "TC_Reports_EventsReports_053 Verify the HTML tooltip")
 	public void Verify_the_HTML_tooltip() {
 
 		try {
-			log.info("************************* TC-054*************************");
-			extentTest.setDescription("TC_Reports_Events Reports_054 Verify the HTML tooltip");
+			log.info("************************* TC-053*************************");
+			extentTest.setDescription("TC_Reports_EventsReports_053 Verify the HTML tooltip");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 
@@ -333,18 +305,14 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 8, description = "TC_Reports_Events Reports_055 Verify the without select any option and click on 'Email on demand', 'PDF','CSV', and 'HTML' button")
+	@Test(priority = 8, description = "TC_Reports_EventsReports_054 Verify the without select any option and click on 'Email on demand', 'PDF','CSV', and 'HTML' button")
 	public void Verify_the_without_select_any_option_and_click_on_Email_on_demand_PDF_CSV_and_HTML_button() {
 
 		try {
-			log.info("************************* TC-055*************************");
+			log.info("************************* TC-054*************************");
 			extentTest.setDescription(
-					"TC_Reports_Events Reports_055 To verify the without select any option and click on 'Email on demand', 'PDF','CSV', and 'HTML' button");
+					"TC_Reports_EventsReports_054 To verify the without select any option and click on 'Email on demand', 'PDF','CSV', and 'HTML' button");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			reportsPage.clickOnSearchButton();
@@ -352,11 +320,11 @@ public class EventsReportTest extends BaseSetup {
 			// Verify the object validation
 			reportsPage.clickOnEmailOnDemands();
 			Assert.assertTrue(reportsPage.isAntNotificationMessagePresent());
-			reportsPage.clickOnPDF();
+			reportsPage.clickOnPDF(2);
 			Assert.assertTrue(reportsPage.isAntNotificationMessagePresent());
-			reportsPage.clickOnCSV();
+			reportsPage.clickOnPDF(3);
 			Assert.assertTrue(reportsPage.isAntNotificationMessagePresent());
-			reportsPage.clickOnHTML();
+			reportsPage.clickOnPDF(4);
 			Assert.assertTrue(reportsPage.isAntNotificationMessagePresent());
 
 		} catch (Exception e) {
@@ -369,23 +337,19 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 8, description = "TC_Reports_Events Reports_057 Verify the 'Events Report' with 'Daily'  period functionality  ")
+	@Test(priority = 8, description = "TC_Reports_EventsReports_055 Verify the 'Events Report' with 'Daily'  period functionality  ")
 	public void Verify_the_Events_Report_with_Daily_period_functionality() {
 
 		try {
-			log.info("************************* TC-057*************************");
+			log.info("************************* TC-055*************************");
 			extentTest.setDescription(
-					"TC_Reports_Events Reports_057 Verify the 'Events Report' with 'Daily'  period functionality ");
+					"TC_Reports_EventsReports_055 Verify the 'Events Report' with 'Daily'  period functionality ");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			reportsPage.selectObject();
 			reportsPage.clickOnPeriodDropdowAndPeriodDropdownDaily();
-			Assert.assertTrue(reportsPage.isReportHeadinglistData());
+			Assert.assertFalse(reportsPage.isReportHeadinglistData());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -395,18 +359,14 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 9, description = "TC_Reports_Events Reports_058 Verify the 'Events Report' with  'Weekly'  period functionality ")
+	@Test(priority = 9, description = "TC_Reports_Events Reports_056 Verify the 'Events Report' with  'Weekly'  period functionality ")
 	public void Verify_the_Events_Report_With_Weekly_Period_functionality() {
 
 		try {
-			log.info("************************* TC-058*************************");
+			log.info("************************* TC-056*************************");
 			extentTest.setDescription(
-					"TC_Reports_Events Reports_058 Verify the 'Events Report' with  'Weekly'  period functionality ");
+					"TC_Reports_Events Reports_056 Verify the 'Events Report' with  'Weekly'  period functionality ");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			reportsPage.selectObject();
@@ -421,18 +381,14 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 10, description = "TC_Reports_Events Reports_059 Verify the 'Events Report' with  'Monthly' period functionality  ")
+	@Test(priority = 10, description = "TC_Reports_Events Reports_057 Verify the 'Events Report' with  'Monthly' period functionality  ")
 	public void Verify_the_Events_Report_with_Monthly_Period_functionality() {
 
 		try {
-			log.info("************************* TC-059*************************");
+			log.info("************************* TC-057*************************");
 			extentTest.setDescription(
-					"TC_Reports_Events Reports_059 To Verify the 'Events Report' with  'Monthly' period functionality ");
+					"TC_Reports_Events Reports_057 To Verify the 'Events Report' with  'Monthly' period functionality ");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			reportsPage.selectObject();
@@ -448,18 +404,14 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 11, description = "TC_Reports_Events Reports_060 Verify the 'Events Report' with 'Custom' (Period) functionality check the presence of start date and end date")
+	@Test(priority = 11, description = "TC_Reports_Events Reports_058 Verify the 'Events Report' with 'Custom' (Period) functionality check the presence of start date and end date")
 	public void A_Verify_the_Events_Report_with_Custom_Period_functionality_check_the_presence_of_start_date_and_end_date() {
 
 		try {
-			log.info("************************* TC-060*************************");
+			log.info("************************* TC-058*************************");
 			extentTest.setDescription(
 					"TC_Reports_Events Reports_060 To verify the 'Events report' using 'Custom' (Period) functionality check the presence of start date and end date");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			reportsPage.selectObject();
@@ -478,18 +430,14 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 12, description = "TC_Reports_Events Report_061 Verify the 'Events Reports' using 'Custom' period functionality ")
+	@Test(priority = 12, description = "TC_Reports_EventsReport_059 Verify the 'Events Reports' using 'Custom' period functionality ")
 	public void B_Verify_the_Events_Report_using_Custom_Period_functionality() {
 
 		try {
 			log.info("************************* TC-061*************************");
 			extentTest.setDescription(
-					"TC_Reports_Events Report_061 To Verify the 'Events Reports' using  'Custom' period functionality ");
+					"TC_Reports_EventsReport_059 To Verify the 'Events Reports' using  'Custom' period functionality ");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			reportsPage.selectObject();
@@ -514,17 +462,13 @@ public class EventsReportTest extends BaseSetup {
 	}
 
 	
-	@Test(priority = 13, description = "TC_Reports_Events Reports_062 Verify the 'Reset' button functionality")
+	@Test(priority = 13, description = "TC_Reports_EventsReports_060 Verify the 'Reset' button functionality")
 	public void Verify_the_Reset_button_functionality() {
 
 		try {
-			log.info("************************* TC-062*************************");
-			extentTest.setDescription("TC_Reports_Events Reports_062 Verify the 'Reset' button functionality");
+			log.info("************************* TC-060*************************");
+			extentTest.setDescription("TC_Reports_EventsReports_060 Verify the 'Reset' button functionality");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			reportsPage.selectObject();
@@ -550,17 +494,13 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 15, description = "TC_Reports_Events Reports_064 Verify the 'Email on demand' Popup UI")
+	@Test(priority = 15, description = "TC_Reports_EventsReports_061 Verify the 'Email on demand' Popup UI")
 	public void Verify_the_Email_on_demand_Popup_UI() {
 
 		try {
 			log.info("************************* TC-064*************************");
-			extentTest.setDescription("TC_Reports_Events Reports_064 Verify the 'Email on demand' Popup UI");
+			extentTest.setDescription("TC_Reports_EventsReports_064 Verify the 'Email on demand' Popup UI");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			reportsPage.selectObject();
@@ -597,13 +537,13 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 16, description = "TC_Reports_Events Reports_065 Verify 'Send Report' button functionality on 'Email on Demand download' Popup if Fill-up email field")
+	@Test(priority = 16, description = "TC_Reports_EventsReports_062 Verify 'Send Report' button functionality on 'Email on Demand download' Popup if Fill-up email field")
 	public void Verify_Send_Report_button_functionality_on_Email_on_Demand_download_Popup_if_entered_email() {
 
 		try {
-			log.info("************************* TC-065*************************");
+			log.info("************************* TC-062*************************");
 			extentTest.setDescription(
-					"TC_Reports_Events Reports_065 Verify 'Send Report' button functionality on 'Email on Demand download' Popup if Fill-up email field");
+					"TC_Reports_EventsReports_062 Verify 'Send Report' button functionality on 'Email on Demand download' Popup if Fill-up email field");
 			reportsPage = new ReportsPage(getDriver());
 			// Open Yopmail window
 			((JavascriptExecutor) driver).executeScript("window.open()");
@@ -611,10 +551,6 @@ public class EventsReportTest extends BaseSetup {
 			driver.switchTo().window(tabs.get(1));
 			driver.get("http://www.yopmail.com/en/");
 			driver.switchTo().window(tabs.get(0));
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			reportsPage.selectObject();
@@ -632,7 +568,7 @@ public class EventsReportTest extends BaseSetup {
 			reportsPage.clickOnEmailOnDemands();
 			Thread.sleep(3000);
 			reportsPage.enterEmailAddessOnEmailDemands("trackSy@yopmail.com");
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			reportsPage.clickOnEmailOnDemandSendRequestBtn();
 
 			// Verify email from yopmail
@@ -641,6 +577,8 @@ public class EventsReportTest extends BaseSetup {
 			Assert.assertTrue(reportsPage.isEmailPresent());
 			// reportsPage.clickOnDeleteEmailOnYopmail();
 			driver.manage().deleteAllCookies();
+			driver.close();
+			driver.switchTo().window(tabs.get(0));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -655,17 +593,13 @@ public class EventsReportTest extends BaseSetup {
 		driver.switchTo().frame("ifmail");
 	}
 	
-	@Test(priority = 17, description = "TC_Reports_Events Reports_066 Verify the 'Cancel' functionality in email on demand popup")
+	@Test(priority = 17, description = "TC_Reports_EventsReports_063 Verify the 'Cancel' functionality in email on demand popup")
 	public void Verify_the_Cancel_functionality_in_email_on_demand_popup() {
 
 		try {
 			log.info("************************* TC-066*************************");
-			extentTest.setDescription("TC_Reports_Events Reports_066 To Verify the 'Cancel' functionality in email on demand popup");
+			extentTest.setDescription("TC_Reports_EventsReports_063 To Verify the 'Cancel' functionality in email on demand popup");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			reportsPage.selectObject();
@@ -692,17 +626,13 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 	
-	@Test(priority = 18, description = "TC_Reports_Events Reports_067 Verify the 'cross' (×) button functionality in_email_on_demand_popup")
+	@Test(priority = 18, description = "TC_Reports_Events Reports_064 Verify the 'cross' (×) button functionality in_email_on_demand_popup")
 	public void Verify_the_cross_X_button_functionality_in_email_on_demand_popup() {
 
 		try {
-			log.info("************************* TC-067*************************");
-			extentTest.setDescription("TC_Reports_Events Reports_067 To verify the 'cross' (×) button functionality in_email_on_demand_popup");
+			log.info("************************* TC-064*************************");
+			extentTest.setDescription("TC_Reports_Events Reports_064 To verify the 'cross' (×) button functionality in_email_on_demand_popup");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			reportsPage.selectObject();
@@ -727,17 +657,13 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 	
-	@Test(priority = 19, description = "TC_Reports_Events Reports_068 Verify the 'PDF' functionality in 'Events Report' page")
+	@Test(priority = 19, description = "TC_Reports_EventsReports_065 Verify the 'PDF' functionality in 'Events Report' page")
 	public void Verify_the_PDF_functionality_in_Events_Report_page() {
 
 		try {
-			log.info("************************* TC-068*************************");
-			extentTest.setDescription("TC_Reports_Events Reports_068 Verify the 'PDF' functionality in 'Events Report' page");
+			log.info("************************* TC-065*************************");
+			extentTest.setDescription("TC_Reports_EventsReports_065 Verify the 'PDF' functionality in 'Events Report' page");
 			reportsPage = new ReportsPage(getDriver());
-//            loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			reportsPage.selectObject();
@@ -751,7 +677,7 @@ public class EventsReportTest extends BaseSetup {
 			reportsPage.ClickOnEndDateCustom();
 			reportsPage.getCurrentDay1();
 			reportsPage.clickOnSearchButton();
-			reportsPage.clickOnPDF();
+			reportsPage.clickOnPDF(2);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logError("Unable to Verify the 'PDF' functionality in 'Events Report' page" + UtilityMethods.getStackTrace());
@@ -759,17 +685,13 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 20, description = "TC_Reports_Events Reports_069 Verify the 'CSV' functionality in 'Events Report' page")
+	@Test(priority = 20, description = "TC_Reports_EventsReports_066 Verify the 'CSV' functionality in 'Events Report' page")
 	public void Verify_CSV_download_functionality() {
 
 		try {
-			log.info("************************* TC-069*************************");
-			extentTest.setDescription("TC_Reports_Events Reports_069 Verify the 'CSV' functionality in 'Events Report' page");
+			log.info("************************* TC-066*************************");
+			extentTest.setDescription("TC_Reports_EventsReports_066 Verify the 'CSV' functionality in 'Events Report' page");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			reportsPage.selectObject();
@@ -783,7 +705,7 @@ public class EventsReportTest extends BaseSetup {
 			reportsPage.ClickOnEndDateCustom();
 			reportsPage.getCurrentDay1();
 			reportsPage.clickOnSearchButton();
-			reportsPage.clickOnCSV();
+			reportsPage.clickOnPDF(3);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -792,17 +714,13 @@ public class EventsReportTest extends BaseSetup {
 		}
 	}
 
-	@Test(priority = 21, description = "TC_Reports_Events Reports_070 Verify the 'HTML' functionality in 'Events Report' page")
+	@Test(priority = 21, description = "TC_Reports_EventsReports_067 Verify the 'HTML' functionality in 'Events Report' page")
 	public void Verify_HTML_download_functionality() {
 
 		try {
-			log.info("************************* TC-070*************************");
-			extentTest.setDescription("TC_Reports_Events Reports_070 Verify the 'HTML' functionality in 'Events Report' page");
+			log.info("************************* TC-067*************************");
+			extentTest.setDescription("TC_Reports_EventsReports_067 Verify the 'HTML' functionality in 'Events Report' page");
 			reportsPage = new ReportsPage(getDriver());
-//			loginPage = new LoginPage(getDriver());
-//			loginPage.enterEmailAddess(config.getProperty("superAdminEmail"));
-//			loginPage.enterPassword(config.getProperty("superAdminPassword"));
-//			loginPage.clickOnLogInButton();
 			reportsPage.clickOnReportsSidebar();
 			reportsPage.clickOnReportsSidebarEventsReport();
 			reportsPage.selectObject();
@@ -816,12 +734,9 @@ public class EventsReportTest extends BaseSetup {
 			reportsPage.ClickOnEndDateCustom();
 			reportsPage.getCurrentDay1();
 			reportsPage.clickOnSearchButton();
-			reportsPage.clickOnHTML();
-//			ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-//			driver.switchTo().window(tabs.get(1));
-//			driver.close();
+			reportsPage.clickOnPDF(4);
 			
-
+	
 		} catch (Exception e) {
 			e.printStackTrace();
 			logError("Unable To Verify the 'HTML' functionality in 'Events Report' page" + UtilityMethods.getStackTrace());
