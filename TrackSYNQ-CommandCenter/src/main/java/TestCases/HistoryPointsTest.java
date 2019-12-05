@@ -5,6 +5,9 @@ import org.testng.annotations.Test;
 import Common.BaseSetup;
 import Common.UtilityMethods;
 import PageObjects.LoginPage;
+import PageObjects.ManageGeoFencePage;
+import PageObjects.ManageRolesPage;
+import PageObjects.ManageWidgetsPage;
 import PageObjects.ReportsPage;
 
 import java.util.ArrayList;
@@ -17,6 +20,9 @@ import org.openqa.selenium.Keys;
 public class HistoryPointsTest extends BaseSetup {
 	LoginPage loginPage;
 	ReportsPage reportsPage;
+	ManageWidgetsPage manageWidgetsPage;
+	ManageGeoFencePage manageGeoFencePage;
+	ManageRolesPage manageRolesPage;
 
 	static Logger log = Logger.getLogger(HistoryPointsTest.class);
 
@@ -253,8 +259,32 @@ public class HistoryPointsTest extends BaseSetup {
 	}
 	
 	
+	@Test(priority = 9, description = "TC_Reports_HistoryPoints_114 Verify the Draw History Points tooltip")
+	public void Verify_the_Draw_History_Points_tooltip() {
+
+		try {
+			log.info("************************* TC-114*************************");
+			extentTest.setDescription("TC_Reports_HistoryPoints_114 Verify the Draw History Points tooltip");
+			reportsPage = new ReportsPage(getDriver());
+			loginPage = new LoginPage(getDriver());
+			loginPage.enterEmailAddess(config.getProperty("siteAdminEmailData"));
+			loginPage.enterPassword(config.getProperty("siteAdminPasswordData"));
+			loginPage.clickOnLogInButton();
+			reportsPage.clickOnReportsSidebar();
+			reportsPage.clickOnReportsSidebarHistoryPoints();
+			reportsPage.drawHistoryTooltipToolTip();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			logError("Unable To Verify the HTML tooltip" + UtilityMethods.getStackTrace());
+			Assert.fail("Unable To Verify the HTML tooltip");
+		}
+	}
+	
+
+	
 	@Test(priority = 9, description = "TC_Reports_HistoryPoints_114 Verify the search button functionality and result data should be fetch")
-	public void  Verify_the_search_button_functionality_and_result_data_should_be_fetch  () {
+	public void  Verify_the_search_button_functionality_and_result_data_should_be_fetch() {
 
 		try {
 			log.info("************************* TC-114*************************");
@@ -536,6 +566,7 @@ public class HistoryPointsTest extends BaseSetup {
 			reportsPage.clickOnReportsSidebarHistoryPoints();
 			reportsPage.selectObject();
 			reportsPage.ClickOnStartDateCustom();
+			
 			for (int i = 1; i <= 7; i++) {
 				reportsPage.ClickOnPreviousMonthOnStartDateCustom();
 			}
@@ -557,4 +588,54 @@ public class HistoryPointsTest extends BaseSetup {
 	}
 	
 
+	@Test(priority = 9, description = "TC_Reports_HistoryPoints_124 Verify the Draw History Points' functionality in 'History Points' page")
+	public void  Verify_the_Draw_History_Points_functionality_in_History_Points_page() {
+
+		try {
+			log.info("************************* TC-124*************************");
+			extentTest.setDescription(
+					"TC_Reports_HistoryPoints_114 Verify the Draw History Points' functionality in 'History Points' page");
+			reportsPage = new ReportsPage(getDriver());
+			manageWidgetsPage= new ManageWidgetsPage(getDriver());
+			manageGeoFencePage = new ManageGeoFencePage(getDriver());
+			manageRolesPage = new ManageRolesPage(getDriver());
+			loginPage = new LoginPage(getDriver());
+			loginPage.enterEmailAddess(config.getProperty("siteAdminEmailData"));
+			loginPage.enterPassword(config.getProperty("siteAdminPasswordData"));
+			loginPage.clickOnLogInButton();
+			reportsPage.clickOnReportsSidebar();
+			reportsPage.clickOnReportsSidebarHistoryPoints();
+			reportsPage.selectObject();
+			reportsPage.ClickOnStartDateCustom();
+			
+			for (int i = 1; i <= 7; i++) {
+				reportsPage.ClickOnPreviousMonthOnStartDateCustom();
+			}
+			reportsPage.selectMarchFirstdate();
+			reportsPage.ClickOnEndDateCustom();
+			reportsPage.getCurrentDay1();
+			reportsPage.clickOnSearchButton();
+			manageWidgetsPage.clickOnAllSubManageWidgetNavbarCheckBox();
+			reportsPage.clickOnPDF(5);
+			Assert.assertTrue(reportsPage.isDrawHistoryPointsPopupHeadingPresent());
+			Assert.assertTrue(manageGeoFencePage.isGoogleMapPresent());
+			reportsPage.clickOnPlayButton();
+			reportsPage.clickOnTrackSpeed();
+			Assert.assertTrue(manageRolesPage.isManageRolesTitleOptionPresent("1x"));
+			Assert.assertTrue(manageRolesPage.isManageRolesTitleOptionPresent("2x"));
+			Assert.assertTrue(manageRolesPage.isManageRolesTitleOptionPresent("3x"));
+			Assert.assertTrue(manageRolesPage.isManageRolesTitleOptionPresent("4x"));
+			Assert.assertTrue(manageRolesPage.isManageRolesTitleOptionPresent("5x"));
+			Assert.assertTrue(manageRolesPage.isManageRolesTitleOptionPresent("6x"));
+			
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			logError("Unable To Verify the Draw History Points' functionality in 'History Points' page"
+					+ UtilityMethods.getStackTrace());
+			Assert.fail("Unable To Verify theDraw History Points' functionality in 'History Points' page");
+		}
+	}
+	
 }

@@ -14,7 +14,7 @@ public class ManageWidgetsPage extends ActionMethods {
 	private String manageWidgetNavbar = "xpath:.//span[text()='Manage Widgets']";
 	private String subManageWidgetNavbar = "css:a[href='javascript:void(0);']";
 	private String subManageWidgetNavbarCheckBox = "css:.ant-checkbox.ant-checkbox-checked";
-	private String subManageWidgetNavbarUnCheckBox = "css:input.ant-checkbox-input";
+	private String subManageWidgetNavbarUnCheckBox = "css:span.ant-checkbox";
 	private String manageWidgetUpdateButton = "xpath://span[text()='Update']";
 	private String updateSuccessfullMessage = "css:div.ant-notification-notice-message";
 
@@ -49,10 +49,9 @@ public class ManageWidgetsPage extends ActionMethods {
 	}
 
 	public void clickOnAllSubManageWidgetNavbarCheckBox() {
-
-		waitForElementClickable(subManageWidgetNavbarUnCheckBox, SHORTWAIT);
-		safeClick(subManageWidgetNavbarUnCheckBox, LONGWAIT);
-
+        needToWait(SHORTWAIT);
+		safeJavaScriptClick(subManageWidgetNavbarUnCheckBox);
+		 
 	}
 
 //	public void clickOnManageWidgetUpdateButton() {

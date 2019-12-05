@@ -1,16 +1,17 @@
 package TestCases;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import Common.BaseSetup;
+import PageObjects.AddVehiclesPage;
 import PageObjects.LiveTrackingPage;
 import PageObjects.LoginPage;
 import org.apache.log4j.Logger;
 
-
 public class LiveTrackingTest extends BaseSetup {
 	LoginPage loginPage;
 	LiveTrackingPage liveTrackingPage;
+	AddVehiclesPage  addVehiclesPage;
 	static Logger log = Logger.getLogger(LiveTrackingTest.class);
 
 	@Test(priority = 0, description = "Verify the Live Tracking url")
@@ -24,10 +25,10 @@ public class LiveTrackingTest extends BaseSetup {
 			loginPage.clickOnLogInButton();
 			liveTrackingPage.clickOnLiveTrackingSidebar();
 			String currentUrl = loginPage.getCurrentWebpageURL();
-			Assert.assertTrue(currentUrl.contains("tracking"));
+			AssertJUnit.assertTrue(currentUrl.contains("tracking"));
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to Verify the Live Tracking url");
+			AssertJUnit.fail("Unable to Verify the Live Tracking url");
 		}
 	}
 
@@ -45,7 +46,7 @@ public class LiveTrackingTest extends BaseSetup {
 			liveTrackingPage.trailsTooltip();
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to element functionality and tooltip of element on map screen ");
+			AssertJUnit.fail("Unable to element functionality and tooltip of element on map screen ");
 		}
 	}
 
@@ -55,10 +56,10 @@ public class LiveTrackingTest extends BaseSetup {
 			log.info("************************* TC-02*************************");
 			liveTrackingPage = new LiveTrackingPage(getDriver());
 			liveTrackingPage.clickOnLiveTrackingSidebar();
-			Assert.assertTrue(liveTrackingPage.isVehiclesPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isVehiclesPresent());
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to Verify the 'Vehicles' tab of live tracking page");
+			AssertJUnit.fail("Unable to Verify the 'Vehicles' tab of live tracking page");
 		}
 	}
 
@@ -68,16 +69,16 @@ public class LiveTrackingTest extends BaseSetup {
 			log.info("************************* TC-03*************************");
 			liveTrackingPage = new LiveTrackingPage(getDriver());
 			liveTrackingPage.clickOnLiveTrackingSidebar();
-			Assert.assertTrue(liveTrackingPage.isLiveTrackingPathLinkPresent());
-			Assert.assertTrue(liveTrackingPage.isHomePathLinkPresent());
-			Assert.assertTrue(liveTrackingPage.isvehiclesTabPresent());
-			Assert.assertTrue(liveTrackingPage.isAlertTabPresent());
-			Assert.assertTrue(liveTrackingPage.isHistoryTabPresent());
-			Assert.assertTrue(liveTrackingPage.isSearchFieldPresent());
-			Assert.assertTrue(liveTrackingPage.isPlusIconPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isLiveTrackingPathLinkPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isHomePathLinkPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isvehiclesTabPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isAlertTabPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isHistoryTabPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isSearchFieldPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isPlusIconPresent());
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to verify the UI for Live Tracking page");
+			AssertJUnit.fail("Unable to verify the UI for Live Tracking page");
 		}
 	}
 
@@ -87,10 +88,10 @@ public class LiveTrackingTest extends BaseSetup {
 			log.info("************************* TC-04*************************");
 			liveTrackingPage = new LiveTrackingPage(getDriver());
 			liveTrackingPage.clickOnLiveTrackingSidebar();
-			Assert.assertEquals(liveTrackingPage.getTextSerchPlaceholder(), "Search");
+			AssertJUnit.assertEquals(liveTrackingPage.getTextSerchPlaceholder(), "Search");
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to verify the search placeholder field for Live Tracking page");
+			AssertJUnit.fail("Unable to verify the search placeholder field for Live Tracking page");
 		}
 	}
 
@@ -101,10 +102,10 @@ public class LiveTrackingTest extends BaseSetup {
 			liveTrackingPage = new LiveTrackingPage(getDriver());
 			liveTrackingPage.clickOnLiveTrackingSidebar();
 			liveTrackingPage.searchFunctionality("MB01-GV20");
-			Assert.assertTrue(liveTrackingPage.isSearchDataNotPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isSearchDataNotPresent());
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to verify the search functionality for Live Tracking page");
+			AssertJUnit.fail("Unable to verify the search functionality for Live Tracking page");
 		}
 	}
 
@@ -115,10 +116,10 @@ public class LiveTrackingTest extends BaseSetup {
 			liveTrackingPage = new LiveTrackingPage(getDriver());
 			liveTrackingPage.clickOnLiveTrackingSidebar();
 			liveTrackingPage.clickOnPlusIcon();
-			Assert.assertTrue(liveTrackingPage.isAddVehiclePopup());
+			AssertJUnit.assertTrue(liveTrackingPage.isAddVehiclePopup());
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to Verify the (+) add vehicles popup of Live Tracking page");
+			AssertJUnit.fail("Unable to Verify the (+) add vehicles popup of Live Tracking page");
 		}
 	}
 
@@ -141,7 +142,7 @@ public class LiveTrackingTest extends BaseSetup {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to verify the add vehicle tooltip for Live Tracking page");
+			AssertJUnit.fail("Unable to verify the add vehicle tooltip for Live Tracking page");
 		}
 	}
 
@@ -153,19 +154,19 @@ public class LiveTrackingTest extends BaseSetup {
 			liveTrackingPage = new LiveTrackingPage(getDriver());
 			liveTrackingPage.clickOnLiveTrackingSidebar();
 			liveTrackingPage.clickOnPlusIcon();
-			Assert.assertEquals(liveTrackingPage.getVechiclePlaceholder(), "Enter Vehicle Name");
-			Assert.assertEquals(liveTrackingPage.getDeviceTypePlaceholder(), "Select Device Type");
-			Assert.assertEquals(liveTrackingPage.getDeviceIdentifierPlaceholder(),
+			AssertJUnit.assertEquals(liveTrackingPage.getVechiclePlaceholder(), "Enter Vehicle Name");
+			AssertJUnit.assertEquals(liveTrackingPage.getDeviceTypePlaceholder(), "Select Device Type");
+			AssertJUnit.assertEquals(liveTrackingPage.getDeviceIdentifierPlaceholder(),
 					"Enter Device Identifier or IMEI Number");
-			Assert.assertEquals(liveTrackingPage.getVehicleGroupPlaceholder(), "Select Vehicle Group");
-			Assert.assertEquals(liveTrackingPage.getCountryNamePlaceholder(), "Select Country Name");
-			Assert.assertEquals(liveTrackingPage.getMobileNoPlaceholder(), "Enter Mobile Number");
-			Assert.assertTrue(liveTrackingPage.isMarkerImage());
-			Assert.assertEquals(liveTrackingPage.getAccumulatorPlaceholder(), "Enter Device Accumulator");
-			Assert.assertEquals(liveTrackingPage.getVehicleDescriptionPlaceholder(), "Enter Vehicle Description");
+			AssertJUnit.assertEquals(liveTrackingPage.getVehicleGroupPlaceholder(), "Select Vehicle Group");
+			AssertJUnit.assertEquals(liveTrackingPage.getCountryNamePlaceholder(), "Select Country Name");
+			AssertJUnit.assertEquals(liveTrackingPage.getMobileNoPlaceholder(), "Enter Mobile Number");
+			AssertJUnit.assertTrue(liveTrackingPage.isMarkerImage());
+			AssertJUnit.assertEquals(liveTrackingPage.getAccumulatorPlaceholder(), "Enter Device Accumulator");
+			AssertJUnit.assertEquals(liveTrackingPage.getVehicleDescriptionPlaceholder(), "Enter Vehicle Description");
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to Verify the Placeholder in all fields of add vehicle page");
+			AssertJUnit.fail("Unable to Verify the Placeholder in all fields of add vehicle page");
 		}
 	}
 
@@ -177,19 +178,19 @@ public class LiveTrackingTest extends BaseSetup {
 			liveTrackingPage.clickOnLiveTrackingSidebar();
 			liveTrackingPage.clickOnPlusIcon();
 			liveTrackingPage.clickOnSaveButton();
-			Assert.assertTrue(liveTrackingPage.isVehicleNameLabel());
-			Assert.assertTrue(liveTrackingPage.isDeviceTypeLabel());
-			Assert.assertTrue(liveTrackingPage.isDeviceIdentifierLabel());
-			Assert.assertTrue(liveTrackingPage.isVehicleGroupLabel());
-			Assert.assertTrue(liveTrackingPage.isCountryNameLabel());
-			Assert.assertTrue(liveTrackingPage.isMobileNoLabel());
-			Assert.assertTrue(liveTrackingPage.isMarkerImageLabel());
-			Assert.assertEquals(liveTrackingPage.getTextAccumulatorLabel(), "accumulator");// Accumulator Spelling
+			AssertJUnit.assertTrue(liveTrackingPage.isVehicleNameLabel());
+			AssertJUnit.assertTrue(liveTrackingPage.isDeviceTypeLabel());
+			AssertJUnit.assertTrue(liveTrackingPage.isDeviceIdentifierLabel());
+			AssertJUnit.assertTrue(liveTrackingPage.isVehicleGroupLabel());
+			AssertJUnit.assertTrue(liveTrackingPage.isCountryNameLabel());
+			AssertJUnit.assertTrue(liveTrackingPage.isMobileNoLabel());
+			AssertJUnit.assertTrue(liveTrackingPage.isMarkerImageLabel());
+			AssertJUnit.assertEquals(liveTrackingPage.getTextAccumulatorLabel(), "accumulator");// Accumulator Spelling
 																							// Mistake
-			Assert.assertTrue(liveTrackingPage.isVehicleDescriptionLabel());
+			AssertJUnit.assertTrue(liveTrackingPage.isVehicleDescriptionLabel());
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to Verify the label in 'add vehicle' popup window");
+			AssertJUnit.fail("Unable to Verify the label in 'add vehicle' popup window");
 		}
 	}
 
@@ -201,35 +202,28 @@ public class LiveTrackingTest extends BaseSetup {
 			liveTrackingPage.clickOnLiveTrackingSidebar();
 			liveTrackingPage.clickOnPlusIcon();
 			liveTrackingPage.clickOnSaveButton();
-			Assert.assertEquals(liveTrackingPage.getTextVehicleName(), "Please Input Vehicle Name");
-			Assert.assertEquals(liveTrackingPage.getTextDeviceType(), "Please Select Device Type");
-			Assert.assertEquals(liveTrackingPage.getTextDeviceIdentifier(), "Please Input Correct Identifier or IMEI");
-			Assert.assertEquals(liveTrackingPage.getTextVehicleGroup(), "Please Select Vehicle Group");
-			Assert.assertEquals(liveTrackingPage.getTextCountryName(), "Please Select Country Name");
-			Assert.assertEquals(liveTrackingPage.getTextMobileNo(), "Please Input Mobile Number");
+			AssertJUnit.assertEquals(liveTrackingPage.getTextVehicleName(), "Please Input Vehicle Name");
+			AssertJUnit.assertEquals(liveTrackingPage.getTextDeviceType(), "Please Select Device Type");
+			AssertJUnit.assertEquals(liveTrackingPage.getTextDeviceIdentifier(), "Please Input Correct Identifier or IMEI");
+			AssertJUnit.assertEquals(liveTrackingPage.getTextVehicleGroup(), "Please Select Vehicle Group");
+			AssertJUnit.assertEquals(liveTrackingPage.getTextCountryName(), "Please Select Country Name");
+			AssertJUnit.assertEquals(liveTrackingPage.getTextMobileNo(), "Please Input Mobile Number");
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to Verify the validation message in 'add vehicle' popup window");
+			AssertJUnit.fail("Unable to Verify the validation message in 'add vehicle' popup window");
 		}
 	}
 
-	@Test(priority = 11, description = " Verify  the 'Save' button functionality on Add Vehicle page")
+	@Test(priority = 10, description = " Verify  the 'Save' button functionality on Add Vehicle page")
 	public void Verify_the_Save_button_functionality_on_Add_Vehicle_page() {
 		try {
 			log.info("************************* TC-11*************************");
 			liveTrackingPage = new LiveTrackingPage(getDriver());
+			addVehiclesPage = new AddVehiclesPage(getDriver());
 			liveTrackingPage.clickOnLiveTrackingSidebar();
 			liveTrackingPage.clickOnPlusIcon();
-			liveTrackingPage.clickOnSaveButton();
-			liveTrackingPage.vehicleName("Vehicle 02");
-			liveTrackingPage.clickOnSelectDeviceType();
-			liveTrackingPage.deviceIdentifierImeiNoOption("123456");
-			liveTrackingPage.clickOnSelectDeviceGroup();
-			liveTrackingPage.mobileNO("1234567890");
-			liveTrackingPage.clickOnMarkerImage();
-			Assert.assertTrue(liveTrackingPage.isAddMarkerImageTextPresent());
-			liveTrackingPage.selectMarkerImage();
-//
+			liveTrackingPage.addVehiclesDetails("Vehicle 02", "789", "7894561230", "Testing", "QA_Test");
+
 //          Assert.assertTrue(liveTrackingPage.isVitsplDefaultGroupdropdownPresent());
 //		    liveTrackingPage.ClickOnVitsplDefaultGroupDropdown();
 //		    Assert.assertTrue(liveTrackingPage.isCheckAllTextPresent());
@@ -241,7 +235,7 @@ public class LiveTrackingTest extends BaseSetup {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to  Verify  the 'Save' button functionality on Add Vehicle page");
+			AssertJUnit.fail("Unable to  Verify  the 'Save' button functionality on Add Vehicle page");
 		}
 	}
 
@@ -251,10 +245,10 @@ public class LiveTrackingTest extends BaseSetup {
 			log.info("************************* TC-12*************************");
 			liveTrackingPage = new LiveTrackingPage(getDriver());
 			liveTrackingPage.clickOnLiveTrackingSidebar();
-			Assert.assertTrue(liveTrackingPage.isAlertTabPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isAlertTabPresent());
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to Verify the 'Alerts' tab functionality on live tracking page");
+			AssertJUnit.fail("Unable to Verify the 'Alerts' tab functionality on live tracking page");
 		}
 
 	}
@@ -267,14 +261,14 @@ public class LiveTrackingTest extends BaseSetup {
 			liveTrackingPage.clickOnLiveTrackingSidebar();
 			liveTrackingPage.clickOnAlertsTab();
 			// Check for alert tab UI
-			Assert.assertTrue(liveTrackingPage.isSearchFieldPresent());
-			Assert.assertTrue(liveTrackingPage.isAlertsTabVehicleNameHeaderPresent());
-			Assert.assertTrue(liveTrackingPage.isAlertsTabEventHeaderPresent());
-			Assert.assertTrue(liveTrackingPage.isAlertsTabAlertsDateTimeHeaderHeaderPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isSearchFieldPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isAlertsTabVehicleNameHeaderPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isAlertsTabEventHeaderPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isAlertsTabAlertsDateTimeHeaderHeaderPresent());
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to Verify the UI of Alerts tab on live tracking page");
+			AssertJUnit.fail("Unable to Verify the UI of Alerts tab on live tracking page");
 		}
 	}
 
@@ -286,10 +280,10 @@ public class LiveTrackingTest extends BaseSetup {
 			liveTrackingPage.clickOnLiveTrackingSidebar();
 			liveTrackingPage.clickOnAlertsTab();
 			String str1 = liveTrackingPage.getTextAlertsTabSerchPlaceholder();
-			Assert.assertEquals(str1, "Search");
+			AssertJUnit.assertEquals(str1, "Search");
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to Verify the search placeholder on Alerts tab");
+			AssertJUnit.fail("Unable to Verify the search placeholder on Alerts tab");
 		}
 	}
 
@@ -301,10 +295,10 @@ public class LiveTrackingTest extends BaseSetup {
 			liveTrackingPage.clickOnLiveTrackingSidebar();
 			liveTrackingPage.clickOnAlertsTab();
 			liveTrackingPage.searchFunctionality("MB01-GV20");
-			Assert.assertTrue(liveTrackingPage.isAlertsTabSearchDataNotPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isAlertsTabSearchDataNotPresent());
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to Verify the search functionality on alert tab");
+			AssertJUnit.fail("Unable to Verify the search functionality on alert tab");
 		}
 	}
 
@@ -315,25 +309,25 @@ public class LiveTrackingTest extends BaseSetup {
 			liveTrackingPage = new LiveTrackingPage(getDriver());
 			liveTrackingPage.clickOnLiveTrackingSidebar();
 			liveTrackingPage.clickOnHistoryTab();
-			Assert.assertTrue(liveTrackingPage.isDeviceTextPresent());
-			Assert.assertTrue(liveTrackingPage.isFromDateTextPresent());
-			Assert.assertTrue(liveTrackingPage.isFromTimeTextPresent());
-			Assert.assertTrue(liveTrackingPage.isToDateTextPresent());
-			Assert.assertTrue(liveTrackingPage.isToTimeTextPresent());
-			Assert.assertTrue(liveTrackingPage.isShowHistoryButtonPresent());
-			Assert.assertTrue(liveTrackingPage.isDownloadButtonPresent());
-			Assert.assertTrue(liveTrackingPage.isCrossButtonPresent());
-			Assert.assertTrue(liveTrackingPage.isDateTextPresent());
-			Assert.assertTrue(liveTrackingPage.isDrawTrackButtonPresent());
-			Assert.assertEquals(liveTrackingPage.getTextAverageSpeedHeaderPresent(5), "Average Speed");
+			AssertJUnit.assertTrue(liveTrackingPage.isDeviceTextPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isFromDateTextPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isFromTimeTextPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isToDateTextPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isToTimeTextPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isShowHistoryButtonPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isDownloadButtonPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isCrossButtonPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isDateTextPresent());
+			AssertJUnit.assertTrue(liveTrackingPage.isDrawTrackButtonPresent());
+			AssertJUnit.assertEquals(liveTrackingPage.getTextAverageSpeedHeaderPresent(5), "Average Speed");
 
 			for (int i = 1; i < 5; i++) {
 
-				Assert.assertTrue(liveTrackingPage.isHistoryTableHeaderPresent(i));
+				AssertJUnit.assertTrue(liveTrackingPage.isHistoryTableHeaderPresent(i));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to Verify the UI of History tab");
+			AssertJUnit.fail("Unable to Verify the UI of History tab");
 		}
 	}
 
@@ -344,13 +338,13 @@ public class LiveTrackingTest extends BaseSetup {
 			liveTrackingPage = new LiveTrackingPage(getDriver());
 			liveTrackingPage.clickOnLiveTrackingSidebar();
 			liveTrackingPage.clickOnHistoryTab();
-			Assert.assertEquals(liveTrackingPage.getDeviceHistoryPlaceholder(), "Select Device");
-			Assert.assertEquals(liveTrackingPage.getFromTimePlaceholder(), "Select time");
-			Assert.assertEquals(liveTrackingPage.getToTimePlaceholder(), "Select time");
+			AssertJUnit.assertEquals(liveTrackingPage.getDeviceHistoryPlaceholder(), "Select Device");
+			AssertJUnit.assertEquals(liveTrackingPage.getFromTimePlaceholder(), "Select time");
+			AssertJUnit.assertEquals(liveTrackingPage.getToTimePlaceholder(), "Select time");
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to Verify the Placeholder in all field of History Page");
+			AssertJUnit.fail("Unable to Verify the Placeholder in all field of History Page");
 		}
 	}
 
@@ -361,14 +355,14 @@ public class LiveTrackingTest extends BaseSetup {
 			liveTrackingPage = new LiveTrackingPage(getDriver());
 			liveTrackingPage.clickOnLiveTrackingSidebar();
 			liveTrackingPage.clickOnHistoryTab();
-			Assert.assertTrue(liveTrackingPage.isDeviceLabel());
-			Assert.assertTrue(liveTrackingPage.isFromDateLabel());
-			Assert.assertTrue(liveTrackingPage.isFromTImeLabel());
-			Assert.assertTrue(liveTrackingPage.isToDateLabel());
-			Assert.assertTrue(liveTrackingPage.isToTimeLabel());
+			AssertJUnit.assertTrue(liveTrackingPage.isDeviceLabel());
+			AssertJUnit.assertTrue(liveTrackingPage.isFromDateLabel());
+			AssertJUnit.assertTrue(liveTrackingPage.isFromTImeLabel());
+			AssertJUnit.assertTrue(liveTrackingPage.isToDateLabel());
+			AssertJUnit.assertTrue(liveTrackingPage.isToTimeLabel());
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to Verify the Label in all field of History Tab");
+			AssertJUnit.fail("Unable to Verify the Label in all field of History Tab");
 		}
 	}
 
@@ -381,11 +375,11 @@ public class LiveTrackingTest extends BaseSetup {
 			liveTrackingPage.clickOnHistoryTab();
 			liveTrackingPage.clickOnShowHistoryButton();
 			String str5 = liveTrackingPage.getTextDevice();
-			Assert.assertEquals(str5, "Please Select Device");
+			AssertJUnit.assertEquals(str5, "Please Select Device");
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to Verify the Validation message on history tab");
+			AssertJUnit.fail("Unable to Verify the Validation message on history tab");
 		}
 	}
 
@@ -398,12 +392,12 @@ public class LiveTrackingTest extends BaseSetup {
 			liveTrackingPage.clickOnLiveTrackingSidebar();
 			liveTrackingPage.clickOnHomeLinkPath();
 			String currentUrl = loginPage.getCurrentWebpageURL();
-			Assert.assertTrue(currentUrl.contains("dashboard"));
-			Assert.assertTrue(liveTrackingPage.isDashboardPagePresent());
+			AssertJUnit.assertTrue(currentUrl.contains("dashboard"));
+			AssertJUnit.assertTrue(liveTrackingPage.isDashboardPagePresent());
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to Verify the Home Link Path of add vehicles page");
+			AssertJUnit.fail("Unable to Verify the Home Link Path of add vehicles page");
 		}
 	}
 
@@ -422,7 +416,7 @@ public class LiveTrackingTest extends BaseSetup {
 			liveTrackingPage.clickOnShowHistoryButton();
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Unable to Verify Show History button functionality if select valid data in all fields");
+			AssertJUnit.fail("Unable to Verify Show History button functionality if select valid data in all fields");
 		}
 	}
 

@@ -32,7 +32,7 @@ public class LiveTrackingPage extends ActionMethods {
 	private String plusIcon = "css: div.ant-col-xl-2 button.ant-btn";
 	private String vehiclePlaceholder = "xpath://input[@placeholder='Enter Vehicle Name']";
 	private String deviceTypePlaceholder = "xpath://div[text() = 'Select Device Type']";
-	private String countryNamePlaceholder = "xpath://div[@title = 'Select Country Name']";
+	private String countryNamePlaceholder = "xpath://div[text() = 'Select Country Name']";
 	private String markerImage = "xpath://button[@class='ant-btn uploadVehicleMarkerBtn']";
 	private String vehicleDescriptionPlaceholder = "xpath://textarea[@placeholder='Enter Vehicle Description']";
 	private String saveButton = "xpath://button[@class= 'ant-btn ant-btn-primary']";
@@ -40,6 +40,8 @@ public class LiveTrackingPage extends ActionMethods {
 	private String vehicleNameLabel = "xpath://label[@for='vehicle_name']";
 	private String markerImageLabel = "xpath://label[text()='Marker Image']";
 	private String VehicleName = "xpath://input[@id='vehicle_name']";
+	private String markerImageCrossButton = "xpath://span[@class='ant-modal-close-x']";
+	private String outSideDialogBox = "css:div[role='dialog']";
 	private String SelectDeviceTypeDropdown = "xpath://div[@id='device_type']";
 	private String deviceTypeDropdownOption = "xpath://li[@class='ant-select-dropdown-menu-item ant-select-dropdown-menu-item-active']";
 	private String vehicleGroupDropdown = "xpath://div[@id='group' and @class='ant-select ant-select-enabled' ]";
@@ -47,18 +49,18 @@ public class LiveTrackingPage extends ActionMethods {
 	private String countryName = "xpath://div[@id='country_detail']";
 	private String mobileNo = "xpath://input[@id='sim_no']";
 	private String addMarkerImage = "xpath://div[@class='ant-modal-title'][text()='Add Marker Image']";
+	private String vehicleDescription = "xpath://textarea[@id='vehicle_description']";
+	private String markerImageUpload = "xpath://button[@class='ant-btn uploadVehicleMarkerBtn']";
+    private String selectAddMarkerImage = "xpath://img[@id='/uploads/device_markers/1560258600223_6.png']";
+    private String markerImageOKButton = "xpath://div[@class='ant-modal-footer']//span[text()='OK']";
 	private String selectMarkerImage = "xpath://img[@src='http://prod1.intellitransitsolutions.net:9080/uploads/device_markers/1557937412188_5.png']";
-
 	private String alertSearchField = "xpath://div[@class='ant-select-lg global-search ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled ant-select-allow-clear']";
 	private String alertSearchNoDataFound = "xpath: //div[text()='No data']";
-
 	private String historyTableHeader = "css:div.ant-table-scroll-position-left th:nth-child(num)";
 	private String fromTimePlaceholder = "xpath://input[@placeholder='Select time' and @id='fromtime']";
 	private String toTimePlaceholder = "xpath://input[@placeholder='Select time' and @id='totime']";
-
 	private String downloadButton = "xpath://span[@class='downloadHistory']";
 	private String crossButton = "xpath://i[@class='fa fa-close']";
-
 	private String deviceOnHistory = "css: #deviceid";
 	private String selectFromDateOption = "xpath://tr[@class='ant-calendar-active-week']//td[num]";
 	private String fromTime = "xpath://input[@id='fromtime']";
@@ -99,20 +101,20 @@ public class LiveTrackingPage extends ActionMethods {
 	}
 
 	// Use for Add Vehicle button tool tip
-		public void addVehicleTooltip() {
-			// Verify the + icon tooltip
-			String expectedTooltip = "Add Vehicle";
-			WebElement download = driver.findElement(By.cssSelector("div.ant-col-xl-2 button.ant-btn"));
-			Actions builder = new Actions(driver);
-			builder.clickAndHold().moveToElement(download);
-			builder.moveToElement(download).build().perform();
-			needToWait(SHORTWAIT);
-			WebElement toolTipElement = driver.findElement(By.cssSelector("div.ant-tooltip-inner"));
-			String actualTooltip = toolTipElement.getText();
-			Assert.assertEquals(actualTooltip, expectedTooltip);
+	public void addVehicleTooltip() {
+		// Verify the + icon tooltip
+		String expectedTooltip = "Add Vehicle";
+		WebElement download = driver.findElement(By.cssSelector("div.ant-col-xl-2 button.ant-btn"));
+		Actions builder = new Actions(driver);
+		builder.clickAndHold().moveToElement(download);
+		builder.moveToElement(download).build().perform();
+		needToWait(SHORTWAIT);
+		WebElement toolTipElement = driver.findElement(By.cssSelector("div.ant-tooltip-inner"));
+		String actualTooltip = toolTipElement.getText();
+		Assert.assertEquals(actualTooltip, expectedTooltip);
 
-		}
-			
+	}
+
 	// This function is used for Home link path
 	public void clickOnHomeLinkPath() {
 		safeClick(homeLinkPath, SHORTWAIT);
@@ -233,7 +235,8 @@ public class LiveTrackingPage extends ActionMethods {
 	// This function is used for DeviceIdentifier placeholder on add vehicle pop-up
 	public String getDeviceIdentifierPlaceholder() {
 		String DeviceIdentifierPlaceholderText = safeGetAttribute(
-		vehiclePlaceholder.replace("Enter Vehicle Name", "Enter Device Identifier or IMEI Number"),"placeholder", SHORTWAIT);
+				vehiclePlaceholder.replace("Enter Vehicle Name", "Enter Device Identifier or IMEI Number"),
+				"placeholder", SHORTWAIT);
 		log.info("get DeviceIdentifier Name placeholder ");
 		return DeviceIdentifierPlaceholderText;
 	}
@@ -241,7 +244,7 @@ public class LiveTrackingPage extends ActionMethods {
 	// This function is used for VehicleGroup placeholder on add vehicle pop-up
 	public String getVehicleGroupPlaceholder() {
 		String VehicleGroupPlaceholderText = safeGetText(
-		deviceTypePlaceholder.replace("Select Device Type", "Select Vehicle Group"), SHORTWAIT);
+				deviceTypePlaceholder.replace("Select Device Type", "Select Vehicle Group"), SHORTWAIT);
 		log.info("get VehicleGroup Name placeholder ");
 		return VehicleGroupPlaceholderText;
 	}
@@ -256,7 +259,7 @@ public class LiveTrackingPage extends ActionMethods {
 	// This function is used for MobileNo placeholder on add vehicle pop-up
 	public String getMobileNoPlaceholder() {
 		String MobileNoPlaceholderText = safeGetAttribute(
-		vehiclePlaceholder.replace("Enter Vehicle Name", "Enter Mobile Number"), "placeholder", SHORTWAIT);
+				vehiclePlaceholder.replace("Enter Vehicle Name", "Enter Mobile Number"), "placeholder", SHORTWAIT);
 		log.info("get MobileNo Name placeholder ");
 		return MobileNoPlaceholderText;
 	}
@@ -269,7 +272,7 @@ public class LiveTrackingPage extends ActionMethods {
 	// This function is used for Accumulator placeholder on add vehicle pop-up
 	public String getAccumulatorPlaceholder() {
 		String AccumulatorPlaceholderText = safeGetAttribute(
-		vehiclePlaceholder.replace("Enter Vehicle Name", "Enter Device Accumulator"), "placeholder", SHORTWAIT);
+				vehiclePlaceholder.replace("Enter Vehicle Name", "Enter Device Accumulator"), "placeholder", SHORTWAIT);
 		log.info("get Accumulator Name placeholder ");
 		return AccumulatorPlaceholderText;
 	}
@@ -277,7 +280,8 @@ public class LiveTrackingPage extends ActionMethods {
 	// This function is used for VehicleDescription placeholder on add vehicle
 	// pop-up
 	public String getVehicleDescriptionPlaceholder() {
-		String VehicleDescriptionPlaceholderText = safeGetAttribute(vehicleDescriptionPlaceholder, "placeholder",SHORTWAIT);
+		String VehicleDescriptionPlaceholderText = safeGetAttribute(vehicleDescriptionPlaceholder, "placeholder",
+				SHORTWAIT);
 		log.info("get VehicleDescription Name placeholder ");
 		return VehicleDescriptionPlaceholderText;
 	}
@@ -287,44 +291,46 @@ public class LiveTrackingPage extends ActionMethods {
 		safeClick(saveButton, SHORTWAIT);
 	}
 
-	// This function is used for get vehicle name validation message on add vehicle 
+	// This function is used for get vehicle name validation message on add vehicle
 	public String getTextVehicleName() {
 		String str = safeGetText(vehicleNameValidation, SHORTWAIT);
 		return str;
 	}
 
-	// This function is used for get Device Type validation message on add vehicle 
+	// This function is used for get Device Type validation message on add vehicle
 	public String getTextDeviceType() {
 		String str = safeGetText(
-		vehicleNameValidation.replace("Please Enter Vehicle Name", "Please Select Device Type"), SHORTWAIT);
+				vehicleNameValidation.replace("Please Enter Vehicle Name", "Please Select Device Type"), SHORTWAIT);
 		return str;
 	}
 
-	// This function is used for get Device Identifier validation message on add vehicle 
+	// This function is used for get Device Identifier validation message on add
+	// vehicle
 	public String getTextDeviceIdentifier() {
 		String str = safeGetText(
-		vehicleNameValidation.replace("Please Enter Vehicle Name", "Please Input Correct Identifier or IMEI"),SHORTWAIT);
+				vehicleNameValidation.replace("Please Enter Vehicle Name", "Please Input Correct Identifier or IMEI"),
+				SHORTWAIT);
 		return str;
 	}
 
-	// This function is used for VehicleGroup validation message on add vehicle 
+	// This function is used for VehicleGroup validation message on add vehicle
 	public String getTextVehicleGroup() {
 		String str = safeGetText(
-		vehicleNameValidation.replace("Please Enter Vehicle Name", "Please Select Vehicle Group"), SHORTWAIT);
+				vehicleNameValidation.replace("Please Enter Vehicle Name", "Please Select Vehicle Group"), SHORTWAIT);
 		return str;
 	}
 
-	// This function is used for Country Name validation message on add vehicle 
+	// This function is used for Country Name validation message on add vehicle
 	public String getTextCountryName() {
 		String str = safeGetText(
-		vehicleNameValidation.replace("Please Enter Vehicle Name", "Please Select Country Name"), SHORTWAIT);
+				vehicleNameValidation.replace("Please Enter Vehicle Name", "Please Select Country Name"), SHORTWAIT);
 		return str;
 	}
 
-	// This function is used for MobileNo validation message on add vehicle 
+	// This function is used for MobileNo validation message on add vehicle
 	public String getTextMobileNo() {
 		String str = safeGetText(
-		vehicleNameValidation.replace("Please Enter Vehicle Name", "Please Input Mobile Number"), SHORTWAIT);
+				vehicleNameValidation.replace("Please Enter Vehicle Name", "Please Input Mobile Number"), SHORTWAIT);
 		return str;
 	}
 
@@ -586,7 +592,7 @@ public class LiveTrackingPage extends ActionMethods {
 	// This function is used for Click Device drop-down button on history tab
 	public void clickOnDevice() {
 		safeClick(deviceOnHistory, SHORTWAIT);
-		safeClick(selectDeviceGroup.replace("Default Group", "Vehicle 01"), SHORTWAIT);
+		safeClick(selectDeviceGroup.replace("Default Group", "Vehicle 02"), SHORTWAIT);
 	}
 
 	// This function is used for Click on From Date drop-down button
@@ -626,7 +632,6 @@ public class LiveTrackingPage extends ActionMethods {
 		Assert.assertEquals(actualTooltip, expectedTooltip);
 	}
 
-	
 	// This function is used for Clear button tool tip
 	public void clearButtonTooltip() {
 		String expectedTooltip = "Clear";
@@ -664,7 +669,7 @@ public class LiveTrackingPage extends ActionMethods {
 		builder.clickAndHold().moveToElement(download1);
 		builder.moveToElement(download1).build().perform();
 		needToWait(SHORTWAIT);
-		WebElement toolTipElement = driver.findElement(By.xpath("//div[contains(text(),'Geofences Showing ON')]")); 
+		WebElement toolTipElement = driver.findElement(By.xpath("//div[contains(text(),'Geofences Showing ON')]"));
 		String actualTooltip = toolTipElement.getText();
 		System.out.println("Actual Title of Tool Tip +++++++++" + actualTooltip);
 		Assert.assertEquals(actualTooltip, expectedTooltip);
@@ -693,7 +698,7 @@ public class LiveTrackingPage extends ActionMethods {
 		builder.moveToElement(download1).build().perform();
 		needToWait(SHORTWAIT);
 		WebElement toolTipElement = driver.findElement(By.xpath("//div[contains(text(),'POI Radius Showing ON')]"));
-		String actualTooltip = toolTipElement.getText();  
+		String actualTooltip = toolTipElement.getText();
 		System.out.println("Actual Title of Tool Tip +++++++++" + actualTooltip);
 		Assert.assertEquals(actualTooltip, expectedTooltip);
 	}
@@ -707,11 +712,11 @@ public class LiveTrackingPage extends ActionMethods {
 		builder.moveToElement(download1).build().perform();
 		needToWait(SHORTWAIT);
 		WebElement toolTipElement = driver.findElement(By.xpath("//div[contains(text(),'Trails Showing ON')]"));
-		String actualTooltip = toolTipElement.getText(); 
+		String actualTooltip = toolTipElement.getText();
 		System.out.println("Actual Title of Tool Tip +++++++++" + actualTooltip);
 		Assert.assertEquals(actualTooltip, expectedTooltip);
 	}
-	
+
 	public void clickOnLiveTrackingSidebar() {
 		waitForElementClickable(liveTrackingSideBar, SHORTWAIT);
 		waitForElementVisible(liveTrackingSideBar, SHORTWAIT);
@@ -727,6 +732,53 @@ public class LiveTrackingPage extends ActionMethods {
 			safeJavaScriptClick(liveTrackingSideBar);
 		}
 		log.info("Click on Live Tracking Sidebar successfully");
+	}
+
+	// This function is used for add vehicles form in live tracking page
+	public void addVehiclesDetails(String vehiclename, String ImeiNo, String mobileno, String accumulator,
+			String vehicledescription) {
+		safeClearAndType(VehicleName, vehiclename, SHORTWAIT);
+
+		safeClick(SelectDeviceTypeDropdown, SHORTWAIT);
+
+		safeClick(deviceTypeDropdownOption, SHORTWAIT);
+
+		safeType(searchFunctionality.replace("ant-input ant-select-search__field", "ant-input-number-input"), ImeiNo);
+
+		safeClick(vehicleGroupDropdown, SHORTWAIT);
+
+		safeClick(selectDeviceGroup, SHORTWAIT);
+
+		safeClick(countryName, SHORTWAIT);
+
+		safeClick(selectDeviceGroup.replace("Default Group", "United States"), SHORTWAIT);
+
+		safeType(mobileNo, mobileno);
+
+		safeType(toTime.replace("totime", "accumulator"), accumulator);
+
+		safeType(vehicleDescription, vehicledescription);
+
+		safeClick(markerImageUpload, SHORTWAIT);
+		
+		safeClick(selectAddMarkerImage, SHORTWAIT);
+	       
+        safeJavaScriptClick(markerImageOKButton);
+
+	}
+
+	public void addVehiclesEdit(String vehicleName) {
+		safeClearAndType(VehicleName, vehicleName, SHORTWAIT);
+	}
+
+	// This function is used for cross icon on add marker image popup
+	public void clickOnCrossIcon() {
+		safeClick(markerImageCrossButton, SHORTWAIT);
+	}
+
+	// This function is for click on out side dialog box on add vehicle page
+	public void clickOnOutSideDialogBox() {
+		safeClick(outSideDialogBox, SHORTWAIT);
 	}
 
 }
