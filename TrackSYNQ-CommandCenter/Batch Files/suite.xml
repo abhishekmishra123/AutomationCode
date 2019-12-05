@@ -4,9 +4,10 @@
 		<!-- Included classes here will be executed. -->
 		<classes>
 			 <class name = "TestCases.LoginTest"></class>
-			 <class name = "TestCases.ReportLogsTest"></class>
+			  <class name = "TestCases.ReportLogsTest"></class>
 			  <class name = "TestCases.TripStopDetailedTest"></class>
+			  <class name = "TestCases.SpeedingReportTest"></class>
+			  <class name = "TestCases.ScheduleReportTest"></class>
 		</classes>
 	</test>
 </suite>
-

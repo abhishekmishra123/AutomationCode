@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Speeding Report Test  Suite">
+	<test name="Speeding Report Test">
+		<!-- Included classes here will be executed. -->
+		<classes>
+			 <class name = "TestCases.SpeedingReportTest"></class>
+		</classes>
+	</test>
+</suite>

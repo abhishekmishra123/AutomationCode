@@ -13,11 +13,8 @@ import PageObjects.ReportsPage;
 import org.apache.log4j.Logger;
 
 
-
 public class ManageGeoFence_AddGeoFenceTest extends BaseSetup {
-	
-	
-	
+		
 	LoginPage loginPage;
 
 	ManageRolesPage manageRolesPage;

@@ -22903,4 +22903,14 @@ org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)  - 10-10-2019 11:15:13
  - isElementVisible - Sync - INFO - Waiting until element xpath://tbody[@class='ant-table-tbody']//tr is visible  - 10-10-2019 11:28:44-
  - isElementVisible - Sync - INFO - Element xpath://tbody[@class='ant-table-tbody']//tr is displayed  - 10-10-2019 11:28:46-
  - afterSuite - BaseSetup - INFO - Extent report close successfully  - 10-10-2019 11:28:46-
- - afterSuite - BaseSetup - INFO - Browser quit successfully  - 10-10-2019 11:28:47
+ - afterSuite - BaseSetup - INFO - Browser quit successfully  - 10-10-2019 11:28:47-
+ - initiateDriver - BaseSetup - INFO - -----------------STARTED RUNNING SELENIUM TESTS------------------  - 05-12-2019 02:40:35-
+ - initChromeDriver - ChromeBrowser - INFO - Launching google chrome...  - 05-12-2019 02:40:35-
+ - initChromeDriver - ChromeBrowser - INFO - Set download file path is C:\Users\amishra\git\AutomationCode\TrackSYNQ-CommandCenter\Downloaded Files  - 05-12-2019 02:40:35-
+ - init - ChromeBrowser - INFO - Return driver successfullyChromeDriver: chrome on XP (55c69d5ba04ece4fcfb4ee3a32a2f4a6)  - 05-12-2019 02:40:39-
+ - setDriver - BaseSetup - INFO - browser name: chrome Launch successfully...:)  - 05-12-2019 02:40:39-
+ - beforeSuite - BaseSetup - INFO - ---------------------------------Initiated Webdriver----------------------------------------------  - 05-12-2019 02:40:39-
+ - beforeSuite - BaseSetup - INFO - <h2>--------------------SuiteRunner Log-------------------------<h2>  - 05-12-2019 02:40:49-
+ - Verify_the_Add_Geo_Fence_Side_bar_link_side_bar_link - ManageGeoFence_AddGeoFenceTest - INFO - ************************* TC-018*************************  - 05-12-2019 02:40:50-
+ - afterSuite - BaseSetup - INFO - Extent report close successfully  - 05-12-2019 02:40:51-
+ - afterSuite - BaseSetup - INFO - Browser quit successfully  - 05-12-2019 02:40:52

@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Report Logs Test Suite">
+	<test name="Report Logs Test">
+		<!-- Included classes here will be executed. -->
+		<classes>
+			 <class name = "TestCases.ReportLogsTest"></class>
+		</classes>
+	</test>
+</suite>

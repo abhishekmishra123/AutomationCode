@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Manage User>Add User Test Suite">
+	<test name="Manage Users>Add User Test">
+		<!-- Included classes here will be executed. -->
+		<classes>
+			 <class name = "TestCases.ManageUsers_AddUserTest"></class>
+		</classes>
+	</test>
+</suite>

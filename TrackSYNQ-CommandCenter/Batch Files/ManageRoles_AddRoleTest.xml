@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Manage Roles>Add Role Test Suite">
+	<test name="Manage Roles>Add Role Test">
+		<!-- Included classes here will be executed. -->
+		<classes>
+			 <class name = "TestCases.ManageRoles_AddRoleTest"></class>
+		</classes>
+	</test>
+</suite>
